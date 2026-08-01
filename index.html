@@ -7,66 +7,113 @@
   <title>Grimmvein</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background: #111315;
       color: #e8e1d2;
-      font-family: Georgia, serif;
-      line-height: 1.6;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
     }
 
     header {
-      padding: 80px 24px;
+      padding: 65px 24px 45px;
       text-align: center;
       border-bottom: 1px solid #66583d;
     }
 
     h1 {
       margin: 0;
-      font-size: 4rem;
+      font-size: clamp(3rem, 9vw, 5rem);
       letter-spacing: 0.08em;
     }
 
     header p {
+      margin: 10px 0 0;
       color: #b9ad96;
       font-style: italic;
     }
 
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 18px;
+      background: #181b1d;
+      border-bottom: 1px solid #302d27;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 9px 14px;
+      color: #d7cdb8;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      border-color: #66583d;
+    }
+
+    nav a.active {
+      color: #e3c470;
+      border-color: #66583d;
+      background: #202326;
+    }
+
     main {
-      width: min(900px, 90%);
-      margin: 50px auto;
+      width: min(850px, 90%);
+      margin: 55px auto 80px;
     }
 
     h2 {
+      margin-bottom: 30px;
       color: #d3b66d;
+      font-size: 2rem;
       border-bottom: 1px solid #4c4538;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
     }
 
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .section-card {
-      border: 1px solid #4c4538;
-      padding: 22px;
+    .entry {
+      padding: 30px;
       background: #181b1d;
+      border: 1px solid #403b32;
     }
 
-    .section-card h3 {
-      margin-top: 0;
-      color: #e8e1d2;
+    .entry p {
+      margin: 0 0 24px;
+    }
+
+    .entry p:last-child {
+      margin-bottom: 0;
     }
 
     footer {
-      margin-top: 70px;
       padding: 25px;
       text-align: center;
       color: #847a68;
       border-top: 1px solid #302d27;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 45px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .entry {
+        padding: 22px;
+      }
     }
   </style>
 </head>
@@ -74,53 +121,45 @@
 <body>
   <header>
     <h1>Grimmvein</h1>
-    <p>A record of the world known to the Shrikes as Yggrdziel.</p>
+    <p>Known to the Shrikes as Yggrdziel.</p>
   </header>
 
+  <nav>
+    <a class="active" href="index.html">Base Setting</a>
+    <a href="tale-of-creation.html">Tale of Creation</a>
+    <a href="factions.html">Factions</a>
+    <a href="locations.html">Locations</a>
+    <a href="order-of-names.html">Order of Names</a>
+  </nav>
+
   <main>
-    <h2>Archive</h2>
+    <h2>Base Setting</h2>
 
-    <p>
-      Grimmvein is a vast and ancient world shaped by divinity,
-      ruined civilizations, impossible landscapes, and the peoples
-      who continue to inhabit them.
-    </p>
+    <article class="entry">
+      <p>
+        This world is not Earth. In the far reaches of nothingness, there exists a planet of such abnormal size that it can fit hundreds, perhaps thousands of normal worlds within it with extreme ease, making it one of the largest worlds to exist.
+      </p>
 
-    <div class="sections">
-      <div class="section-card">
-        <h3>Divinity</h3>
-        <p>Gods, pantheons, divine realms, and the history of creation.</p>
-      </div>
+      <p>
+        This world has no name, for the untold age of billions and trillions of years and the civilizations that came from it, none of the peoples of this world could agree upon a name. Those of the Anointed Holy Cities refer to it as Grimmvein, those of The Flaying Courts call it the Great Tribute, the Shrikes call it Yggrdziel, and so on. For this retelling, we shall call it Yggrdziel, named so by Those Who Came First, for the sake of ease of communication.
+      </p>
 
-      <div class="section-card">
-        <h3>Peoples</h3>
-        <p>Shrikes, Tyrisaz, Jakiisi, humanity, and the other peoples of Grimmvein.</p>
-      </div>
+      <p>
+        Ruled by several pantheons of the cruel and thirsting laughter of Gods and Goddesses alike, both lesser and greater, no one ruler truly reigns.
+      </p>
 
-      <div class="section-card">
-        <h3>Powers</h3>
-        <p>Kingdoms, courts, institutions, cults, and political factions.</p>
-      </div>
+      <p>
+        This world has dozens of continents, each the size of a world, perhaps multiple, at the very smallest.
+      </p>
 
-      <div class="section-card">
-        <h3>Places</h3>
-        <p>Continents, cities, strange regions, and locations of note.</p>
-      </div>
-
-      <div class="section-card">
-        <h3>Bestiary</h3>
-        <p>Mimics, leviathans, daemons, and other creatures.</p>
-      </div>
-
-      <div class="section-card">
-        <h3>Figures</h3>
-        <p>Gods, rulers, wanderers, monsters, and beings of historical note.</p>
-      </div>
-    </div>
+      <p>
+        None of the rest of the races of the vast emptiness and nothingness choose to come near this world, for it is cursed: this world is frozen in time, stuck in primitive and medieval ages for eons and untold time. Any who come near with more advanced technology always seem to meet an unfortunate end or accident of some kind, without exception.
+      </p>
+    </article>
   </main>
 
   <footer>
-    Grimmvein — A Worldbuilding Archive
+    Grimmvein
   </footer>
 </body>
 </html>
