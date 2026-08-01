@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Factions — Grimmvein</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #111315;
+      color: #e8e1d2;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    header {
+      padding: 65px 24px 45px;
+      text-align: center;
+      border-bottom: 1px solid #66583d;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 9vw, 5rem);
+      letter-spacing: 0.08em;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 18px;
+      background: #181b1d;
+      border-bottom: 1px solid #302d27;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 9px 14px;
+      color: #d7cdb8;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      border-color: #66583d;
+    }
+
+    nav a.active {
+      color: #e3c470;
+      border-color: #66583d;
+      background: #202326;
+    }
+
+    main {
+      width: min(900px, 90%);
+      margin: 55px auto 80px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #d3b66d;
+      font-size: 2rem;
+      border-bottom: 1px solid #4c4538;
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      margin: 30px 0 12px;
+      color: #d3b66d;
+      font-size: 1.15rem;
+    }
+
+    .page-introduction {
+      margin-bottom: 30px;
+      color: #c7bdab;
+    }
+
+    .faction {
+      margin-top: 24px;
+      background: #181b1d;
+      border: 1px solid #66583d;
+    }
+
+    .faction > summary {
+      padding: 20px 24px;
+      color: #e3c470;
+      font-size: 1.55rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .faction > summary:hover {
+      background: #202326;
+      color: #eed58f;
+    }
+
+    .faction-content {
+      padding: 5px 26px 28px;
+      border-top: 1px solid #403b32;
+    }
+
+    .faction-content > p {
+      margin: 20px 0 0;
+    }
+
+    .subsection {
+      margin-top: 26px;
+      background: #202326;
+      border: 1px solid #514a3d;
+    }
+
+    .subsection > summary {
+      padding: 16px 20px;
+      color: #d3b66d;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .subsection > summary:hover {
+      background: #292c2f;
+      color: #eed58f;
+    }
+
+    .subsection-content {
+      padding: 4px 22px 24px;
+      border-top: 1px solid #403b32;
+    }
+
+    .subsection-content p {
+      margin: 18px 0 0;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #847a68;
+      border-top: 1px solid #302d27;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding-top: 45px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .faction-content {
+        padding: 5px 18px 22px;
+      }
+
+      .subsection-content {
+        padding: 4px 18px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Grimmvein</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">The World</a>
+    <a href="tale-of-creation.html">Tale of Creation</a>
+    <a class="active" href="factions.html">Factions</a>
+    <a href="locations.html">Locations</a>
+    <a href="order-of-names.html">Order of Names</a>
+  </nav>
+
+  <main>
+    <h2>Factions</h2>
+
+    <p class="page-introduction">
+      This is for the general, more major or more important factions of Grimmvein as a whole.
+    </p>
+
+    <details class="faction">
+      <summary>Yellow Institut</summary>
+
+      <div class="faction-content">
+        <p>
+          The Yellow Institut are but a small sampling of the race of men, hidden away on the far western reaches of the continent of Fahroway. This region does not have beaches like most coastal places do, they instead of sheer cliffs hundreds of feet above the ocean floor. The region is mountainous and riddled with thick forests, cliffs, canyons, valleys, and mountain ranges, only serving to bolster what the Yellow Institut desires above all else: isolation.
+        </p>
+
+        <p>
+          They are isolationists through-and-through, having set up heavy defensive outposts, walls, and various forces all along their borders, seeking to drive away any and all who approach with extreme prejudice. They wish to be left alone and, through sheer violence, they intend to have their wish.
+        </p>
+
+        <details class="subsection">
+          <summary>Military Doctrine</summary>
+
+          <div class="subsection-content">
+            <p>
+              Most members of the armies of the Yellow Institut wear a half visor sallet with a gorget. Beyond this, nearly every member is entirely different depending on their role. The Yellow Institut favors highly elite and long ranged combat, as well as anything that can deny large amounts of ground.
+            </p>
+
+            <p>
+              The infantry of the Yellow Institut are highly elite through highly specialized equipment.
+            </p>
+
+            <p>
+              Their armor consists of heavily padded cloth, followed by chainmail, then a quartered yellow and white tabard. They wear a half visor sallet with accompanying metal gorget. They have a pauldron on their left shoulder with a spacer and a small metal plate to act as a small shield. On both arms, they have metal vambraces and mismatched metal gauntlets. Additionally, they have greaves and segmented sabatons. In their right hand, they have a swordstaff, and at their left hip they have a sheathed poignard.
+            </p>
+
+            <p>
+              Their left gauntlet is highly specialized and much larger than their right gauntlet. It’s made of tempered steel with various engraved symbols. As a gauntlet, it allows the soldier to wield his swordstaff with both hands, yet as large as it is, it can be used as a small shield. The symbols, when channeled, can create large flares of blinding fire to cast in front of oneself, used at spear-length to blind a target, to burn them, and then to stab through the fire to destroy his enemy.
+            </p>
+
+            <p>
+              They fight in a spread formation to cover as much area as possible per soldier and to avoid burning each other.
+            </p>
+
+            <p>
+              The Yellow Institut uses multiple types of artillery, as artillery is their main focus and the predominant force within their armies.
+            </p>
+
+            <p>
+              First, their archers, who have little metal armor outside of a half visor sallet. They wear heavily padded cloth and quartered white and yellow tabards. At their hip, they have a messer, and at their thigh on their dominant side, they have a seax. Their primary weapon is a large, heavy warbow, used to fire specialized arrows. Each archer carries two quivers with them, the first being for regular arrows, the second for arrows engraved with symbols that detonate on high speed impact.
+            </p>
+
+            <p>
+              Battle Mages, who hold the position of “Artillery Officer”, fight at the longest range possible. They wear similar equipment to archers, but unlike every other soldier of the Yellow Institut, they have wide brim white sorcerer hats and have a myriad of books connected via chains to their belt. These books grant them power to cast more advanced and more dangerous magicks. The primary spell of choice is “Gelbaer Ellosien”, a spell with which the Artillery Officer holds their palms close together. Between their palms, floating, a small black ball of fire will appear with a blinding sickly yellow core. It is then condensed and condensed until it is smaller than a fist, where it is then launched at ungodly speeds in a slow arcing motion. Shortly after taking flight, it begins to split into various other projectiles, all of which create large explosions of rapidly spreading fire upon impact.
+            </p>
+
+            <p>
+              An Artillery Officer is only given such a title due to the importance of their position, but they hold no true authority. As for engines of war, the Yellow Institut employs the use of culverins, ballistae that fires engraved incendiary bolts, springalds, and trebuchets. At their hips rests a curved espada made of a non-iron metal called Blaugrava. These weapons, more ornate and elongated, are somewhat saber-like, though the quillon is abnormally long and curved downwards and then up again, designed to catch another sword with ease. These swords are called Qaer, and Qaeren when referring to multiple of these swords.
+            </p>
+          </div>
+        </details>
+
+        <details class="subsection">
+          <summary>Verwalación</summary>
+
+          <div class="subsection-content">
+            <p>
+              The Verwalación act as a police force of sorts, though they care more for manhunts, searches, and patrols. They answer directly to the Kapitel von Jueces, acting as law and order. Their main goal is to root out any potential trespassers of their lands that may have somehow slipped past the Gray Walls.
+            </p>
+
+            <p>
+              Adorned in sunbleached black coats, they wear a burnt yellow shoulder cape over the left shoulder. A sheathed, ornate Qaer rests at their left hips, ready for a quick and easy draw. The sheathes, a white and red cloth folded over polished oak containers, have an iron-absorbing metal on either side of the resting blade, meant to absorb the blood off the blades. Their gloves and boots are of a black, carefully made smooth leather, especially hardy and meant to denote authority. Over the right breast they wear a white and red emblem of the Kapitel von Jueces.
+            </p>
+
+            <p>
+              Upon finding an individual that does not belong, their espadas are quickly dispatched, returning to their sheathes bloodied and ready to be cleaned.
+            </p>
+
+            <p>
+              They are made up of guilds, one in each city. The guilds are typically built as great blue and gray buildings, almost like a small fortress, with a dungeon system built below each one to contain non-trespassing criminals. Their hierarchy is basic, but effective. Every region of the nation is divided into districts, where each guild possess control over specific sets of districts. Each district is assigned a Sargento, who each commands a veritable force of men dependent on the number of districts and the population of those districts.
+            </p>
+
+            <p>
+              Above each Sargento is an Eisen Juece, who has all of the Sargentos of each guild fortress answer to them, meaning there is only one Eisen Juece per city. As a council, they make collective decisions for the betterment of the Verwalación, though they still answer to the Kapitel von Jueces.
+            </p>
+          </div>
+        </details>
+
+        <details class="subsection">
+          <summary>Kapitel</summary>
+
+          <div class="subsection-content">
+            <p>
+              There are a myriad of Kapitel, each presiding over various things. A Kapitel for law and order, one for finances, one for agriculture, one for guilds, one for building, one for non-food resource gathering, one for citizens, and so on. Each theoretically has the same goal, but they often end up butting against each other.
+            </p>
+
+            <h3>Kapitel von Jueces</h3>
+
+            <p>
+              The Kapitel von Jueces, those who control the Verwalación, dictate order and enforcement of that order. They often work with the Kapitel von Gente, using their archives to determine lawful citizens and trespassers. They care only for the enforcement of law, though this often means that they step on the toes of other Kapitel.
+            </p>
+
+            <h3>Kapitel von Gente</h3>
+
+            <p>
+              The Kapitel von Gente are interested, for the most part, in the organization and management of the people. At each birth, records are created for a person and stored in white and green marble towers, made so to prevent them from being set alight with fire. A detachment of special Verwalación, these wearing the white and green emblem of the Kapitel von Gente instead of the white and red of Kapitel von Jueces, stand guard around each archive and at certain locations throughout the archives. Their yellow capelets have been replaced with vibrant blue with white marble lines, sewn in with silk. The cloth about their Qaeren have been replaced by black cloths adorned with brilliant teal patterns.
+            </p>
+
+            <p>
+              Each person, if desiring to travel from one district to another, must make their way to their local Reisebüro - again, guarded by the Gente Verwalación - and pay a small tax, state their intentions for records-keeping, and gain a permit to pass through and to any and all districts involved. A permit is carefully and magically inlaid upon the citizen’s anterior forearms, showing as a vibrant blue to any who choose to inspect it. The permits fade from sight when not being inspected, though they fade after the approved amount of time, making them null and void.
+            </p>
+
+            <h3>Kapitel von Negocio</h3>
+
+            <p>
+              The Kapitel von Negocio are often at odds with Kapitel von Gente, since Kapitel von Gente makes their jobs notably more difficult and time consuming. Their primary interest is in tax collecting and trade, which requires frequent travel across several or dozens of districts. In each major city, they have a Gigante Halle, a tall pantheon-styled building of blacks, whites, and silvers.
+            </p>
+
+            <p>
+              Guarding their Gigante Flure, the plural of Gigante Halle, are the Silber Custodiar. They have a simple black uniform with a large white leather cloak about them, fastened with multiple yellow sashes, kept closed. There are slits on either side of this cloak to allow free movement, though a curved pauldron-band of silver sits on the shoulders, connected to each other with an ornate yellow rope. At their hips are extremely ornate Qaer, though sitting in polished redwood sheathes with a white cloth band around them and silver engravings along the sheathes. Atop their heads are a simple black cap, tilted forwards and to the right, with the emblem of the Kapitel von Negocio on the front of it.
+            </p>
+
+            <p>
+              The Silber Custodiar are silent for the most part, as they are trained to be quiet, and they only allow authorized individuals and officers through, even if it means crossing blades with the Verwalación due to not letting the Verwalación into the buildings.
+            </p>
+
+            <p>
+              Tax collectors and other important officials are often escorted by one Silber Custodiar, as it wouldn’t do to let a tax collector be murdered in the streets by a disgruntled citizen.
+            </p>
+
+            <h3>Kapitel von Crecimiento</h3>
+
+            <p>
+              The Kapitel von Crecimiento are typically at odds with both the Kapitel von Gente and Kapitel von Negocio. They wish for free movement between agricultural districts, made difficult by Kapitel von Gente, and they provide tax-breaks to farmers, putting them at odds with Kapitel von Negocio. However, due to their granting of tax breaks for growing wheat, raising cattle, or other such things, they are one of the few Kapitel that citizens actually like working with, even if they still have to obtain permits for what they can grow, where they can grow, and when they can grow their products - all of which could take years to obtain due to the queues and processes needed.
+            </p>
+
+            <h3>Kapitel von Mar</h3>
+
+            <p>
+              The Kapitel von Mar use Monstrulción, giant ships, a mix between cargo and warships. Below the first deck, the first and second lower decks, highly specialized culverins, called komverinsch, line the sides of the ships and are manned by Krieg Custodiar. The function of Kapitel von Mar is to maintain naval dominance of the surrounding seas, transport goods from the mainland of the Yellow Institut to a few colony islands, and to hunt leviathans.
+            </p>
+
+            <p>
+              The ships they use, all called Monstrulción, are specialized depending on their function, though none possess unique or identifiable traits. They are manned by sailors, armed by Krieg Custodiar, and led ship-wise by a captain and combat-force wise by a Silberkrieg Custodiar. A komverinsch, the machine of war that the Krieg Custodiar use, fires a long, billowing black and yellow flame, meant to engulf other ships. Their range is just shy of a normal culverin, though those are kept aboard as well.
+            </p>
+
+            <p>
+              For the Monstrulción, those adapted to hunt Leviathans, the Krieg Custodiar mount “Rot” Harpoons, machines that fire a specialized harpoons that delve deep into the seas. Each harpoon is taller than three men, shaped to slice through the water without difficulty.
+            </p>
+
+            <p>
+              The Kapitel von Mar cares little for the issues or squabbles of the other Kapitel, though they strongly dislike the Kapitel von Negocio due to the increased tax on Leviathan hunting. There is no care for the Leviathans themselves, but successfully killing one may provide a fortune.
+            </p>
+          </div>
+        </details>
+      </div>
+    </details>
+  </main>
+
+  <footer>
+    Grimmvein
+  </footer>
+</body>
+</html>
+
