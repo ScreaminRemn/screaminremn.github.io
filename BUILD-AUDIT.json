@@ -1,8 +1,38 @@
 {
-  "html_pages": 34,
-  "total_files": 44,
+  "html_files": 34,
+  "faction_pages": 11,
+  "datasheets_migrated": 25,
+  "keyword_definitions": 38,
   "missing_local_references": [],
-  "remaining_gv_references": [],
-  "keyword_tooltips": 189,
-  "unknown_keyword_tooltips": 15
+  "faction_counts": {
+    "abyssal-cults-of-jegari": 0,
+    "anointed-holy-cities": 3,
+    "chitinous-enclaves": 6,
+    "dredgefolk": 0,
+    "jakiisi": 5,
+    "monolith-clockworks": 0,
+    "people-of-the-far-dunes": 6,
+    "shrikes": 0,
+    "the-flaying-courts": 0,
+    "tyrisaz": 5,
+    "yellow-institut": 0
+  },
+  "modular_files": [
+    "datasheets-renderer.js",
+    "keyword-definitions.js",
+    "DATASHEET-TEMPLATE.js",
+    "HOW-TO-ADD-DATASHEETS.txt",
+    "datasheets-abyssal-cults-of-jegari.js",
+    "datasheets-anointed-holy-cities.js",
+    "datasheets-chitinous-enclaves.js",
+    "datasheets-dredgefolk.js",
+    "datasheets-jakiisi.js",
+    "datasheets-monolith-clockworks.js",
+    "datasheets-people-of-the-far-dunes.js",
+    "datasheets-shrikes.js",
+    "datasheets-the-flaying-courts.js",
+    "datasheets-tyrisaz.js",
+    "datasheets-yellow-institut.js"
+  ],
+  "total_packaged_files": 60
 }

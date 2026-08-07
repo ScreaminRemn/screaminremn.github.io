@@ -1,0 +1,42 @@
+GRIMMVEIN — HOW TO ADD A DATASHEET
+==================================
+
+FIRST INSTALL / REPLACEMENT
+---------------------------
+Upload EVERYTHING in this folder to the root of the GitHub repository, replacing matching files.
+The new datasheet-*.js files, keyword-definitions.js, and datasheets-renderer.js must be uploaded too.
+
+ADDING A NEW UNIT LATER
+-----------------------
+1. Open DATASHEET-TEMPLATE.js.
+2. Copy the object named COPY_THIS_DATASHEET (the { ... } part).
+3. Open the faction file you want, e.g. datasheets-jakiisi.js.
+4. Paste the copied object inside that file's [ ... ] array.
+5. Make sure there is a comma between unit objects.
+6. Fill in the unit's name, stats, weapons, abilities, keywords, etc.
+7. Commit that ONE faction data file.
+
+That is it. The faction page automatically generates:
+- the datasheet
+- the datasheet table of contents
+- the unit count at the top of the faction page
+- the completed-datasheet count on wargame.html
+- keyword hover tooltips
+
+IMPORTANT
+---------
+- You normally NEVER need to edit wargame-FACTION.html just to add a unit.
+- You normally NEVER need to edit datasheets-renderer.js.
+- For no weapons, use an empty array: []
+- For an ability section that should say NONE, use an empty array: []
+- To hide an ability/leadership section entirely, use: null
+- Keywords can be typed as MOUNTED or [MOUNTED].
+- If a keyword has no definition in keyword-definitions.js, it still works and says no standalone rule is listed.
+
+ADDING / CHANGING A KEYWORD DEFINITION
+--------------------------------------
+Open keyword-definitions.js and add/change the matching entry, for example:
+
+  "FIRE": "Your rule explanation goes here.",
+
+Keep commas between entries.

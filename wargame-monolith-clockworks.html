@@ -654,82 +654,16 @@ blockquote p:last-child{margin-bottom:0}
 <header class="page-header">
 <p class="page-kicker">Grimmvein Wargame</p>
 <h1>Monolith Clockworks</h1>
-<p class="page-deck">0 completed datasheets in the current document.</p>
+<p class="page-deck"><span id="datasheet-count"></span> completed datasheets in the current document.</p>
 </header>
 <article class="wargame-intro">
 <p>The Clockworks, being puppets of wood and metal and glass and so on and so forth, build themselves as they see fit. As legions, as specialized hunting teams, as those focused on fire, some who are made to be especially armored, some who are especially fast, and so on. They have everything there is, all it depends on is what they create.</p>
 <div class="intro-links"><a href="wargame.html">← Wargame Index</a><a class="lore-link" href="monolith-clockworks.html">Open lore page →</a></div>
 </article>
-<div class="datasheet-stack"><section class="empty-state"><h2>Datasheets</h2><p>No completed datasheets are present for this faction in the current wargame document.</p></section></div>
-</main>
+
+<div class="datasheet-app" data-faction="monolith-clockworks"></div></main>
 <footer class="site-footer">Grimmvein</footer>
 </div>
 <a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<script>
-(() => {
-  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
-  if (!triggers.length) return;
-  document.body.classList.add('js-tooltips');
-
-  const tip = document.createElement('div');
-  tip.className = 'gv-keyword-tooltip';
-  tip.setAttribute('role', 'tooltip');
-  tip.setAttribute('aria-hidden', 'true');
-  tip.innerHTML = '<strong></strong><span></span>';
-  document.body.appendChild(tip);
-  const tipName = tip.querySelector('strong');
-  const tipText = tip.querySelector('span');
-  let active = null;
-
-  const position = (el) => {
-    if (!el || !tip.classList.contains('is-visible')) return;
-    const r = el.getBoundingClientRect();
-    const pad = 12;
-    const gap = 9;
-    tip.style.left = '0px';
-    tip.style.top = '0px';
-    const t = tip.getBoundingClientRect();
-    let left = r.left + r.width / 2 - t.width / 2;
-    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
-    let top = r.top - t.height - gap;
-    if (top < pad) top = r.bottom + gap;
-    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
-    tip.style.left = `${Math.round(left)}px`;
-    tip.style.top = `${Math.round(top)}px`;
-  };
-
-  const show = (el) => {
-    active = el;
-    const keyword = (el.dataset.keyword || el.textContent || '').trim();
-    tipName.textContent = keyword;
-    tipText.textContent = el.dataset.tooltip || '';
-    tip.classList.add('is-visible');
-    tip.setAttribute('aria-hidden', 'false');
-    position(el);
-  };
-  const hide = (el) => {
-    if (el && active !== el) return;
-    active = null;
-    tip.classList.remove('is-visible');
-    tip.setAttribute('aria-hidden', 'true');
-  };
-
-  triggers.forEach(el => {
-    el.setAttribute('aria-describedby', '');
-    el.addEventListener('mouseenter', () => show(el));
-    el.addEventListener('mouseleave', () => hide(el));
-    el.addEventListener('focus', () => show(el));
-    el.addEventListener('blur', () => hide(el));
-    el.addEventListener('click', e => {
-      if (!window.matchMedia('(hover: none)').matches) return;
-      e.stopPropagation();
-      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
-    });
-  });
-  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
-  window.addEventListener('resize', () => active && position(active));
-  window.addEventListener('scroll', () => active && position(active), true);
-})();
-</script></body>
+<script src="keyword-definitions.js"></script><script src="datasheets-monolith-clockworks.js"></script><script src="datasheets-renderer.js"></script></body>
 </html>

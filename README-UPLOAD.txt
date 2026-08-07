@@ -1,15 +1,9 @@
-GRIMMVEIN — CLEAN FULL REPLACEMENT
+GRIMMVEIN MODULAR DATASHEET BUILD
+=================================
 
-This package uses normal filenames (index.html, factions.html, wargame.html, etc.).
-Every HTML page contains its own CSS, so the old style.css / wargame.css / site.js files are NOT required.
-Keyword descriptions are built directly into the datasheet HTML and shown by a body-level tooltip, avoiding clipping inside tables/datasheets.
+This folder is intended to replace the repository root contents.
+Upload every file here to the root of ScreaminRemn/screaminremn.github.io and replace matching files.
 
-UPLOAD
-1. Open the GitHub repository.
-2. Add file -> Upload files.
-3. Upload EVERYTHING inside this ZIP (not the ZIP itself) to the repository root.
-4. Let GitHub replace files with matching names and add the missing ones.
-5. Commit the upload.
-6. After Pages deploys, hard-refresh the site (Ctrl+F5).
+Afterward, see HOW-TO-ADD-DATASHEETS.txt and DATASHEET-TEMPLATE.js.
 
-You may leave the old style.css, wargame.css and site.js in the repository; these rebuilt pages do not use them.
+The lore pages remain self-contained. Wargame faction datasheets are now data-driven from datasheets-*.js files.
