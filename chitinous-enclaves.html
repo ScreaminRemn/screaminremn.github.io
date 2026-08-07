@@ -3,67 +3,741 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#111416" name="theme-color"/>
-<title>Beings of Note — Grimmvein</title>
+<title>Chitinous Enclaves — Grimmvein</title>
 <link href="favicon.png" rel="icon" type="image/png"/>
-<link href="grimmvein-site-2026.css" rel="stylesheet"/>
-<script defer="" src="grimmvein-site-2026.js"></script>
-</head>
-<body data-group="beings" data-page="beings" id="top">
-<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
-<div aria-hidden="true" class="sidebar-overlay"></div>
-<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings" open=""><summary>Beings of Note</summary><div class="sidebar-links"><a aria-current="page" class="active" href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+:root{
+  --black:#0d0f10;
+  --deep:#121516;
+  --panel:#181c1e;
+  --panel-2:#202527;
+  --line:#4e473a;
+  --line-bright:#776744;
+  --gold:#d6b75f;
+  --gold-bright:#f0d580;
+  --text:#e8e0d1;
+  --muted:#bdb19c;
+  --sidebar-width:310px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 75% 0%,rgba(122,99,45,.09),transparent 34rem),
+    var(--black);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.13rem;
+  line-height:1.68;
+}
+button,a{font:inherit}
+a{color:var(--gold-bright)}
+a:hover{color:#fff0b0}
+
+h1,h2,h3,
+.card-title,.toc-title,
+.sidebar-brand,.sidebar-nav summary,
+.back-to-top,.mobile-menu,
+.datasheet-name{
+  font-family:"UnifrakturMaguntia",Georgia,serif;
+  font-weight:400;
+}
+h1,h2,h3{line-height:1.05}
+
+/* --- Sidebar --- */
+.sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  z-index:30;
+  width:var(--sidebar-width);
+  overflow-y:auto;
+  padding:24px 18px 36px;
+  background:
+    linear-gradient(180deg,rgba(214,183,95,.06),transparent 12rem),
+    #111416;
+  border-right:1px solid var(--line-bright);
+  box-shadow:10px 0 35px rgba(0,0,0,.28);
+}
+.sidebar-brand{
+  display:block;
+  margin:0 4px 22px;
+  padding:14px 8px 22px;
+  color:var(--gold-bright);
+  font-size:3.15rem;
+  line-height:.9;
+  text-align:center;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+}
+.sidebar-close{display:none}
+.sidebar-nav details{
+  margin:5px 0;
+  border:1px solid transparent;
+}
+.sidebar-nav details[open]{
+  background:rgba(255,255,255,.018);
+  border-color:#2e2d28;
+}
+.sidebar-nav summary{
+  position:relative;
+  padding:10px 34px 10px 12px;
+  color:#d7c9af;
+  font-size:1.36rem;
+  line-height:1.08;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
+}
+.sidebar-nav summary::-webkit-details-marker{display:none}
+.sidebar-nav summary::after{
+  content:"+";
+  position:absolute;
+  right:12px;
+  top:8px;
+  color:#948465;
+}
+.sidebar-nav details[open]>summary::after{content:"−"}
+.sidebar-nav summary:hover{color:var(--gold-bright)}
+.sidebar-links{padding:2px 8px 9px 16px}
+.sidebar-links a{
+  display:block;
+  margin:2px 0;
+  padding:6px 10px;
+  color:#bfb39f;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.25;
+  text-decoration:none;
+  border-left:2px solid #35332d;
+}
+.sidebar-links a:hover{
+  color:#fff;
+  border-left-color:var(--gold);
+  background:rgba(214,183,95,.05);
+}
+.sidebar-links a.active{
+  color:var(--gold-bright);
+  border-left-color:var(--gold-bright);
+  background:rgba(214,183,95,.08);
+}
+
+/* --- Main site --- */
+.site-main{min-height:100vh;margin-left:var(--sidebar-width)}
+.content-wrap{
+  width:min(1040px,calc(100% - 72px));
+  margin:0 auto;
+  padding:58px 0 100px;
+}
+.page-header{
+  margin-bottom:35px;
+  padding:0 0 24px;
+  border-bottom:1px solid var(--line-bright);
+}
+.page-kicker{
+  margin:0 0 4px;
+  color:#94866c;
+  font-size:.95rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+h1{
+  margin:0;
+  color:var(--gold-bright);
+  font-size:clamp(3.3rem,8vw,5.9rem);
+}
+.page-deck{
+  max-width:780px;
+  margin:13px 0 0;
+  color:var(--muted);
+  font-size:1.12rem;
+}
+.lore-page{
+  padding:30px clamp(22px,5vw,52px) 48px;
+  background:linear-gradient(180deg,rgba(255,255,255,.014),transparent 25rem),var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 15px 45px rgba(0,0,0,.22);
+}
+.lore-page>p:first-child{margin-top:0}
+.lore-page p{margin:0 0 1.25em}
+.lore-page h2{
+  scroll-margin-top:24px;
+  margin:2.1em 0 .65em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.35rem;
+  border-bottom:1px solid #3d392f;
+}
+.lore-page h3{
+  scroll-margin-top:24px;
+  margin:1.65em 0 .45em;
+  color:#d9c481;
+  font-size:1.75rem;
+}
+.lore-page h2:target,.lore-page h3:target{
+  color:#fff0aa;
+  text-shadow:0 0 18px rgba(240,213,128,.28);
+}
+.toc{
+  margin:0 0 30px;
+  padding:19px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+}
+.toc-title{margin:0 0 11px;color:var(--gold);font-size:1.5rem}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{
+  padding:5px 9px;
+  color:#cdbf9f;
+  text-decoration:none;
+  background:#202426;
+  border:1px solid #4a453a;
+}
+.toc a:hover{color:#fff;border-color:var(--gold)}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:16px;
+}
+.card{
+  display:flex;
+  min-height:155px;
+  flex-direction:column;
+  padding:21px;
+  color:var(--text);
+  text-decoration:none;
+  background:linear-gradient(145deg,rgba(214,183,95,.045),transparent 60%),var(--panel);
+  border:1px solid var(--line);
+  transition:transform .15s ease,border-color .15s ease,background .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  color:var(--text);
+  border-color:var(--gold);
+  background:var(--panel-2);
+}
+.card-title{margin:0 0 8px;color:var(--gold-bright);font-size:1.65rem}
+.card p{margin:0;color:#bcb19d;font-size:1rem;line-height:1.45}
+.card-open{margin-top:auto;padding-top:16px;color:#d2b968}
+blockquote{
+  margin:1.5em 0;
+  padding:18px 22px;
+  color:#d2c7b3;
+  font-style:italic;
+  background:#171a1b;
+  border-left:3px solid var(--gold);
+}
+blockquote p:last-child{margin-bottom:0}
+.attribution{color:#9e927e;font-style:normal}
+.name-list{padding-left:1.4em}
+.name-list li{margin:.35em 0}
+
+/* --- Wargame --- */
+.wargame-wrap{width:min(1220px,calc(100% - 72px))}
+.wargame-hero-note,.wargame-intro,.rules-page,.army-rule,.empty-state{
+  margin-bottom:26px;
+  padding:24px 28px;
+  background:var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.wargame-hero-note p,.wargame-intro p{margin:0}
+.wargame-card{min-height:170px}
+.section-heading{margin:42px 0 18px;color:var(--gold);font-size:2.4rem}
+.intro-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid #35322c;
+}
+.intro-links a{text-decoration:none}
+.army-profile{margin-top:16px!important;color:#ddc982;font-weight:700}
+.army-rule{
+  position:relative;
+  padding-top:36px;
+  border-color:var(--line-bright);
+  background:linear-gradient(145deg,rgba(214,183,95,.055),transparent 55%),var(--panel);
+}
+.army-rule-label{
+  position:absolute;
+  top:0;
+  left:0;
+  padding:6px 12px;
+  color:#18150d;
+  background:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.army-rule h2{margin:0 0 10px;color:var(--gold-bright);font-size:2rem}
+.army-rule p:last-child{margin-bottom:0}
+.datasheet-stack{display:grid;gap:28px}
+.datasheet{
+  scroll-margin-top:24px;
+  position:relative;
+  background:#121617;
+  border:1px solid #6b5d3e;
+  box-shadow:0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet:target{
+  border-color:var(--gold-bright);
+  box-shadow:0 0 0 1px var(--gold-bright),0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 22px;
+  color:#14110a;
+  background:linear-gradient(90deg,#c6a64d,#e3ca77 62%,#baa04e);
+}
+.datasheet-name{font-size:2.2rem;line-height:1}
+.datasheet-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 14px;
+  margin-top:7px;
+  font-family:Arial,sans-serif;
+  font-size:.82rem;
+  font-weight:700;
+}
+.coin-cost{
+  flex:0 0 auto;
+  padding:8px 12px;
+  color:#f4e7bd;
+  background:#171a1b;
+  border:1px solid #5c5035;
+  font-family:Arial,sans-serif;
+  font-size:.9rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(84px,1fr));
+  border-bottom:1px solid #4a4234;
+  background:#1c2123;
+}
+.stat-cell{
+  min-width:0;
+  padding:11px 8px 12px;
+  text-align:center;
+  border-right:1px solid #3b3932;
+}
+.stat-cell:last-child{border-right:0}
+.stat-label{
+  display:block;
+  color:#b8aa8e;
+  font-family:Arial,sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.stat-value{
+  display:block;
+  margin-top:2px;
+  color:#fff0b1;
+  font-family:Georgia,serif;
+  font-size:1.55rem;
+  line-height:1.1;
+  font-weight:700;
+}
+.datasheet-subsection{padding:18px 22px 20px;border-top:1px solid #39362f}
+.datasheet-subsection:first-of-type{border-top:0}
+.datasheet-subsection h3{margin:0 0 10px;color:#dac476;font-size:1.5rem}
+.datasheet-subsection h4{
+  margin:0 0 3px;
+  color:#e7d692;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.12rem;
+  font-weight:700;
+}
+.ability-entry+.ability-entry{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px dashed #3c3931;
+}
+.ability-entry p{margin:0}
+.ability-none{margin:0}
+.table-scroll{width:100%;overflow-x:auto}
+.weapon-table,.rules-table,.keyword-table{width:100%;border-collapse:collapse;line-height:1.28}
+.weapon-table th,.rules-table th{
+  padding:8px 10px;
+  color:#14110a;
+  background:#c9ad5f;
+  border:1px solid #9f8749;
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+.weapon-table td,.rules-table td,.keyword-table td,.keyword-table th{
+  padding:9px 10px;
+  border:1px solid #464137;
+}
+.weapon-table tbody tr:nth-child(even),
+.rules-table tbody tr:nth-child(even),
+.keyword-table tr:nth-child(even){background:#1b2022}
+.weapon-name{min-width:250px;color:#eee3cf;font-weight:700}
+.weapon-keywords{color:#d5bd71;font-size:.9rem;font-weight:700}
+.keyword-row{display:flex;flex-wrap:wrap;gap:7px}
+.keyword-chip{
+  display:inline-block;
+  padding:4px 8px;
+  color:#e3ca7b;
+  background:#202527;
+  border:1px solid #514938;
+  font-family:Arial,sans-serif;
+  font-size:.8rem;
+  font-weight:700;
+}
+.leadership p{margin:.35em 0}
+.muted{color:#9f9686}
+.empty-state h2{margin-top:0;color:var(--gold)}
+.rules-page section{scroll-margin-top:24px}
+.rules-page h2{
+  margin:2em 0 .6em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.25rem;
+  border-bottom:1px solid #3d392f;
+}
+.rules-page section:first-child h2{margin-top:0}
+.rules-page h3{margin:1.35em 0 .4em;color:#dcc77f;font-size:1.55rem}
+.rules-page p{margin:.75em 0 1em}
+.rules-page li{margin:.45em 0}
+.rules-example{padding:12px 15px;background:#1b2022;border-left:3px solid var(--gold)}
+.compact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.compact-grid>div{padding:12px 14px;background:#1a1f21;border:1px solid #403c34}
+.compact-grid strong,.compact-grid span{display:block}
+.compact-grid strong{color:#e2ca7d}
+.compact-grid span{margin-top:4px;color:#c5baa7;font-size:.96rem}
+.keyword-table th{
+  width:190px;
+  color:#e5ce83;
+  text-align:left;
+  background:#1b2022;
+}
+.mission-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+  margin:20px 0 24px;
+}
+.mission-card{margin:0;padding:12px;background:#0e1112;border:1px solid #4b4538}
+.mission-card img{display:block;width:100%;height:auto;border:1px solid #6a604b}
+.mission-card figcaption{padding:12px 4px 2px;color:#c9bfad;font-size:.94rem;line-height:1.45}
+
+/* --- Keyword hover/focus tooltips --- */
+.keyword-tip{
+  display:inline-block;
+  position:relative;
+  color:#e7cf7d;
+  text-decoration:underline dotted rgba(231,207,125,.62);
+  text-underline-offset:3px;
+  cursor:help;
+}
+.keyword-chip.keyword-tip{text-decoration:none}
+.keyword-tip:focus{
+  outline:1px solid var(--gold-bright);
+  outline-offset:2px;
+}
+.keyword-tooltip-popover{
+  position:fixed;
+  z-index:1000;
+  width:max-content;
+  max-width:min(360px,calc(100vw - 30px));
+  padding:10px 12px;
+  color:#eee5d5;
+  background:#0b0d0e;
+  border:1px solid var(--gold);
+  box-shadow:0 8px 28px rgba(0,0,0,.55);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.35;
+  pointer-events:none;
+}
+.keyword-tooltip-popover[hidden]{display:none}
+
+/* --- Shared furniture --- */
+.back-to-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:20;
+  padding:8px 13px;
+  color:var(--gold-bright);
+  font-size:1.15rem;
+  text-decoration:none;
+  background:#151819;
+  border:1px solid var(--line-bright);
+  box-shadow:0 5px 18px rgba(0,0,0,.38);
+}
+.back-to-top:hover{color:#fff;background:#242829}
+.mobile-menu,.sidebar-overlay{display:none}
+.site-footer{
+  padding:25px 35px;
+  color:#786f60;
+  text-align:center;
+  border-top:1px solid #292824;
+}
+
+@media(max-width:1000px){
+  .stat-strip{grid-template-columns:repeat(4,1fr)}
+  .stat-cell{border-bottom:1px solid #3b3932}
+}
+@media(max-width:900px){
+  .sidebar{
+    width:min(330px,88vw);
+    transform:translateX(-105%);
+    transition:transform .2s ease;
+  }
+  body.nav-open .sidebar{transform:translateX(0)}
+  .sidebar-close{
+    display:block;
+    position:absolute;
+    right:9px;
+    top:7px;
+    padding:5px 9px;
+    color:#cdbd9c;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+  }
+  .mobile-menu{
+    display:block;
+    position:fixed;
+    left:14px;
+    top:14px;
+    z-index:25;
+    padding:8px 12px;
+    color:var(--gold-bright);
+    background:#151819;
+    border:1px solid var(--line-bright);
+    box-shadow:0 4px 15px rgba(0,0,0,.35);
+    cursor:pointer;
+  }
+  .sidebar-overlay{
+    position:fixed;
+    inset:0;
+    z-index:29;
+    background:rgba(0,0,0,.62);
+  }
+  body.nav-open .sidebar-overlay{display:block}
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{width:min(900px,calc(100% - 34px));padding-top:75px}
+  .back-to-top{right:12px;bottom:12px}
+}
+@media(max-width:650px){
+  .datasheet-header{flex-direction:column}
+  .coin-cost{align-self:flex-start}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .compact-grid{grid-template-columns:1fr}
+  .weapon-name{min-width:190px}
+}
+@media(max-width:560px){
+  body{font-size:1.06rem}
+  .content-wrap,.wargame-wrap{width:calc(100% - 22px)}
+  .lore-page{padding:22px 17px 34px}
+  h1{font-size:3.15rem}
+  .toc-links{flex-direction:column}
+  .toc a{width:100%}
+}
+
+
+/* =========================================================
+   SELF-CONTAINED BUILD
+   No external site CSS or JavaScript is required.
+   ========================================================= */
+
+.mobile-menu,
+.sidebar-overlay,
+.sidebar-close,
+.keyword-tooltip-popover {
+  display: none !important;
+}
+
+/* CSS-only keyword tooltips.
+   They render as a fixed panel, so tables/scroll containers cannot clip them. */
+.keyword-tip[data-tooltip] {
+  cursor: help;
+}
+.keyword-tip[data-tooltip]:hover::after,
+.keyword-tip[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999999;
+  width: min(420px, calc(100vw - 44px));
+  padding: 12px 14px;
+  color: #f1e7d5;
+  background: #090b0c;
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 10px 36px rgba(0,0,0,.65);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  line-height: 1.38;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* Mobile becomes a normal top-of-page archive instead of a JS drawer. */
+@media(max-width:900px){
+  .sidebar{
+    position: static;
+    width: 100%;
+    max-height: none;
+    transform: none !important;
+    padding: 18px 14px 22px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-bright);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .sidebar-brand{
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar-nav{
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{
+    width:min(900px,calc(100% - 34px));
+    padding-top:34px;
+  }
+}
+
+</style>
+<style>
+/* Reliable body-level keyword tooltip. The older ::after tooltip remains as a no-JS fallback. */
+.js-tooltips .keyword-tip[data-tooltip]::after,
+.js-tooltips .keyword-tip[data-tooltip]::before { content:none !important; display:none !important; }
+.keyword-tip[data-tooltip] { cursor:help; text-decoration:underline dotted rgba(240,213,128,.55); text-underline-offset:2px; }
+.gv-keyword-tooltip {
+  position:fixed; z-index:2147483000; left:0; top:0;
+  width:min(430px,calc(100vw - 24px));
+  padding:12px 14px; color:#f1e7d5; background:#090b0c;
+  border:1px solid var(--gold-bright); box-shadow:0 10px 36px rgba(0,0,0,.72);
+  font-family:"Times New Roman",Times,serif; font-size:1rem; line-height:1.4;
+  text-align:left; white-space:normal; pointer-events:none;
+  opacity:0; visibility:hidden; transition:opacity .08s ease;
+}
+.gv-keyword-tooltip.is-visible { opacity:1; visibility:visible; }
+.gv-keyword-tooltip strong { display:block; margin-bottom:4px; color:var(--gold-bright); font-weight:700; }
+</style></head>
+<body data-group="factions" data-page="chitinous-enclaves" id="top">
+<aside class="sidebar" id="site-sidebar"><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions" open=""><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a aria-current="page" class="active" href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
 <div class="site-main">
 <main class="content-wrap">
 <header class="page-header">
-<p class="page-kicker">Archive</p>
-<h1>Beings of Note</h1>
-<p class="page-deck">Peoples, orders, kingdoms, and singular horrors that do not sit neatly among the major factions.</p>
+<p class="page-kicker">Factions</p>
+<h1>Chitinous Enclaves</h1>
 </header>
-<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#fahroway">Fahroway</a><a href="#stoneskin-gaunts">Stoneskin Gaunts</a><a href="#yaets">Yaets</a><a href="#krashqkanov">Krashq’kanov</a><a href="#resurrected-sunborne">Resurrected Sunborne</a><a href="#sarbyvich">Sarbyvich</a><a href="#cloaked-gatekeepers">Cloaked Gatekeepers</a><a href="#strahzzi">Strahzzi</a><a href="#mothua">Mothua</a><a href="#spindle-knights">Spindle Knights</a><a href="#taleuri">Taleuri</a><a href="#those-who-watch">Those Who Watch</a><a href="#hinter-witches">Hinter-Witches</a><a href="#ekternau">Ekternau</a><a href="#iystrobahths">Iystrobahths</a></div></nav><article class="lore-page"><h2 id="fahroway">Fahroway</h2>
-<h3 id="stoneskin-gaunts">Stoneskin Gaunts</h3>
-<p>In the middle of the continent of Fahroway, there exists several mountain ranges, though none of those mountains are true piles of stone and earth. They are, instead, collections of various things so large that they create mountains. Anything even remotely valuable or potentially desirable can be found here, though it is not unguarded. The denizens that roam these mountains, called Stoneskin Gaunts, are great gargoyles. They wish only to collect anything of anything that could be desired, though they do not create these things. They create raiding parties to go forth and kill, maim, and destroy so that they might take these things. Should one come across the mountains of the Stoneskin Gaunts, they shall not live long, for the great gargoyles will destroy them for fear that that person might take what is theirs.</p>
-<h3 id="yaets">Yaets</h3>
-<p>Yaets are a kingdom of some note, taking only a mere seven-score-and-ten thousand leagues across, located to the north-east of the Yellow Institut and to the east of the Dead Forest, though it’s dwarfed by the territory of the Stoneskin Gaunts and barely even a thought to the Yellow Institut. Little is known about them, due to their insignificance, but they are always seen in giant suits of armor that no human man should be able to bear. They are seen flying various colored banners, but all include green, perhaps some sort of holy color to the Yaets. They have been seen, or, rather, their “civilians” have been seen. Tall beings with strange, twin elongated faces, and oddly bulky.</p>
-<p>Despite their great suits of armor, they do not primarily fight face-to-face, instead preferring to use extremely crude devices of great fire and explosive sound, calling them “matchlocks”. For a race of beings so strange, so physically fit, so advantageous, they would do all but face their enemies face-to-face.</p>
-<p>They primarily sow and harvest rocruit, stem wheat, and beetroots, though whatever strains they feed upon are stale-tasting but long lasting, taking far longer to rot than most crops of other kingdoms.</p>
-<h2 id="krashqkanov">Krashq’kanov</h2>
-<h3 id="resurrected-sunborne">Resurrected Sunborne</h3>
-<p>The Resurrected Sunborne are a kingdom legion of skeletal beings in central Krashq’kanov, just to the south of the Obsidian Plains. They are a minor kingdom, seeking to turn all they come across and to reduce them to their own skeletal forms as an expression of ultimate freedom. Freedom from death, freedom from pain, freedom from hunger, and freedom from sickness. They accomplish this by stringing up these unfortunates and hoisting them high into the air underneath large, special towers called Solagrad.</p>
-<p>Solagrad are large, metal towers, purposefully built higher than any other of their buildings in any given town or city, with the top portions having several metal beams sticking out in bizarre formation. At the very top is a large ring, encompassing the perimeter of the tower, followed by another even larger ring round about it, curved, with a specialized glass made to magnify and focus incoming light and heat from the outside, aimed at the beams below. The unfortunates are strung up on the beams and are left there until they themselves become sun-bleached skeletons. Once this is done, they are taken inside and are carefully resurrected and inducted into the legion of undead. The process as a whole may take one, perhaps two years.</p>
-<p>In war, the Resurrected Sunborne are relatively easy to manage so long as one can block them out, for their bones are too frail to do much without muscle. All that is needed is to be on a wall and drop large rocks upon them. However, this only works defensively, and they become notably more difficult to advance on, which is why they have never lost ground. When stark red banners bearing a sun-shrouded skull come marching on the horizon, a long, tedious war is due.</p>
-<h3 id="sarbyvich">Sarbyvich</h3>
-<p>Sarbyvich is not a person, but a race of predatory arachnae-beings found scattered all around Krashq’kanov, though mostly in southern and western areas. A few, however, can be found in northern West Mothua near Ephernaum.</p>
-<p>These beings inhabit “abandoned” houses, though it is more likely that they consumed the inhabitants of those homes long ago. They are primarily out in the middle of nowhere or on the fringes of villages and the like. Often, many of these homes have a central large hole in them, littered with webs and other such things round about them or surrounding these holes. If one looks closely enough at these entries, spindly legs, bent at odd angles, waiting for something foolish to wander inside or get close enough to be eaten.</p>
-<h3 id="cloaked-gatekeepers">Cloaked Gatekeepers</h3>
-<p>The Cloaked Gatekeepers preside over the Valley of Gates, a hidden valley located in western Krashq’kanov. The only way to this valley is located in south-east Krashq’kanov, underneath the fourth Seeing Tower north from the Azker River. One must descend the tower until darkness becomes day, and the stones fall away to open skies. Far below will be the Valley of Gates, awaiting you should you continue to descend the rest of the tower.</p>
-<p>Here are many “gates” of sorts, all in the forms of faces, some opening to other locations through their eyes, through their mouths, or through their ears. Some, however, are not to be trusted, as they are a special breed of mimic that needs not eat for up to decades at a time, only to bite down once something passes through.</p>
-<p>However, aside from being covered in countless gates, this valley is not uninhabited. Among them walk wraith knights, beings cloaked in the finest of wools and silks and linens, colored through red, blue, green, yellow, orange, and so on, decorated often with flowers. Not much can be seen of them, as their cloaks and hoods cover their actual bodies, but armored arms and legs can be seen with their movements, wielding odd blades as they cut down intruders. Neither blade nor arrow seem to affect them, so it is best to find your desired gate and leave as soon as possible.</p>
-<h3 id="strahzzi">Strahzzi</h3>
-<p>Strahzzi are people who make up a kingdom of unknown name - mostly due to even translators failing to understand it - located in eastern Krashq’kanov. These people are a four armed human-like race, though their kingdom is made of several territories, vast and wide, stretching into central and southern Krashq’kanov, below the Obsidian Plains and a ways away from the Resurrected Sunborne.</p>
-<p>It is largely unknown what they are like, though this is because visitors are never welcome for long and their language is incomprehensible. They fly colored banners of green and red, using weapons of odd hook-like halberds, honorless are they - such is the curse of those who fly green banners.</p>
-<h2 id="mothua">Mothua</h2>
-<h3 id="spindle-knights">Spindle Knights</h3>
-<p>The Spindle Knights are a small order of, what the Anointed Holy Cities call, Abhorrent Humans. They are unusually tall and spindly, hence their self-proclaimed name of the Spindle Knights. They are covered head-to-toe in a thin metal armor, fashioned after the armor of various Noble Houses of the Anointed Holy Cities’ Nobility. The quality of the armor, however, is rather dubious, and the coloration is a green-hued silver. They each wield an abnormally long halberd, however, which appears to be rather effective for surprisingly long forwards stabbing motions and for use in cleaving, like using a bladed staff.</p>
-<p>They reside within the small valley found in the southern end of West Mothua, just a few miles off the coast there. It is a heavily wooded area, though the trees are thin, tall, and lush with bright greenery and yellows, abundant with sunlight. The Spindle Knights themselves claim to be chivalrous, but rarely ever do anything of note, preferring to stay within their little valley home. They are, in addition, so inactive that not even the Anointed Holy Cities cares about their presence or existence.</p>
-<h3 id="taleuri">Taleuri</h3>
-<p>The Taleuri reside on the Spiced Isthmus, a mass of land that connects West Mothua, North-East Mothua, and South Mothua. Near the northern and western edges of the Spiced Isthmus, the usual plantlife and vegetation of the northern half of Mothua quickly disperses into the vibrant blue sands of South Mothua.</p>
-<p>These people, the Taleuri, are small figures dressed in brown and red heavy robes, though their purple-hued skin can be seen between the robes. They operate the Galleosands, large galleon-like ships made to skim across the surface of the blue sands below. They ferry various peoples and cargos from one end of Spiced Isthmus to the other, stopping every now and then in the Red City on the eastern coast of the southern end of Spiced Isthmus. If payment cannot be made in coin or valuable items, payment will be made in flesh and bone.</p>
-<h3 id="those-who-watch">Those Who Watch</h3>
-<p>Those Who Watch are a handful, a score, maybe two score, of tall, bulky, skeletal figures. Their skeletons are similar to that of a human skeleton, but there are oddities - certain bones are too thick, some are melded together, there are bones where they should not be, and certain bones are far too elongated to be human, like the thick cord of bones reaching from their spine to the base of their skulls, nearly two feet in distance.</p>
-<p>They wear large, white cloaks with silver pauldrons atop the shoulders of the cloak, held together by a simple silver clasp. In their right hand, they carry a weapon. The handle is the length of a standard male Shrike’s entire arm, the pommel a rounded metal ball, and the guard is completely missing. The blade itself is far too large to be called a sword, it is more akin to a massive slab of sharpened marble. It has a single edge, with the blunt half adorned with a skull where the guard should be and skeletal hands and ribcages reaching up the length of the blade.</p>
-<p>Those Who Watch slowly wander the Meandering Crosslands. They are silent, never speaking, to the extent that their lower jaw is completely missing. They do little, and will remain doing little, so long as one does not disturb the crosses or bones of those fallen long ago.</p>
-<h3 id="hinter-witches">Hinter-Witches</h3>
-<p>The Hinter-Witches are an old order, with the earliest recordings of them being seen before the vanishing of the people of Hesterbaum. They were not seen around there, merely that they were earliest recorded then.</p>
-<p>At one time, they attempted to rule West Mothua, though after many Holy Crusades and burnings at the stakes, what was left of the Hinter-Witches were scattered across the eastern edges of West Mothua and across North-East Mothua. There are only a few of them left that are known at present time, reduced to strange women in odd places, each doing as they see fit for the rest of their seemingly endless lives.</p>
-<h2 id="ekternau">Ekternau</h2>
-<h3 id="iystrobahths">Iystrobahths</h3>
-<blockquote><p>“Iystrobahths is a Lesser God, a hidden being of great malefic delight, descended far and away from their mother, Musanshi, albeit distantly. It is a forgotten and abandoned being, but it cares little for these facts, seeking instead purely to torment. It can be found, with extreme difficulty, roaming the thickest fog-ridden islands, though it is believed that it primarily resides in the central-most island of Ekternau.</p><p>Iystrobahths is giant, nigh the size of a score-and-nine human men at full height, though it is more elklike, having the head of a stiltleg elk. In place of the two eyes that the standard stiltleg elk possesses, it has seven eyes, all a blind, milky blue, with one large eye on the forehead being a milky yellow permanently leaking odd green tears. In place of legs, it has a myriad of arms and giant hands holding it up, so much so that the central body cannot be seen from beneath. Additionally, six freakishly long, thin arms are just below the jaw, made for precision, that can grab a man and fiddle with the smallest details of he.</p><p>As said by the last sent to speak with it, Iystrobahths has several antlers, though there are a myriad of antlers around a long, thick fog-blue shag-fur, though more specifically concentrated at the tip of the tail. However, the traveller couldn’t recall much else, nor could he be sent back to see, for Iystrobahths plucked his eyes and consumed them as payment to be allowed to live. It is said that Iystrobahths was the one who introduced the Dredgkrak to Grenway, leading to the deaths of those who resides there, likely for its own amusement.</p><p>“I, born into flesh, the younger of Spite and Pride, saw the Hell my Mother wished for, and it pleased me so. But I, being so small, so useless, was abandoned and left to rot. And lo, a baleful pleasure filled me, for now I was free to see and see and see. As you have seen, Meagre One. I shall feast upon your sight, and you shall see evermore, til my toys come to feast upon your flesh. Come hither, traveler, let us enjoy your sight a while.”</p><p class="attribution">- Iystrobahths, quoted from the memory of The Traveler</p><p>Iystrobahths predates the earliest skeletons of the Stiltleg Elks, so while it has not been confirmed, it is highly likely that they were created by it. The connection was made only when, upon making camp for a night, something tore the wounded traveller from his tent, only for pieces of him to be found in the morning with many Stiltleg Elk hoofprints found round about.</p><p>Deep in the wood, closer and closer to the coast where a ship awaits, the bridge connecting this piece of land to that had been destroyed, long collapsed despite being walked upon mere days before. Rations here dwindled quickly, food became scarce, and the chuckling, silent mirth of Iystrobahths is near. I have not long for this world, and I am abandoned by my fellow man, but not alone.</p><p>Father Above All save us.”</p><p class="attribution">- Portion of a manuscript found upon a legless corpse, located and cracked open upon a small boulder in northern Ekternau, believed to be another attempt at a Fifthfog Bestiary</p></blockquote></article>
+<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#kranov-enclave">Kranov Enclave</a><a href="#mothua-enclave">Mothua Enclave</a><a href="#ekternau-enclave">Ekternau Enclave</a></div></nav><article class="lore-page"><p>The Chitinous Enclaves are made up of various tribes of hunting bugmen scattered all throughout the world. Not much is true amongst all of the tribes other than each tribe takes great import in hunting and becoming the apex predators of their environment. Some tribes are more bug-like and some are more humanoid, but all are bug-like. A Greater Hive-Mind, the Great Mother, rules over each tribe, but not each individual. The control is enough to give each tribe a direction, though none outside of the Chitinous Enclaves know where the Great Mother originates from.</p>
+<h2 id="kranov-enclave">Kranov Enclave</h2>
+<p>The Chitinous Enclave doesn’t have much of a presence in Krashq’kanov, but the presence it does have is far more inhuman than most of their brethren. Their ideal prey are the great beasts of the region, Shrikes, the combat constructs who wander away from the great Monoliths, and various villages and towns.</p>
+<p>Their exoskeletons are typically a glossy, obsidian black, with mud-green colorations between each outer plate of the exoskeleton. Unlike most of their brethren of the other Enclaves, the Kranov Enclave uses giant, thin, spined pincer claws and spined skeletal tails, all of which having an even tougher exoskeleton plating. As with all Enclaves, the Kranov Enclave knows that might makes right, and he who slays the greatest foes and beasts shall command the Enclave.</p>
+<h2 id="mothua-enclave">Mothua Enclave</h2>
+<p>The Mothua Enclave is unique among the Chitinous Enclaves in that it was among the first spawned by the Great Mother. They were among the first to walk the lands and were the first people to name themselves on those lands - Mothua - before they named the lands after themselves.</p>
+<p>Thin, elegant, moth-like beings, pale as moonlight. They seem almost fragile with such slim and spindly limbs, such fragile looking wings, frail antennae, porcelain white exoskeleton plating, and human-like face plates. Their clothes weren’t hardy either, made of the soft and silky-smooth antir mycoid skins gathered and skinned from antir mushrooms. Their weapons were neither large nor bulky, either, being made of sharpened and carefully shaped and sharpened antlers, wrapped in antir mycoid skin-leather and adorned with special blue-bells or other such plants, made to never die and to remain in full bloom.</p>
+<p>The Mothua Enclave, living in the eastern forests of Mothua, reside in a forest that has come to be known as the Ancient Wood. The forests here have grown strange and warped, tree canopies grown so thick that sunlight may never touch the forest floor. Here, the Mothua Enclave can outrun all, leaping from tree to tree, using strange moth-like wings to aid them in leaps, bounds, and glides. They use the vibrant antir mushrooms almost like a spider-web to track their prey or to sense intruders.</p>
+<p>Their weapons drip with various poisons, though it is mostly for show. What is seen dripping is little more than flower-dyed tree sap, for the real poison seeped and soaked into the antlers themselves long ago.</p>
+<p>Unlike most of the Chitinous Enclaves, the Mothua Enclave does not need to hunt the largest or most terrifying beasts, for they know what holds true power: the strange humans in their lands, able to adapt to any situation, to flood any other force or creature with such numbers that the likes of which cannot be comprehended. No, the Mothua Enclave will slink along by night in search of officers, Inquisitors, Holy Sisters, members of noble houses, and so on, aiming to assassinate those for the simple joy of watching it cripple the odd, screaming, wriggling creatures that call themselves humans.</p>
+<h2 id="ekternau-enclave">Ekternau Enclave</h2>
+<p>The Ekternau Enclave, residing in and around the large islands of Ekternau. They are primarily crustacean-like, not so much insectoid, unlike most of their brethren. On top of their exoskeletons, they wear the plate-like bone fragments of whales and great fish like additional armor, segmented and tethered together with whale sinew, believed to provide strength and durability.</p>
+<p>They use take their old exoskeletons, break them down, and reshape them using sinew from large fish and carved driftwood to create gargantuan, odd weapons. One such weapon seen was a re-used sharpened claw mounted on a large staff, while another seen was a large slab of armor mounted on a shorter pole of driftwood, sharpened and serrated.</p>
+<p>Their intelligence is above that of those like the Kranov Enclave, but below those of the Mothua Enclave. They primarily hunt great whales, squids, leviathans, and the various peoples of the Ekternau islands. Occasionally, the Ekternau Enclave will travel to the western shores of Mothua to hunt the strange, ink covered humans there. None of the humans are particularly powerful there, but their numbers are numerous enough to give the Ekternau Enclave a good time.</p></article>
 </main>
 <footer class="site-footer">Grimmvein</footer>
 </div>
 <a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
-</body>
+<script>
+(() => {
+  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
+  if (!triggers.length) return;
+  document.body.classList.add('js-tooltips');
+
+  const tip = document.createElement('div');
+  tip.className = 'gv-keyword-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.setAttribute('aria-hidden', 'true');
+  tip.innerHTML = '<strong></strong><span></span>';
+  document.body.appendChild(tip);
+  const tipName = tip.querySelector('strong');
+  const tipText = tip.querySelector('span');
+  let active = null;
+
+  const position = (el) => {
+    if (!el || !tip.classList.contains('is-visible')) return;
+    const r = el.getBoundingClientRect();
+    const pad = 12;
+    const gap = 9;
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const t = tip.getBoundingClientRect();
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
+    let top = r.top - t.height - gap;
+    if (top < pad) top = r.bottom + gap;
+    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
+    tip.style.left = `${Math.round(left)}px`;
+    tip.style.top = `${Math.round(top)}px`;
+  };
+
+  const show = (el) => {
+    active = el;
+    const keyword = (el.dataset.keyword || el.textContent || '').trim();
+    tipName.textContent = keyword;
+    tipText.textContent = el.dataset.tooltip || '';
+    tip.classList.add('is-visible');
+    tip.setAttribute('aria-hidden', 'false');
+    position(el);
+  };
+  const hide = (el) => {
+    if (el && active !== el) return;
+    active = null;
+    tip.classList.remove('is-visible');
+    tip.setAttribute('aria-hidden', 'true');
+  };
+
+  triggers.forEach(el => {
+    el.setAttribute('aria-describedby', '');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', () => hide(el));
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', () => hide(el));
+    el.addEventListener('click', e => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      e.stopPropagation();
+      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('resize', () => active && position(active));
+  window.addEventListener('scroll', () => active && position(active), true);
+})();
+</script></body>
 </html>

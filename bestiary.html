@@ -3,75 +3,757 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#111416" name="theme-color"/>
-<title>The Anointed Holy Cities — Grimmvein</title>
+<title>Bestiary — Grimmvein</title>
 <link href="favicon.png" rel="icon" type="image/png"/>
-<link href="grimmvein-site-2026.css" rel="stylesheet"/>
-<script defer="" src="grimmvein-site-2026.js"></script>
-</head>
-<body data-group="factions" data-page="anointed-holy-cities" id="top">
-<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
-<div aria-hidden="true" class="sidebar-overlay"></div>
-<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions" open=""><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a aria-current="page" class="active" href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+:root{
+  --black:#0d0f10;
+  --deep:#121516;
+  --panel:#181c1e;
+  --panel-2:#202527;
+  --line:#4e473a;
+  --line-bright:#776744;
+  --gold:#d6b75f;
+  --gold-bright:#f0d580;
+  --text:#e8e0d1;
+  --muted:#bdb19c;
+  --sidebar-width:310px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 75% 0%,rgba(122,99,45,.09),transparent 34rem),
+    var(--black);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.13rem;
+  line-height:1.68;
+}
+button,a{font:inherit}
+a{color:var(--gold-bright)}
+a:hover{color:#fff0b0}
+
+h1,h2,h3,
+.card-title,.toc-title,
+.sidebar-brand,.sidebar-nav summary,
+.back-to-top,.mobile-menu,
+.datasheet-name{
+  font-family:"UnifrakturMaguntia",Georgia,serif;
+  font-weight:400;
+}
+h1,h2,h3{line-height:1.05}
+
+/* --- Sidebar --- */
+.sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  z-index:30;
+  width:var(--sidebar-width);
+  overflow-y:auto;
+  padding:24px 18px 36px;
+  background:
+    linear-gradient(180deg,rgba(214,183,95,.06),transparent 12rem),
+    #111416;
+  border-right:1px solid var(--line-bright);
+  box-shadow:10px 0 35px rgba(0,0,0,.28);
+}
+.sidebar-brand{
+  display:block;
+  margin:0 4px 22px;
+  padding:14px 8px 22px;
+  color:var(--gold-bright);
+  font-size:3.15rem;
+  line-height:.9;
+  text-align:center;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+}
+.sidebar-close{display:none}
+.sidebar-nav details{
+  margin:5px 0;
+  border:1px solid transparent;
+}
+.sidebar-nav details[open]{
+  background:rgba(255,255,255,.018);
+  border-color:#2e2d28;
+}
+.sidebar-nav summary{
+  position:relative;
+  padding:10px 34px 10px 12px;
+  color:#d7c9af;
+  font-size:1.36rem;
+  line-height:1.08;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
+}
+.sidebar-nav summary::-webkit-details-marker{display:none}
+.sidebar-nav summary::after{
+  content:"+";
+  position:absolute;
+  right:12px;
+  top:8px;
+  color:#948465;
+}
+.sidebar-nav details[open]>summary::after{content:"−"}
+.sidebar-nav summary:hover{color:var(--gold-bright)}
+.sidebar-links{padding:2px 8px 9px 16px}
+.sidebar-links a{
+  display:block;
+  margin:2px 0;
+  padding:6px 10px;
+  color:#bfb39f;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.25;
+  text-decoration:none;
+  border-left:2px solid #35332d;
+}
+.sidebar-links a:hover{
+  color:#fff;
+  border-left-color:var(--gold);
+  background:rgba(214,183,95,.05);
+}
+.sidebar-links a.active{
+  color:var(--gold-bright);
+  border-left-color:var(--gold-bright);
+  background:rgba(214,183,95,.08);
+}
+
+/* --- Main site --- */
+.site-main{min-height:100vh;margin-left:var(--sidebar-width)}
+.content-wrap{
+  width:min(1040px,calc(100% - 72px));
+  margin:0 auto;
+  padding:58px 0 100px;
+}
+.page-header{
+  margin-bottom:35px;
+  padding:0 0 24px;
+  border-bottom:1px solid var(--line-bright);
+}
+.page-kicker{
+  margin:0 0 4px;
+  color:#94866c;
+  font-size:.95rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+h1{
+  margin:0;
+  color:var(--gold-bright);
+  font-size:clamp(3.3rem,8vw,5.9rem);
+}
+.page-deck{
+  max-width:780px;
+  margin:13px 0 0;
+  color:var(--muted);
+  font-size:1.12rem;
+}
+.lore-page{
+  padding:30px clamp(22px,5vw,52px) 48px;
+  background:linear-gradient(180deg,rgba(255,255,255,.014),transparent 25rem),var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 15px 45px rgba(0,0,0,.22);
+}
+.lore-page>p:first-child{margin-top:0}
+.lore-page p{margin:0 0 1.25em}
+.lore-page h2{
+  scroll-margin-top:24px;
+  margin:2.1em 0 .65em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.35rem;
+  border-bottom:1px solid #3d392f;
+}
+.lore-page h3{
+  scroll-margin-top:24px;
+  margin:1.65em 0 .45em;
+  color:#d9c481;
+  font-size:1.75rem;
+}
+.lore-page h2:target,.lore-page h3:target{
+  color:#fff0aa;
+  text-shadow:0 0 18px rgba(240,213,128,.28);
+}
+.toc{
+  margin:0 0 30px;
+  padding:19px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+}
+.toc-title{margin:0 0 11px;color:var(--gold);font-size:1.5rem}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{
+  padding:5px 9px;
+  color:#cdbf9f;
+  text-decoration:none;
+  background:#202426;
+  border:1px solid #4a453a;
+}
+.toc a:hover{color:#fff;border-color:var(--gold)}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:16px;
+}
+.card{
+  display:flex;
+  min-height:155px;
+  flex-direction:column;
+  padding:21px;
+  color:var(--text);
+  text-decoration:none;
+  background:linear-gradient(145deg,rgba(214,183,95,.045),transparent 60%),var(--panel);
+  border:1px solid var(--line);
+  transition:transform .15s ease,border-color .15s ease,background .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  color:var(--text);
+  border-color:var(--gold);
+  background:var(--panel-2);
+}
+.card-title{margin:0 0 8px;color:var(--gold-bright);font-size:1.65rem}
+.card p{margin:0;color:#bcb19d;font-size:1rem;line-height:1.45}
+.card-open{margin-top:auto;padding-top:16px;color:#d2b968}
+blockquote{
+  margin:1.5em 0;
+  padding:18px 22px;
+  color:#d2c7b3;
+  font-style:italic;
+  background:#171a1b;
+  border-left:3px solid var(--gold);
+}
+blockquote p:last-child{margin-bottom:0}
+.attribution{color:#9e927e;font-style:normal}
+.name-list{padding-left:1.4em}
+.name-list li{margin:.35em 0}
+
+/* --- Wargame --- */
+.wargame-wrap{width:min(1220px,calc(100% - 72px))}
+.wargame-hero-note,.wargame-intro,.rules-page,.army-rule,.empty-state{
+  margin-bottom:26px;
+  padding:24px 28px;
+  background:var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.wargame-hero-note p,.wargame-intro p{margin:0}
+.wargame-card{min-height:170px}
+.section-heading{margin:42px 0 18px;color:var(--gold);font-size:2.4rem}
+.intro-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid #35322c;
+}
+.intro-links a{text-decoration:none}
+.army-profile{margin-top:16px!important;color:#ddc982;font-weight:700}
+.army-rule{
+  position:relative;
+  padding-top:36px;
+  border-color:var(--line-bright);
+  background:linear-gradient(145deg,rgba(214,183,95,.055),transparent 55%),var(--panel);
+}
+.army-rule-label{
+  position:absolute;
+  top:0;
+  left:0;
+  padding:6px 12px;
+  color:#18150d;
+  background:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.army-rule h2{margin:0 0 10px;color:var(--gold-bright);font-size:2rem}
+.army-rule p:last-child{margin-bottom:0}
+.datasheet-stack{display:grid;gap:28px}
+.datasheet{
+  scroll-margin-top:24px;
+  position:relative;
+  background:#121617;
+  border:1px solid #6b5d3e;
+  box-shadow:0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet:target{
+  border-color:var(--gold-bright);
+  box-shadow:0 0 0 1px var(--gold-bright),0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 22px;
+  color:#14110a;
+  background:linear-gradient(90deg,#c6a64d,#e3ca77 62%,#baa04e);
+}
+.datasheet-name{font-size:2.2rem;line-height:1}
+.datasheet-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 14px;
+  margin-top:7px;
+  font-family:Arial,sans-serif;
+  font-size:.82rem;
+  font-weight:700;
+}
+.coin-cost{
+  flex:0 0 auto;
+  padding:8px 12px;
+  color:#f4e7bd;
+  background:#171a1b;
+  border:1px solid #5c5035;
+  font-family:Arial,sans-serif;
+  font-size:.9rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(84px,1fr));
+  border-bottom:1px solid #4a4234;
+  background:#1c2123;
+}
+.stat-cell{
+  min-width:0;
+  padding:11px 8px 12px;
+  text-align:center;
+  border-right:1px solid #3b3932;
+}
+.stat-cell:last-child{border-right:0}
+.stat-label{
+  display:block;
+  color:#b8aa8e;
+  font-family:Arial,sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.stat-value{
+  display:block;
+  margin-top:2px;
+  color:#fff0b1;
+  font-family:Georgia,serif;
+  font-size:1.55rem;
+  line-height:1.1;
+  font-weight:700;
+}
+.datasheet-subsection{padding:18px 22px 20px;border-top:1px solid #39362f}
+.datasheet-subsection:first-of-type{border-top:0}
+.datasheet-subsection h3{margin:0 0 10px;color:#dac476;font-size:1.5rem}
+.datasheet-subsection h4{
+  margin:0 0 3px;
+  color:#e7d692;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.12rem;
+  font-weight:700;
+}
+.ability-entry+.ability-entry{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px dashed #3c3931;
+}
+.ability-entry p{margin:0}
+.ability-none{margin:0}
+.table-scroll{width:100%;overflow-x:auto}
+.weapon-table,.rules-table,.keyword-table{width:100%;border-collapse:collapse;line-height:1.28}
+.weapon-table th,.rules-table th{
+  padding:8px 10px;
+  color:#14110a;
+  background:#c9ad5f;
+  border:1px solid #9f8749;
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+.weapon-table td,.rules-table td,.keyword-table td,.keyword-table th{
+  padding:9px 10px;
+  border:1px solid #464137;
+}
+.weapon-table tbody tr:nth-child(even),
+.rules-table tbody tr:nth-child(even),
+.keyword-table tr:nth-child(even){background:#1b2022}
+.weapon-name{min-width:250px;color:#eee3cf;font-weight:700}
+.weapon-keywords{color:#d5bd71;font-size:.9rem;font-weight:700}
+.keyword-row{display:flex;flex-wrap:wrap;gap:7px}
+.keyword-chip{
+  display:inline-block;
+  padding:4px 8px;
+  color:#e3ca7b;
+  background:#202527;
+  border:1px solid #514938;
+  font-family:Arial,sans-serif;
+  font-size:.8rem;
+  font-weight:700;
+}
+.leadership p{margin:.35em 0}
+.muted{color:#9f9686}
+.empty-state h2{margin-top:0;color:var(--gold)}
+.rules-page section{scroll-margin-top:24px}
+.rules-page h2{
+  margin:2em 0 .6em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.25rem;
+  border-bottom:1px solid #3d392f;
+}
+.rules-page section:first-child h2{margin-top:0}
+.rules-page h3{margin:1.35em 0 .4em;color:#dcc77f;font-size:1.55rem}
+.rules-page p{margin:.75em 0 1em}
+.rules-page li{margin:.45em 0}
+.rules-example{padding:12px 15px;background:#1b2022;border-left:3px solid var(--gold)}
+.compact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.compact-grid>div{padding:12px 14px;background:#1a1f21;border:1px solid #403c34}
+.compact-grid strong,.compact-grid span{display:block}
+.compact-grid strong{color:#e2ca7d}
+.compact-grid span{margin-top:4px;color:#c5baa7;font-size:.96rem}
+.keyword-table th{
+  width:190px;
+  color:#e5ce83;
+  text-align:left;
+  background:#1b2022;
+}
+.mission-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+  margin:20px 0 24px;
+}
+.mission-card{margin:0;padding:12px;background:#0e1112;border:1px solid #4b4538}
+.mission-card img{display:block;width:100%;height:auto;border:1px solid #6a604b}
+.mission-card figcaption{padding:12px 4px 2px;color:#c9bfad;font-size:.94rem;line-height:1.45}
+
+/* --- Keyword hover/focus tooltips --- */
+.keyword-tip{
+  display:inline-block;
+  position:relative;
+  color:#e7cf7d;
+  text-decoration:underline dotted rgba(231,207,125,.62);
+  text-underline-offset:3px;
+  cursor:help;
+}
+.keyword-chip.keyword-tip{text-decoration:none}
+.keyword-tip:focus{
+  outline:1px solid var(--gold-bright);
+  outline-offset:2px;
+}
+.keyword-tooltip-popover{
+  position:fixed;
+  z-index:1000;
+  width:max-content;
+  max-width:min(360px,calc(100vw - 30px));
+  padding:10px 12px;
+  color:#eee5d5;
+  background:#0b0d0e;
+  border:1px solid var(--gold);
+  box-shadow:0 8px 28px rgba(0,0,0,.55);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.35;
+  pointer-events:none;
+}
+.keyword-tooltip-popover[hidden]{display:none}
+
+/* --- Shared furniture --- */
+.back-to-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:20;
+  padding:8px 13px;
+  color:var(--gold-bright);
+  font-size:1.15rem;
+  text-decoration:none;
+  background:#151819;
+  border:1px solid var(--line-bright);
+  box-shadow:0 5px 18px rgba(0,0,0,.38);
+}
+.back-to-top:hover{color:#fff;background:#242829}
+.mobile-menu,.sidebar-overlay{display:none}
+.site-footer{
+  padding:25px 35px;
+  color:#786f60;
+  text-align:center;
+  border-top:1px solid #292824;
+}
+
+@media(max-width:1000px){
+  .stat-strip{grid-template-columns:repeat(4,1fr)}
+  .stat-cell{border-bottom:1px solid #3b3932}
+}
+@media(max-width:900px){
+  .sidebar{
+    width:min(330px,88vw);
+    transform:translateX(-105%);
+    transition:transform .2s ease;
+  }
+  body.nav-open .sidebar{transform:translateX(0)}
+  .sidebar-close{
+    display:block;
+    position:absolute;
+    right:9px;
+    top:7px;
+    padding:5px 9px;
+    color:#cdbd9c;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+  }
+  .mobile-menu{
+    display:block;
+    position:fixed;
+    left:14px;
+    top:14px;
+    z-index:25;
+    padding:8px 12px;
+    color:var(--gold-bright);
+    background:#151819;
+    border:1px solid var(--line-bright);
+    box-shadow:0 4px 15px rgba(0,0,0,.35);
+    cursor:pointer;
+  }
+  .sidebar-overlay{
+    position:fixed;
+    inset:0;
+    z-index:29;
+    background:rgba(0,0,0,.62);
+  }
+  body.nav-open .sidebar-overlay{display:block}
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{width:min(900px,calc(100% - 34px));padding-top:75px}
+  .back-to-top{right:12px;bottom:12px}
+}
+@media(max-width:650px){
+  .datasheet-header{flex-direction:column}
+  .coin-cost{align-self:flex-start}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .compact-grid{grid-template-columns:1fr}
+  .weapon-name{min-width:190px}
+}
+@media(max-width:560px){
+  body{font-size:1.06rem}
+  .content-wrap,.wargame-wrap{width:calc(100% - 22px)}
+  .lore-page{padding:22px 17px 34px}
+  h1{font-size:3.15rem}
+  .toc-links{flex-direction:column}
+  .toc a{width:100%}
+}
+
+
+/* =========================================================
+   SELF-CONTAINED BUILD
+   No external site CSS or JavaScript is required.
+   ========================================================= */
+
+.mobile-menu,
+.sidebar-overlay,
+.sidebar-close,
+.keyword-tooltip-popover {
+  display: none !important;
+}
+
+/* CSS-only keyword tooltips.
+   They render as a fixed panel, so tables/scroll containers cannot clip them. */
+.keyword-tip[data-tooltip] {
+  cursor: help;
+}
+.keyword-tip[data-tooltip]:hover::after,
+.keyword-tip[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999999;
+  width: min(420px, calc(100vw - 44px));
+  padding: 12px 14px;
+  color: #f1e7d5;
+  background: #090b0c;
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 10px 36px rgba(0,0,0,.65);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  line-height: 1.38;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* Mobile becomes a normal top-of-page archive instead of a JS drawer. */
+@media(max-width:900px){
+  .sidebar{
+    position: static;
+    width: 100%;
+    max-height: none;
+    transform: none !important;
+    padding: 18px 14px 22px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-bright);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .sidebar-brand{
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar-nav{
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{
+    width:min(900px,calc(100% - 34px));
+    padding-top:34px;
+  }
+}
+
+</style>
+<style>
+/* Reliable body-level keyword tooltip. The older ::after tooltip remains as a no-JS fallback. */
+.js-tooltips .keyword-tip[data-tooltip]::after,
+.js-tooltips .keyword-tip[data-tooltip]::before { content:none !important; display:none !important; }
+.keyword-tip[data-tooltip] { cursor:help; text-decoration:underline dotted rgba(240,213,128,.55); text-underline-offset:2px; }
+.gv-keyword-tooltip {
+  position:fixed; z-index:2147483000; left:0; top:0;
+  width:min(430px,calc(100vw - 24px));
+  padding:12px 14px; color:#f1e7d5; background:#090b0c;
+  border:1px solid var(--gold-bright); box-shadow:0 10px 36px rgba(0,0,0,.72);
+  font-family:"Times New Roman",Times,serif; font-size:1rem; line-height:1.4;
+  text-align:left; white-space:normal; pointer-events:none;
+  opacity:0; visibility:hidden; transition:opacity .08s ease;
+}
+.gv-keyword-tooltip.is-visible { opacity:1; visibility:visible; }
+.gv-keyword-tooltip strong { display:block; margin-bottom:4px; color:var(--gold-bright); font-weight:700; }
+</style></head>
+<body data-group="bestiary" data-page="bestiary" id="top">
+<aside class="sidebar" id="site-sidebar"><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary" open=""><summary>Bestiary</summary><div class="sidebar-links"><a aria-current="page" class="active" href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
 <div class="site-main">
 <main class="content-wrap">
 <header class="page-header">
-<p class="page-kicker">Factions</p>
-<h1>The Anointed Holy Cities</h1>
+<p class="page-kicker">Archive</p>
+<h1>Bestiary</h1>
+<p class="page-deck">Creatures catalogued from the seas, the Darklands, and the mist-bound islands.</p>
 </header>
-<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#inner-sanctum">Inner Sanctum</a><a href="#inquisition">Inquisition</a><a href="#holy-sisterhood">Holy Sisterhood</a><a href="#noble-houses">Noble Houses</a><a href="#great-house-arkithane">Great House Arkithane</a><a href="#great-house-kernobohlg">Great House Kernobohlg</a><a href="#house-tarbairn">House Tarbairn</a><a href="#leviathan-mines">Leviathan Mines</a><a href="#figures-of-note">Figures of Note</a><a href="#high-inquisitor-belial-mizrahi">High Inquisitor Belial Mizrahi</a><a href="#high-inquisitor-ezekiel-khalas">High Inquisitor Ezekiel Khalas</a><a href="#low-archangel-seras">Low Archangel Seras</a></div></nav><article class="lore-page"><p>The Anointed Holy Cities began long ago, in times untold, as the beginnings of a myriad of pilgrimages from a myriad of peoples. Over time, they began to create cities that grew so large that they became mountains and, eventually, larger than mountains. Their capital and greater cities were built were they believed their holy lands to be, only for their worship and devotion of their believed to be Father of All to grow corrupted. Slowly, they began to rot from the inside-out, until they were left a carcass of zealots and the worst kinds of people. To live is to devote oneself, to die is to repent.</p>
-<h2 id="inner-sanctum">Inner Sanctum</h2>
-<p>The Inner Sanctum is located in the hidden midst of the Great Rim Cities, far beneath the surface of buildings, and accessible only by hidden pathways and guarded gates. As one walks down the dark pathways, the air grows thicker, older, and harder to breathe as the scent of rotting paper and ink grows stronger.</p>
-<p>Finally, once light is found, it is by lantern-light, in a giant labyrinthine maze of a library. The shelves reach upwards farther than the eye can see, though severely inhibited by the extreme amount of dust in the air. Large, rounded, hunched over hooded fingers, taller than the common man, slowly roam between the walls of books and scrolls. Whatever color their cloaks might have once been, they have aged into being a dust-coated and worn brown. From their robes, an arm holding an iron lantern is cast, carefully controlled so that fire may never escape it, while a series of other arms - one, perhaps two being organic, the rest being wooden - roam through the countless pages and texts.</p>
-<p>These are the Keepers of the Inner Sanctum, librarians of the most odd sort, records keepers, and these are they who give the Inquisition and Holy Sisters information of all sorts.</p>
-<h2 id="inquisition">Inquisition</h2>
-<p>The Inquisition, at the highest level, are figures of near supreme authority, second only to the crown. They hunt through the Anointed Holy Cities, routing out heretics and blasphemers alike, before deciding what fate awaits those who turn away from the One Faith. They are not forbidden from fathering children, only forbidden from straying from their duties.</p>
-<p>Every Inquisitor is taken as a young boy, be they from beggars, orphanages, homes with too many sons, or noble houses as tributes. These boys are then taught every art of perception, of information gathering, the arts of inflicting pains, of swordplay (or other various weapons), every facet of the One Faith, and so on, until they become men. Once they become men, they become a Low Inquisitor, paired with a Holy Sister of similar rank, and dispatched to the outer cities, towns, and villages. Here, they act as typical Inquisitors, as secret police, and as beast hunters, though only towards the particularly daemonic threats.</p>
-<p>After they have proven themselves, they may become True Inquisitors and, while they maintain all their previous duties, they may accompany or shadow along High Inquisitors. Only the truly exceptional may become High Inquisitors through the apprenticeship of other High Inquisitors. Once they have achieved this rank - though most do not - they are second only in authority to the crown.</p>
-<p>The High Inquisitors roam the thirteen Anointed Holy Cities, stalking their streets and alleyways to eradicate those who might become enemies of the One Faith. Throughout the entirety of their tenure as an Inquisitor, regardless of rank, they are always paired with a Holy Sister of similar rank.</p>
-<h2 id="holy-sisterhood">Holy Sisterhood</h2>
-<p>The Holy Sisters are seen as the pinnacle of the One Faith. As babes, they are taken from a myriad of sources - just like the Inquisition - before being raised carefully and gently. They are taught every facet of the One Faith, every verse in their sacred texts, every hymn, every prayer, every spell granted to them by the Father Above All, how to dispel the darkness that are daemons, and so on. They are not forbidden from birthing children, only forbidden from straying from their duties.</p>
-<p>As young women, they become Living Sisters. Here, they are paired with a Low Inquisitor, and are dispatched to outer cities, towns, and villages. However, they are not constantly with the Low Inquisitor, and often reside in the local chapels, abbeys, and parishes. Here, they silently and discretely report on their findings, including their partner Inquisitor, to ensure that he may never stray too far.</p>
-<p>As they serve, they will become Lesser Priestesses, True Priestesses, All-Seeing Sisters, and, if they are truly talented and exceptional, they may become a Low Archangel. A mark of being a Low Archangel, however, is that they must also be a Saintess, a title acquired by great deeds - either saving a large group of people, helping to annihilate a greater daemon, or some other such thing. They will typically follow along with their partner as they go, however, they often cycle through multiple Inquisitors as they do so because too many Inquisitors fall away from the One Faith enough to be permanently removed.</p>
-<p>A Low Archangel is the highest position of the One Faith, and there may only be thirteen at a time - one for each city - and they are seemingly immortal. Once they die, however, they will ascend into becoming a true Archangel in service of the Father Above All.</p>
-<h2 id="noble-houses">Noble Houses</h2>
-<p>The Anointed Holy Cities are ruled by hundreds, perhaps thousands, of noble Houses and Great Houses. Each House and Great House that wishes to continue existing must swear itself as a Banner-House to the crown, sworn to call upon hosts and knights and all manner of soldiers for war whenever the crown calls. Each Banner-House’s summoned hosts are the militaries of the great Anointed Holy Cities.</p>
-<h3 id="great-house-arkithane">Great House Arkithane</h3>
-<p>House Arkithane is one of the many Great Houses of the North-Eastern Anointed Holy City of Ephernaum, one of the merchant cities. House Arkithane largely controls much of the lakeside and riverside and water-way trade routes, leaving them relatively rich. They are, however, intelligent enough to make a more than necessary tithe to the One Faith, granting them both immunity and protection by the Inquisition and Holy Sisters.</p>
-<p>Their surcoat is a quartered surcoat of white and a dark turquoise with a white and black emblem of the Hand Of The Eighth Saint in the middle, a Saint said to be the elder brother of the founder of House Arkithane that aided in purging the North-Eastern lands for the occupation of the Anointed Holy Cities. House Arkithane is the third Great House to pledge itself as a Banner-House to the crown.</p>
-<p>They are a solemn and hostile Great House to the other Great Houses and commoners, fortifying their Great Houses, Manors, and Estates - which they have four of - and guarding them heavily. Even their maids are trained in the arts of death.</p>
-<p>Their maids, referred to as “Silents” due to House Arkithane removing their tongues and refusing to call them by whatever name they might have once had, are dressed in a thin but extremely modest uniform. Their faces are covered in a smooth black face-plate mask. Each has a small-headed axe with a basic handguard, as they are expected to eviscerate any intruders on sight.</p>
-<p>House Arkithane holds aggressive, financially expansionist habits, yet they always ensure that they have a way out of a bad deal or a way to spin things in their favor. Due to their cunning, ambition, and loyalty, they are one of the chosen favorites among the Bannermen to the crown. When the crown calls, they can call forth hosts up to seven-thousand strong, focused on small axes, polehammers, and archers.</p>
-<p>By axe and polehammer and arrow, by the might of the One Faith, every coin that touches the water shall belong to House Arkithane.</p>
-<h3 id="great-house-kernobohlg">Great House Kernobohlg</h3>
-<p>House Kernobohlg is one of the many Great Houses of the Anointed Holy Cities and the second Great House to declare itself a Banner-House to the crown. Many of the sons of Great House Kernobohlg serve or devote themselves to the Inquisition, though never the eldest son of each generation so that the Great House may continue onwards.</p>
-<p>They hold the western coasts of Mothua, serving as devoted wardens, yet they are among the first of the houses to join Holy Crusades or even help incite Holy Crusades. Unlike other Great Houses that may pay a generous tithe to the One Faith, Great House Kernobohlg pays a tithe of half its income, leading to extreme favor from the various priests of the One Faith, the Inquisition, and the Holy Sisters. Kernobohlg cares little for the internal politics of the Anointed Holy Cities, for these are true zealots.</p>
-<p>Great House Kernobohlg may summon hosts of forty-thousand strong. Five thousand Knights, two thousand siege machines, a score and nine thousand common men, and four thousand others for various purposes. In warfare, deserters are not merely imprisoned, they are publicly executed and made an example of.</p>
-<p>There will be no retreat, no cowardice, no defeat. No white banner, no mercy line. No last warning, only advance by design.</p>
-<h3 id="house-tarbairn">House Tarbairn</h3>
-<p>House Tarbairn is an odd noble house, though “odd” in that it is viewed upon with disdain even by the likes of the other Banner-Houses of Leviathas. They reside just outside Leviathas, as many of the Banner-Houses of lesser note typically do, claiming the lands round about the Cliff Keep and Cliff Keep itself. Their banner, a white field with a green bridge, upon which a great gold lion holding a spear stands upon it, flies all round-about their lands.</p>
-<p>Tarbairn specializes, surprisingly, or unsurprisingly, in pyrotechnics and in the use of tar - such was their namesake. They prefer to lure armies and enemies into ravines and canyons and manufactured divides, only to reign fire and pour tar and oil over the poor foes beneath. They would sooner gift the entirety of their wealth to the One Faith and Inquisition than face their foes in open, direct combat. They are a contemptible sort, often perceived to lie or backstab, though most notably they view the word “mayhaps” as a loophole of sorts.</p>
-<p>They can summon hosts, though not of the same size as Great Houses. The largest host they’d ever summoned seven hundred, two score and ten armed peasants and scarcely more than ten knights.</p>
-<h2 id="leviathan-mines">Leviathan Mines</h2>
-<p>The Leviathan Mines are a giant, cavernous mine construct deep within and underneath the Anointed Holy City of Leviathas. Here, the Abyssal Cults - they who call themselves the Jegari - fester, though they are kept on a leash and periodically cleansed in an attempt to get rid of them. Though, just like rats, they always somehow reappear.</p>
-<p>The miners are kept under strict control, led by task masters who wield scourgestaffs. A scourgestaff is a simple, cruel weapon, meant more to inflict pain than to actually kill. The threads of the scourges are long and thin, the heads of which are also long and thin, beaded in slim diamond-shaped sharp beads of scorched stone, meant to make them more durable and intimidating. The beads have several sharp points, meant to rip into skin, but not so much that they dig into flesh or cause major damages. The staff portion itself is to give the weapon greater range and an additional weapon in case the mining slaves attempt to rebel.</p>
-<p>An excerpt from a letter from the superintendent of the Albin Quarter of the mines to the quartermaster of the shipment cranes,</p>
-<p>“... A shipment of five fothers of Blackfog Glass, a score-and-eight fothers of stone, and ten-and-nine fothers of marble will be made to the Southern Ascended Peak for preparation. As of this quarter, only a handful of corrections have had to be made, only a smaller shipment of new fodder will be required. The activity of the cults has remained culled, for now, though an investigation from the Inquisition may be required yet again soon, though no monstrous beast has been spotted as of late…”</p>
-<p>Inquisitors are often dispatched to investigate and then “cleanse” the mines with approved holy sources to stamp down insurrections, cultist uprisings, and any creatures that the cults may summon.</p>
-<h2 id="figures-of-note">Figures of Note</h2>
-<h3 id="high-inquisitor-belial-mizrahi">High Inquisitor Belial Mizrahi</h3>
-<p>Belial Mizrahi is a rare Inquisitor in that he does not have a partner Holy Sister, though he is regarded as a living Saint for helping to slay a greater abyssal daemon in Leviathas, his home. Here, he presides over the Leviathan Mines. His face has long become shadowed and hard to see, but his red cloak is a dead give-away. It is said that in times of great need, due to a blessing granted to him by Low Archangel Rachael, golden wings of light appear to protect him from the most lethal of blows. He is silent, yet his presence is physically painful enough to send others screaming away from him.</p>
-<h3 id="high-inquisitor-ezekiel-khalas">High Inquisitor Ezekiel Khalas</h3>
-<p>Ezekiel Khalas is a brutal, obsessive man. Long ago, he would have strayed away from the One Faith, only to be paired with a Holy Sister by the name of Seras, a Low Priestess at the time. It is true that he no longer inwardly cares for the One Faith, but Seras does, and she is the pinnacle of beauty and love to him, reinforced when she chooses to lie with him for his particularly great deeds. From then on, he was utterly obsessed with performing her every whim, and has long since received a myriad of blessings from her for his acts of service and all deeds heroic in the eyes of the One Faith. He is a tall, gaunt man, with all skin and muscle burned away from his jaws, leaving a horrid skeletal smile there, too wide to be natural. His eyes are a glowing pale maroon without pupils.</p>
-<p>He wears the traditional High Inquisitor garb, though altered with a sky-blue capelet in secret honor to Seras. At his hip lies a sheathed executioner’s blade, a strange obsidian similar to the myriad of obsidian tablets imbedded into his left forearm. At his other hip hang a myriad of chained books, each a holy script, to give him power to shield himself as needed. To any and all else other than Seras, he is a cruel, horrid man, delighting in the execution and persecution of any he deems lesser. One must run from him should they wish to keep their head, for Ezekiel cares not if they are heretic or otherwise, as he will use the slightest provocation as justification to display the wrath of the Father Above All.</p>
-<h3 id="low-archangel-seras">Low Archangel Seras</h3>
-<p>A truly gentle woman, a rarity, and the only Low Archangel of recent memory to have only ever had one Inquisitor partner, one which she loves most - second only to the One Faith. She is a short, petite woman, with long hair flowing down to the ground, white as snow - though not from age, it is said that her hair has always been such. She wears the traditional garb of a Low Archangel, the traditional black and blue robes, and with her she carries a black staff with the emblem of the First Saint upon the head of it. She is a forgiving woman, kind and soft spoken to the most desperate for healing, only for her to gently whisper and turn unrepentant blasphemers to dust in an instant.</p>
-<p>She has had many children, each “belonging” to Ezekiel Khalas, though true to her dearest desires, she has sent each away to become Inquisitors or Holy Sisters themselves. Her inner court, as all Low Archangels possess an inner court of Holy Sisters, located in the Southern High-Peaks of the Great Rim Cities, consist solely of her children from across the ages.</p></article>
+<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#the-great-seas">The Great Seas</a><a href="#rozjalczy">Rozjalczy</a><a href="#pale-worm">Pale Worm</a><a href="#fogworn-glaucus">Fogworn Glaucus</a><a href="#false-galleon">False Galleon</a><a href="#qasirpran">Qasirpran</a><a href="#fahroway">Fahroway</a><a href="#outer-mimics">Outer Mimics</a><a href="#ekternau">Ekternau</a><a href="#ylraz-frog">Ylraz Frog</a><a href="#chrant-mimic">Chrant Mimic</a><a href="#sedyr">Sedyr</a><a href="#stiltleg-elk">Stiltleg Elk</a><a href="#stonefisk">Stonefisk</a></div></nav><article class="lore-page"><h2 id="the-great-seas">The Great Seas</h2>
+<p>The Great Seas appear vast and empty at first, but only a fool would believe such a thing. Below the surface, great fish, whales, krakens, leviathans, and greater leviathans await. In the fogs and clouds, beings of various sorts descend to consume. This is but a small list of these creatures.</p>
+<h3 id="rozjalczy">Rozjalczy</h3>
+<p>Rozjalczy are a small kraken-like leviathan. Their forebodies are those of a massive shark, possessing an upper midnight-purple coloration and a lower stark white coloration. Their eyes are an empty, unfathomable orange-yellow. This forebody is a little smaller than a galleon, while their end does not descend into a proper fin. Instead, it descends into a myriad of kraken-like tendrils, used to grab onto prey and ships to subdue them for prompt consumption, using hook-like beaks along either side of these tendrils to dig into prey and ship alike. Due to the coloration of their upper forebodies and tendrils, Rozjalczy are extremely valuable leviathans to hunt. Additionally, much of their sinew can be used for high-quality greases for fire pots used by catapults. Rozjalczy typically swim in colder waters, typically found in the northern portions of Yggrdziel and underneath the Screaming Moon.</p>
+<h3 id="pale-worm">Pale Worm</h3>
+<p>The Pale Worm is one of the smallest leviathan-whale hybrids, though, despite being a leviathan-whale, it is often left alone due to the lack of anything valuable compared to the difficulties provided when catching one. They are only a couple hundred feet long with a mouth large enough to consume just shy of a dozen men. Inside is no tongue, only teeth lining the insides. There are two black voids where eyes should be, with the skin rucked up round about as though the eyes were plucked out long ago. There isn’t much by way of any insides for valuables, but they are surprisingly fast and are extremely aggressive. Rest assured, if you see one, it has already seen you.</p>
+<h3 id="fogworn-glaucus">Fogworn Glaucus</h3>
+<p>The Fogworn Glaucus is a drastically larger version of the glaucus atlanticus, nearly the size of two galleons. Instead of the traditional blacks and blues, it is colored with light grays and misty greens, meant to blend into the fog, clouds, and seas that it inhabits. It rests high within the clouds, though none quiet know how, and it primarily glides about. Its face is adorned with two smooth, extremely forwards leaning horns, and in place of a mouth are dozens of mandibles. It feasts primarily on great fish and the carcasses of whales and leviathans that have floated too high to the surface. It’s passive, for the most part, but aggressive when in the fog. The Fogworn Glaucus is worthwhile to hunt due to it’s hide and hollow bones, as the hide is tough yet light, and the bones make for excellent instruments and tools of various kinds. From the horns, it is able to gather moisture and heat in the air and, using an internal organ useful for chemical weapons, it’s able to charge up and let out a pale green bolt of lightning for hunting and territory defense purposes.</p>
+<h3 id="false-galleon">False Galleon</h3>
+<p>The False Galleon is a small mimic-kraken of sorts that calls the seas beneath the Screaming Moon home. It inhabits abandoned or shipwrecked galleons, bringing them to the surface and “sailing” them, though it only uses this to safely get closer to other ships or to lure great fish to it before lunging at and attempting to consume its prey. From afar, it is difficult to tell, but there will be signs that something is amiss.</p>
+<h3 id="qasirpran">Qasirpran</h3>
+<p>The Qasirpran is a great “fish” in the vague shape of a shrimp. It is black with a ghostly teal along the top, a being of the depths, whose innards glow. Upon opening its maw, a baleful light will shine forth, blinding in the darkness of the deep, something that makes the rest of the creature nigh on impossible to see. This light often lures in other great fish and whatever may lurk, though upon getting close enough, it is easy to tell what the source of the light is. However, the Qasirpran possesses extreme burst-swimming speed, unsustainable for long periods of time, and can extend four “inner” jaws, each layered within another, to reach and bite. It calls the depths of the cliffs of southern Fahroway home and the depths three-score thousand leagues north-west of Ekternau home.</p>
+<h2 id="fahroway">Fahroway</h2>
+<p>As above in Mothua, so below in the Darklands, the creatures here are vast, yet wrong. These are they.</p>
+<h3 id="outer-mimics">Outer Mimics</h3>
+<p>Outer Mimics are, most likely, the primary reason that humanity was given the uncanny valley. They are humanoid, but their faces are too stretched and bony, as though the skin is pulled taut over bone. The juveniles are too wrong to be confused for people, but they are flexible, able to hide in the furniture and devices of men in their homes, waiting. They typically target homes on the outer edges of society.</p>
+<p>The adults, however, called True Mimics, gain a more human-like appearance, though still visibly wrong. However, they have grown intelligent enough to wear the clothing of the fallen, or, rather, pieces of it, to better aid in their disguise. These ones typically target travellers, Outer Mimics caught in the open, or small outposts.</p>
+<h2 id="ekternau">Ekternau</h2>
+<p>The Fourthfog Bestiary is a large book, a collection of known creatures residing on the islands of Ekternau. This is just a collection of some creatures that can be found, though not all, as not everything has been documented successfully. It is called the Fourthfog Bestiary for a handful of small reasons, the first being that it is first and foremost a bestiary. The others, fog, for being the bestiary of the foggy islands of Ekternau, and fourth for being the fourth attempt at such a thing. There was once a fifth being produced, though the writer and explorer of it was eaten by a Chrant Mimic before he could finish it.</p>
+<h3 id="ylraz-frog">Ylraz Frog</h3>
+<p>The Ylraz Frog resides on the island which Jentrybol is located, though they can be found on a few other islands. They look like a strange mix of frog and lilypad, able to blend in as lilypads, which they can take the form of for extended periods of time due to their powerful little lungs. These creatures often will fire their tongues deep into the water, which they focus into a spear-like shape to impale saltfish to bring them up and eat. An Ylraz Frog can cause minor wounds to a person, though it is unwise to sleep near places of their habitats due to the fact that their tongues can pierce the throat. Additionally, it is unwise to eat them, as they are poisonous due to the deadwater being soaked into their skin.</p>
+<h3 id="chrant-mimic">Chrant Mimic</h3>
+<p>The Chrant Mimic, named after the first person who was eaten by these creatures, Edar Chrant, is a Mimic-type creature. They assume the form of branches of various trees, skin colored to match the tree they attach to. The end of the “branches” split, often, into three or four jaws with a coiled, grabbing tongue, meant to snare any passerby or passing creature to be consumed. However, Chrant Mimics have been seen consuming other Chrant Mimics that have failed to blend in or that are on the move. The Chrant Mimics can be found in the southern islands of Ekternau.</p>
+<h3 id="sedyr">Sedyr</h3>
+<p>Sedyrs are fanciful, coral-like, serpent-like creatures with small limbs, clawed and webbed little arms in several places round about. They are rather large, the juveniles reaching crossing end-to-end near a score-and-ten feet long. These creatures are proud, territorial creatures, and have often been seen writhing and biting at each other, able to spit out highly pressurized streams of water sharp enough to begin cutting through stone - though it would take a moment to fully cut through. They don’t actually reside on the islands themselves, but rather, in the water pools, rivers, and the coasts. It’s advised to take scorched-metal shields when dealing with them, wait for one to deal with another, or wait for those of the Ekternau Enclave to deal with one and leave part of the carcass behind.</p>
+<h3 id="stiltleg-elk">Stiltleg Elk</h3>
+<p>The Stiltleg Elk are tall, elk-like creatures, though their bodies are a bit smaller. Their legs are tall and oddly thin, having four front legs and two hind legs, allowing them to technically tower over normal elk. Their antlers are not spread out so much to the sides, instead hanging forwards. Their fur is a foggy-green, meant to blend in well to the mist, and their legs and clawed hooves are a bark-black. Stiltleg Elks are fast and quick, surprisingly agile and dextrous, able to skitter over rocks in ponds and lakes, across rivers and streams with ease. They’re more passive, but aggressive if one gets too close. They’re not a good source of meat, due to their thinner, smaller bodies, but they’re better than nothing. Additionally, the clawed hooves aren’t much more dangerous than normal hooves, unable to flex really or grab, only meant to stamp over and hook into various things for better grip.</p>
+<h3 id="stonefisk">Stonefisk</h3>
+<p>Stonefisks are lethal little critters, disguised as small stones, barely the size of twice a fist. Spread apart and dissected, they appear like a mix of crustacean and arachnid, though they have a rocky shell. If their rocky shell is stepped on, they stab a stinger up and into their prey, poisoning them, before the Stonefisk begins to skitter along - at a distance - after the prey. Once said creature falls, the Stonefisk eats its fill and will then hide nearby if the carcass hasn’t been finished off, waiting to eat until later when it hungers again.</p></article>
 </main>
 <footer class="site-footer">Grimmvein</footer>
 </div>
 <a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
-</body>
+<script>
+(() => {
+  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
+  if (!triggers.length) return;
+  document.body.classList.add('js-tooltips');
+
+  const tip = document.createElement('div');
+  tip.className = 'gv-keyword-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.setAttribute('aria-hidden', 'true');
+  tip.innerHTML = '<strong></strong><span></span>';
+  document.body.appendChild(tip);
+  const tipName = tip.querySelector('strong');
+  const tipText = tip.querySelector('span');
+  let active = null;
+
+  const position = (el) => {
+    if (!el || !tip.classList.contains('is-visible')) return;
+    const r = el.getBoundingClientRect();
+    const pad = 12;
+    const gap = 9;
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const t = tip.getBoundingClientRect();
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
+    let top = r.top - t.height - gap;
+    if (top < pad) top = r.bottom + gap;
+    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
+    tip.style.left = `${Math.round(left)}px`;
+    tip.style.top = `${Math.round(top)}px`;
+  };
+
+  const show = (el) => {
+    active = el;
+    const keyword = (el.dataset.keyword || el.textContent || '').trim();
+    tipName.textContent = keyword;
+    tipText.textContent = el.dataset.tooltip || '';
+    tip.classList.add('is-visible');
+    tip.setAttribute('aria-hidden', 'false');
+    position(el);
+  };
+  const hide = (el) => {
+    if (el && active !== el) return;
+    active = null;
+    tip.classList.remove('is-visible');
+    tip.setAttribute('aria-hidden', 'true');
+  };
+
+  triggers.forEach(el => {
+    el.setAttribute('aria-describedby', '');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', () => hide(el));
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', () => hide(el));
+    el.addEventListener('click', e => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      e.stopPropagation();
+      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('resize', () => active && position(active));
+  window.addEventListener('scroll', () => active && position(active), true);
+})();
+</script></body>
 </html>

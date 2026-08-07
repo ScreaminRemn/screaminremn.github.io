@@ -1,39 +1,84 @@
 <!DOCTYPE html>
+<html><head><meta charset="utf-8"/><meta content="0; url=gv-order-of-tongues.html" http-equiv="refresh"/><title>Order of Tongues — Grimmvein</title><style>
+/* Reliable body-level keyword tooltip. The older ::after tooltip remains as a no-JS fallback. */
+.js-tooltips .keyword-tip[data-tooltip]::after,
+.js-tooltips .keyword-tip[data-tooltip]::before { content:none !important; display:none !important; }
+.keyword-tip[data-tooltip] { cursor:help; text-decoration:underline dotted rgba(240,213,128,.55); text-underline-offset:2px; }
+.gv-keyword-tooltip {
+  position:fixed; z-index:2147483000; left:0; top:0;
+  width:min(430px,calc(100vw - 24px));
+  padding:12px 14px; color:#f1e7d5; background:#090b0c;
+  border:1px solid var(--gold-bright); box-shadow:0 10px 36px rgba(0,0,0,.72);
+  font-family:"Times New Roman",Times,serif; font-size:1rem; line-height:1.4;
+  text-align:left; white-space:normal; pointer-events:none;
+  opacity:0; visibility:hidden; transition:opacity .08s ease;
+}
+.gv-keyword-tooltip.is-visible { opacity:1; visibility:visible; }
+.gv-keyword-tooltip strong { display:block; margin-bottom:4px; color:var(--gold-bright); font-weight:700; }
+</style></head><body><p><a href="order-of-tongues.html">Continue to Order of Tongues</a></p><script>
+(() => {
+  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
+  if (!triggers.length) return;
+  document.body.classList.add('js-tooltips');
 
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#111416" name="theme-color"/>
-<title>Monolith Clockworks — Grimmvein</title>
-<link href="favicon.png" rel="icon" type="image/png"/>
-<link href="grimmvein-site-2026.css" rel="stylesheet"/>
-<script defer="" src="grimmvein-site-2026.js"></script>
-</head>
-<body data-group="factions" data-page="monolith-clockworks" id="top">
-<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
-<div aria-hidden="true" class="sidebar-overlay"></div>
-<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions" open=""><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a aria-current="page" class="active" href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
-<div class="site-main">
-<main class="content-wrap">
-<header class="page-header">
-<p class="page-kicker">Factions</p>
-<h1>Monolith Clockworks</h1>
-</header>
-<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#soubtar">Soubtar</a></div></nav><article class="lore-page"><p>There are a great many giant, odd, floating towers, strange in architecture and bizarre, not matching any one style, floating in the South-Western portions of the continent of Krashq’kanov. These towers, long, long ago, were created by a host of Wizards and Warlocks and all manner of masters of the arcane arts, said to be a library-city of towers, in an attempt of progress.</p>
-<p>They created their peoples, a people not born of flesh and blood, but constructs given life through magic. Puppets of all shapes and sizes and styles, made of bone and of wood and of metal and all manner of things, given consciousness. These puppets, called Clockworks, served as the workers, guards, and soldiers of the floating Monolith towers.</p>
-<p>However, the greed and lust for knowledge of the founders grew too great, and the curse of the world struck them down. Accidents became common, falls and slips that no rational or irrational being would make snuffing out life, jealousies and petty rivalries turning into wanton murder, and so forth, until no flesh and blood being was left, leaving only the Clockworks themselves. The Clockworks, after a time, learned how to create more of themselves, and so overran the now barren Monolith towers.</p>
-<p>All unfortunate stragglers, adventurers, tribes, caravans, and all manner of people that happen upon the Monolith towers, are welcomed with open arms. However, as the Clockworks wished to learn how to create puppets of flesh and of blood, such as what they believed humanity consists of, they disassemble all those they come across - willingly or otherwise - attempting to figure out how they work. Such attempts are in vain, however, for the Clockworks were never given all the knowledge of their creators, and, as such, are incapable of understanding.</p>
-<h2 id="soubtar">Soubtar</h2>
-<p>Soubtar is a puppet of fire, made to be a protector of the Monolith Clockworks, a skeletal brown construct wearing white and red holy robes. In his right hand he wields a staff, long and odd, with a strange lantern atop it. It primarily acts as a staff and torch, though the top of which ends in a melted open barrel, as though it spews flame.</p>
-<p>Soubtar, during the Second Age of Madness, a few eons after the Alchemists long past had died, descended from the Monoliths. After all, they were safe enough for he and his ironkin. He traveled, long and far, observing and watching. In his travels, he deemed that the living puppets were inferior and that there was no point attempting to understand them, as they took glee in destroying each other.</p>
-<p>Upon returning to the Monolith of Gerukiy, he shared what he saw and found with the other constructs. Those who listened, stayed, and altered themselves in the Ways of Fire as he was.</p>
-<p>Those who refused to listen, or simply did not believe, left the Monolith of Gerukiy and traveled to the other Monoliths. Now, surrounded by his followers, who he named after himself, they created an armed force, ready to defend the lands of the Monoliths. However, their beliefs led them to be cast out from the lands of the other Monoliths, restricting them to just the lands and monolith of Gerukiy.</p>
-<p>After a wayward army of odd flesh puppets, touting off about some holy crusade, Soubtar himself fell in combat, leaving him a puppet martyr of Gerukiy, strengthening and heightening their resolve and frenzy.</p></article>
-</main>
-<footer class="site-footer">Grimmvein</footer>
-</div>
-<a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
-</body>
-</html>
+  const tip = document.createElement('div');
+  tip.className = 'gv-keyword-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.setAttribute('aria-hidden', 'true');
+  tip.innerHTML = '<strong></strong><span></span>';
+  document.body.appendChild(tip);
+  const tipName = tip.querySelector('strong');
+  const tipText = tip.querySelector('span');
+  let active = null;
+
+  const position = (el) => {
+    if (!el || !tip.classList.contains('is-visible')) return;
+    const r = el.getBoundingClientRect();
+    const pad = 12;
+    const gap = 9;
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const t = tip.getBoundingClientRect();
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
+    let top = r.top - t.height - gap;
+    if (top < pad) top = r.bottom + gap;
+    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
+    tip.style.left = `${Math.round(left)}px`;
+    tip.style.top = `${Math.round(top)}px`;
+  };
+
+  const show = (el) => {
+    active = el;
+    const keyword = (el.dataset.keyword || el.textContent || '').trim();
+    tipName.textContent = keyword;
+    tipText.textContent = el.dataset.tooltip || '';
+    tip.classList.add('is-visible');
+    tip.setAttribute('aria-hidden', 'false');
+    position(el);
+  };
+  const hide = (el) => {
+    if (el && active !== el) return;
+    active = null;
+    tip.classList.remove('is-visible');
+    tip.setAttribute('aria-hidden', 'true');
+  };
+
+  triggers.forEach(el => {
+    el.setAttribute('aria-describedby', '');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', () => hide(el));
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', () => hide(el));
+    el.addEventListener('click', e => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      e.stopPropagation();
+      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('resize', () => active && position(active));
+  window.addEventListener('scroll', () => active && position(active), true);
+})();
+</script></body></html>

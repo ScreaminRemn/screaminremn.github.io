@@ -3,17 +3,652 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#111416" name="theme-color"/>
 <title>Jakiisi — Grimmvein</title>
 <link href="favicon.png" rel="icon" type="image/png"/>
-<link href="grimmvein-site-2026.css" rel="stylesheet"/>
-<script defer="" src="grimmvein-site-2026.js"></script>
-</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
+
+:root{
+  --black:#0d0f10;
+  --deep:#121516;
+  --panel:#181c1e;
+  --panel-2:#202527;
+  --line:#4e473a;
+  --line-bright:#776744;
+  --gold:#d6b75f;
+  --gold-bright:#f0d580;
+  --text:#e8e0d1;
+  --muted:#bdb19c;
+  --sidebar-width:310px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 75% 0%,rgba(122,99,45,.09),transparent 34rem),
+    var(--black);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.13rem;
+  line-height:1.68;
+}
+button,a{font:inherit}
+a{color:var(--gold-bright)}
+a:hover{color:#fff0b0}
+
+h1,h2,h3,
+.card-title,.toc-title,
+.sidebar-brand,.sidebar-nav summary,
+.back-to-top,.mobile-menu,
+.datasheet-name{
+  font-family:"UnifrakturMaguntia",Georgia,serif;
+  font-weight:400;
+}
+h1,h2,h3{line-height:1.05}
+
+/* --- Sidebar --- */
+.sidebar{
+  position:fixed;
+  inset:0 auto 0 0;
+  z-index:30;
+  width:var(--sidebar-width);
+  overflow-y:auto;
+  padding:24px 18px 36px;
+  background:
+    linear-gradient(180deg,rgba(214,183,95,.06),transparent 12rem),
+    #111416;
+  border-right:1px solid var(--line-bright);
+  box-shadow:10px 0 35px rgba(0,0,0,.28);
+}
+.sidebar-brand{
+  display:block;
+  margin:0 4px 22px;
+  padding:14px 8px 22px;
+  color:var(--gold-bright);
+  font-size:3.15rem;
+  line-height:.9;
+  text-align:center;
+  text-decoration:none;
+  border-bottom:1px solid var(--line);
+}
+.sidebar-close{display:none}
+.sidebar-nav details{
+  margin:5px 0;
+  border:1px solid transparent;
+}
+.sidebar-nav details[open]{
+  background:rgba(255,255,255,.018);
+  border-color:#2e2d28;
+}
+.sidebar-nav summary{
+  position:relative;
+  padding:10px 34px 10px 12px;
+  color:#d7c9af;
+  font-size:1.36rem;
+  line-height:1.08;
+  cursor:pointer;
+  list-style:none;
+  user-select:none;
+}
+.sidebar-nav summary::-webkit-details-marker{display:none}
+.sidebar-nav summary::after{
+  content:"+";
+  position:absolute;
+  right:12px;
+  top:8px;
+  color:#948465;
+}
+.sidebar-nav details[open]>summary::after{content:"−"}
+.sidebar-nav summary:hover{color:var(--gold-bright)}
+.sidebar-links{padding:2px 8px 9px 16px}
+.sidebar-links a{
+  display:block;
+  margin:2px 0;
+  padding:6px 10px;
+  color:#bfb39f;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.25;
+  text-decoration:none;
+  border-left:2px solid #35332d;
+}
+.sidebar-links a:hover{
+  color:#fff;
+  border-left-color:var(--gold);
+  background:rgba(214,183,95,.05);
+}
+.sidebar-links a.active{
+  color:var(--gold-bright);
+  border-left-color:var(--gold-bright);
+  background:rgba(214,183,95,.08);
+}
+
+/* --- Main site --- */
+.site-main{min-height:100vh;margin-left:var(--sidebar-width)}
+.content-wrap{
+  width:min(1040px,calc(100% - 72px));
+  margin:0 auto;
+  padding:58px 0 100px;
+}
+.page-header{
+  margin-bottom:35px;
+  padding:0 0 24px;
+  border-bottom:1px solid var(--line-bright);
+}
+.page-kicker{
+  margin:0 0 4px;
+  color:#94866c;
+  font-size:.95rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+h1{
+  margin:0;
+  color:var(--gold-bright);
+  font-size:clamp(3.3rem,8vw,5.9rem);
+}
+.page-deck{
+  max-width:780px;
+  margin:13px 0 0;
+  color:var(--muted);
+  font-size:1.12rem;
+}
+.lore-page{
+  padding:30px clamp(22px,5vw,52px) 48px;
+  background:linear-gradient(180deg,rgba(255,255,255,.014),transparent 25rem),var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 15px 45px rgba(0,0,0,.22);
+}
+.lore-page>p:first-child{margin-top:0}
+.lore-page p{margin:0 0 1.25em}
+.lore-page h2{
+  scroll-margin-top:24px;
+  margin:2.1em 0 .65em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.35rem;
+  border-bottom:1px solid #3d392f;
+}
+.lore-page h3{
+  scroll-margin-top:24px;
+  margin:1.65em 0 .45em;
+  color:#d9c481;
+  font-size:1.75rem;
+}
+.lore-page h2:target,.lore-page h3:target{
+  color:#fff0aa;
+  text-shadow:0 0 18px rgba(240,213,128,.28);
+}
+.toc{
+  margin:0 0 30px;
+  padding:19px 22px;
+  background:var(--panel);
+  border:1px solid var(--line);
+}
+.toc-title{margin:0 0 11px;color:var(--gold);font-size:1.5rem}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px}
+.toc a{
+  padding:5px 9px;
+  color:#cdbf9f;
+  text-decoration:none;
+  background:#202426;
+  border:1px solid #4a453a;
+}
+.toc a:hover{color:#fff;border-color:var(--gold)}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:16px;
+}
+.card{
+  display:flex;
+  min-height:155px;
+  flex-direction:column;
+  padding:21px;
+  color:var(--text);
+  text-decoration:none;
+  background:linear-gradient(145deg,rgba(214,183,95,.045),transparent 60%),var(--panel);
+  border:1px solid var(--line);
+  transition:transform .15s ease,border-color .15s ease,background .15s ease;
+}
+.card:hover{
+  transform:translateY(-2px);
+  color:var(--text);
+  border-color:var(--gold);
+  background:var(--panel-2);
+}
+.card-title{margin:0 0 8px;color:var(--gold-bright);font-size:1.65rem}
+.card p{margin:0;color:#bcb19d;font-size:1rem;line-height:1.45}
+.card-open{margin-top:auto;padding-top:16px;color:#d2b968}
+blockquote{
+  margin:1.5em 0;
+  padding:18px 22px;
+  color:#d2c7b3;
+  font-style:italic;
+  background:#171a1b;
+  border-left:3px solid var(--gold);
+}
+blockquote p:last-child{margin-bottom:0}
+.attribution{color:#9e927e;font-style:normal}
+.name-list{padding-left:1.4em}
+.name-list li{margin:.35em 0}
+
+/* --- Wargame --- */
+.wargame-wrap{width:min(1220px,calc(100% - 72px))}
+.wargame-hero-note,.wargame-intro,.rules-page,.army-rule,.empty-state{
+  margin-bottom:26px;
+  padding:24px 28px;
+  background:var(--deep);
+  border:1px solid var(--line);
+  box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.wargame-hero-note p,.wargame-intro p{margin:0}
+.wargame-card{min-height:170px}
+.section-heading{margin:42px 0 18px;color:var(--gold);font-size:2.4rem}
+.intro-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid #35322c;
+}
+.intro-links a{text-decoration:none}
+.army-profile{margin-top:16px!important;color:#ddc982;font-weight:700}
+.army-rule{
+  position:relative;
+  padding-top:36px;
+  border-color:var(--line-bright);
+  background:linear-gradient(145deg,rgba(214,183,95,.055),transparent 55%),var(--panel);
+}
+.army-rule-label{
+  position:absolute;
+  top:0;
+  left:0;
+  padding:6px 12px;
+  color:#18150d;
+  background:var(--gold);
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.army-rule h2{margin:0 0 10px;color:var(--gold-bright);font-size:2rem}
+.army-rule p:last-child{margin-bottom:0}
+.datasheet-stack{display:grid;gap:28px}
+.datasheet{
+  scroll-margin-top:24px;
+  position:relative;
+  background:#121617;
+  border:1px solid #6b5d3e;
+  box-shadow:0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet:target{
+  border-color:var(--gold-bright);
+  box-shadow:0 0 0 1px var(--gold-bright),0 14px 40px rgba(0,0,0,.3);
+}
+.datasheet-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding:18px 22px;
+  color:#14110a;
+  background:linear-gradient(90deg,#c6a64d,#e3ca77 62%,#baa04e);
+}
+.datasheet-name{font-size:2.2rem;line-height:1}
+.datasheet-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px 14px;
+  margin-top:7px;
+  font-family:Arial,sans-serif;
+  font-size:.82rem;
+  font-weight:700;
+}
+.coin-cost{
+  flex:0 0 auto;
+  padding:8px 12px;
+  color:#f4e7bd;
+  background:#171a1b;
+  border:1px solid #5c5035;
+  font-family:Arial,sans-serif;
+  font-size:.9rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+.stat-strip{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(84px,1fr));
+  border-bottom:1px solid #4a4234;
+  background:#1c2123;
+}
+.stat-cell{
+  min-width:0;
+  padding:11px 8px 12px;
+  text-align:center;
+  border-right:1px solid #3b3932;
+}
+.stat-cell:last-child{border-right:0}
+.stat-label{
+  display:block;
+  color:#b8aa8e;
+  font-family:Arial,sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.stat-value{
+  display:block;
+  margin-top:2px;
+  color:#fff0b1;
+  font-family:Georgia,serif;
+  font-size:1.55rem;
+  line-height:1.1;
+  font-weight:700;
+}
+.datasheet-subsection{padding:18px 22px 20px;border-top:1px solid #39362f}
+.datasheet-subsection:first-of-type{border-top:0}
+.datasheet-subsection h3{margin:0 0 10px;color:#dac476;font-size:1.5rem}
+.datasheet-subsection h4{
+  margin:0 0 3px;
+  color:#e7d692;
+  font-family:"Times New Roman",Times,serif;
+  font-size:1.12rem;
+  font-weight:700;
+}
+.ability-entry+.ability-entry{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px dashed #3c3931;
+}
+.ability-entry p{margin:0}
+.ability-none{margin:0}
+.table-scroll{width:100%;overflow-x:auto}
+.weapon-table,.rules-table,.keyword-table{width:100%;border-collapse:collapse;line-height:1.28}
+.weapon-table th,.rules-table th{
+  padding:8px 10px;
+  color:#14110a;
+  background:#c9ad5f;
+  border:1px solid #9f8749;
+  font-family:Arial,sans-serif;
+  font-size:.78rem;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+}
+.weapon-table td,.rules-table td,.keyword-table td,.keyword-table th{
+  padding:9px 10px;
+  border:1px solid #464137;
+}
+.weapon-table tbody tr:nth-child(even),
+.rules-table tbody tr:nth-child(even),
+.keyword-table tr:nth-child(even){background:#1b2022}
+.weapon-name{min-width:250px;color:#eee3cf;font-weight:700}
+.weapon-keywords{color:#d5bd71;font-size:.9rem;font-weight:700}
+.keyword-row{display:flex;flex-wrap:wrap;gap:7px}
+.keyword-chip{
+  display:inline-block;
+  padding:4px 8px;
+  color:#e3ca7b;
+  background:#202527;
+  border:1px solid #514938;
+  font-family:Arial,sans-serif;
+  font-size:.8rem;
+  font-weight:700;
+}
+.leadership p{margin:.35em 0}
+.muted{color:#9f9686}
+.empty-state h2{margin-top:0;color:var(--gold)}
+.rules-page section{scroll-margin-top:24px}
+.rules-page h2{
+  margin:2em 0 .6em;
+  padding-bottom:8px;
+  color:var(--gold);
+  font-size:2.25rem;
+  border-bottom:1px solid #3d392f;
+}
+.rules-page section:first-child h2{margin-top:0}
+.rules-page h3{margin:1.35em 0 .4em;color:#dcc77f;font-size:1.55rem}
+.rules-page p{margin:.75em 0 1em}
+.rules-page li{margin:.45em 0}
+.rules-example{padding:12px 15px;background:#1b2022;border-left:3px solid var(--gold)}
+.compact-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.compact-grid>div{padding:12px 14px;background:#1a1f21;border:1px solid #403c34}
+.compact-grid strong,.compact-grid span{display:block}
+.compact-grid strong{color:#e2ca7d}
+.compact-grid span{margin-top:4px;color:#c5baa7;font-size:.96rem}
+.keyword-table th{
+  width:190px;
+  color:#e5ce83;
+  text-align:left;
+  background:#1b2022;
+}
+.mission-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:18px;
+  margin:20px 0 24px;
+}
+.mission-card{margin:0;padding:12px;background:#0e1112;border:1px solid #4b4538}
+.mission-card img{display:block;width:100%;height:auto;border:1px solid #6a604b}
+.mission-card figcaption{padding:12px 4px 2px;color:#c9bfad;font-size:.94rem;line-height:1.45}
+
+/* --- Keyword hover/focus tooltips --- */
+.keyword-tip{
+  display:inline-block;
+  position:relative;
+  color:#e7cf7d;
+  text-decoration:underline dotted rgba(231,207,125,.62);
+  text-underline-offset:3px;
+  cursor:help;
+}
+.keyword-chip.keyword-tip{text-decoration:none}
+.keyword-tip:focus{
+  outline:1px solid var(--gold-bright);
+  outline-offset:2px;
+}
+.keyword-tooltip-popover{
+  position:fixed;
+  z-index:1000;
+  width:max-content;
+  max-width:min(360px,calc(100vw - 30px));
+  padding:10px 12px;
+  color:#eee5d5;
+  background:#0b0d0e;
+  border:1px solid var(--gold);
+  box-shadow:0 8px 28px rgba(0,0,0,.55);
+  font-family:"Times New Roman",Times,serif;
+  font-size:1rem;
+  line-height:1.35;
+  pointer-events:none;
+}
+.keyword-tooltip-popover[hidden]{display:none}
+
+/* --- Shared furniture --- */
+.back-to-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:20;
+  padding:8px 13px;
+  color:var(--gold-bright);
+  font-size:1.15rem;
+  text-decoration:none;
+  background:#151819;
+  border:1px solid var(--line-bright);
+  box-shadow:0 5px 18px rgba(0,0,0,.38);
+}
+.back-to-top:hover{color:#fff;background:#242829}
+.mobile-menu,.sidebar-overlay{display:none}
+.site-footer{
+  padding:25px 35px;
+  color:#786f60;
+  text-align:center;
+  border-top:1px solid #292824;
+}
+
+@media(max-width:1000px){
+  .stat-strip{grid-template-columns:repeat(4,1fr)}
+  .stat-cell{border-bottom:1px solid #3b3932}
+}
+@media(max-width:900px){
+  .sidebar{
+    width:min(330px,88vw);
+    transform:translateX(-105%);
+    transition:transform .2s ease;
+  }
+  body.nav-open .sidebar{transform:translateX(0)}
+  .sidebar-close{
+    display:block;
+    position:absolute;
+    right:9px;
+    top:7px;
+    padding:5px 9px;
+    color:#cdbd9c;
+    background:transparent;
+    border:0;
+    cursor:pointer;
+  }
+  .mobile-menu{
+    display:block;
+    position:fixed;
+    left:14px;
+    top:14px;
+    z-index:25;
+    padding:8px 12px;
+    color:var(--gold-bright);
+    background:#151819;
+    border:1px solid var(--line-bright);
+    box-shadow:0 4px 15px rgba(0,0,0,.35);
+    cursor:pointer;
+  }
+  .sidebar-overlay{
+    position:fixed;
+    inset:0;
+    z-index:29;
+    background:rgba(0,0,0,.62);
+  }
+  body.nav-open .sidebar-overlay{display:block}
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{width:min(900px,calc(100% - 34px));padding-top:75px}
+  .back-to-top{right:12px;bottom:12px}
+}
+@media(max-width:650px){
+  .datasheet-header{flex-direction:column}
+  .coin-cost{align-self:flex-start}
+  .stat-strip{grid-template-columns:repeat(2,1fr)}
+  .compact-grid{grid-template-columns:1fr}
+  .weapon-name{min-width:190px}
+}
+@media(max-width:560px){
+  body{font-size:1.06rem}
+  .content-wrap,.wargame-wrap{width:calc(100% - 22px)}
+  .lore-page{padding:22px 17px 34px}
+  h1{font-size:3.15rem}
+  .toc-links{flex-direction:column}
+  .toc a{width:100%}
+}
+
+
+/* =========================================================
+   SELF-CONTAINED BUILD
+   No external site CSS or JavaScript is required.
+   ========================================================= */
+
+.mobile-menu,
+.sidebar-overlay,
+.sidebar-close,
+.keyword-tooltip-popover {
+  display: none !important;
+}
+
+/* CSS-only keyword tooltips.
+   They render as a fixed panel, so tables/scroll containers cannot clip them. */
+.keyword-tip[data-tooltip] {
+  cursor: help;
+}
+.keyword-tip[data-tooltip]:hover::after,
+.keyword-tip[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999999;
+  width: min(420px, calc(100vw - 44px));
+  padding: 12px 14px;
+  color: #f1e7d5;
+  background: #090b0c;
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 10px 36px rgba(0,0,0,.65);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  line-height: 1.38;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* Mobile becomes a normal top-of-page archive instead of a JS drawer. */
+@media(max-width:900px){
+  .sidebar{
+    position: static;
+    width: 100%;
+    max-height: none;
+    transform: none !important;
+    padding: 18px 14px 22px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-bright);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .sidebar-brand{
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar-nav{
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{
+    width:min(900px,calc(100% - 34px));
+    padding-top:34px;
+  }
+}
+
+</style>
+<style>
+/* Reliable body-level keyword tooltip. The older ::after tooltip remains as a no-JS fallback. */
+.js-tooltips .keyword-tip[data-tooltip]::after,
+.js-tooltips .keyword-tip[data-tooltip]::before { content:none !important; display:none !important; }
+.keyword-tip[data-tooltip] { cursor:help; text-decoration:underline dotted rgba(240,213,128,.55); text-underline-offset:2px; }
+.gv-keyword-tooltip {
+  position:fixed; z-index:2147483000; left:0; top:0;
+  width:min(430px,calc(100vw - 24px));
+  padding:12px 14px; color:#f1e7d5; background:#090b0c;
+  border:1px solid var(--gold-bright); box-shadow:0 10px 36px rgba(0,0,0,.72);
+  font-family:"Times New Roman",Times,serif; font-size:1rem; line-height:1.4;
+  text-align:left; white-space:normal; pointer-events:none;
+  opacity:0; visibility:hidden; transition:opacity .08s ease;
+}
+.gv-keyword-tooltip.is-visible { opacity:1; visibility:visible; }
+.gv-keyword-tooltip strong { display:block; margin-bottom:4px; color:var(--gold-bright); font-weight:700; }
+</style></head>
 <body data-group="wargame" data-page="wg-jakiisi" id="top">
-<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
-<div aria-hidden="true" class="sidebar-overlay"></div>
-<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame" open=""><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a aria-current="page" class="active" href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<aside class="sidebar" id="site-sidebar"><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame" open=""><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a aria-current="page" class="active" href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
 <div class="site-main">
 <main class="content-wrap wargame-wrap">
 <header class="page-header">
@@ -42,10 +677,10 @@
 <tbody><tr><td class="weapon-name">None</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Melee Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Melee Weapon</th><th>Strength</th><th>Speed</th><th>Crit</th></tr></thead>
-<tbody><tr><td class="weapon-name">God-Touched Blade <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span> <span class="keyword-tip" data-tooltip="A horizontal attack using the melee weapon, typically faster but weaker" tabindex="0" title="A horizontal attack using the melee weapon, typically faster but weaker">[CLEAVE]</span></span></td><td>6</td><td>14</td><td>9</td></tr><tr><td class="weapon-name">God-Touched Blade <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span> <span class="keyword-tip" data-tooltip="A vertical attack using the melee weapon, typically slower but stronger" tabindex="0" title="A vertical attack using the melee weapon, typically slower but stronger">[CHOP]</span></span></td><td>9</td><td>4</td><td>13</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">God-Touched Blade <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span> <span class="keyword-tip" data-keyword="[CLEAVE]" data-tooltip="A horizontal attack using the melee weapon, typically faster but weaker" tabindex="0">[CLEAVE]</span></span></td><td>6</td><td>14</td><td>9</td></tr><tr><td class="weapon-name">God-Touched Blade <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span> <span class="keyword-tip" data-keyword="[CHOP]" data-tooltip="A vertical attack using the melee weapon, typically slower but stronger" tabindex="0">[CHOP]</span></span></td><td>9</td><td>4</td><td>13</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Weapon Ability</h3><div class="ability-entry"><h4>God-Touched Blade</h4><p>Once per match, Hos-Jasander can completely ignore the armor of his chosen target.</p></div></section>
 <section class="datasheet-subsection"><h3>Unit Ability</h3><div class="ability-entry"><h4>Divine Champion</h4><p>On every odd-numbered round, Hos-Jasander can, when in Melee Range of another unit, assuming that another enemy unit is within fifteen inches with CLEAR Line of Sight to the first unit, Hos-Jasander can teleport to that other unit at the cost of 9 [Actions].</p></div></section>
-<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0" title="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused">[BRAWLER]</span><span class="keyword-chip keyword-tip" data-tooltip="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies" tabindex="0" title="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies">[SEER]</span><span class="keyword-chip">[JAKIISI]</span></div></section>
+<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-keyword="[BRAWLER]" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0">[BRAWLER]</span><span class="keyword-chip keyword-tip" data-keyword="[SEER]" data-tooltip="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies" tabindex="0">[SEER]</span><span class="keyword-chip"><span class="keyword-tip" data-keyword="[JAKIISI]" data-tooltip="No standalone rule is currently listed for this keyword." tabindex="0">[JAKIISI]</span></span></div></section>
 <section class="datasheet-subsection leadership"><h3>Leadership</h3><p><strong>Can Lead:</strong> Hos-Jakiisi, Headhunters, Snowdrift Hunters, Gliding Snowdrift Hunters</p></section>
 </article><article class="datasheet" id="hos-jakiisi">
 <header class="datasheet-header">
@@ -58,13 +693,13 @@
 <div class="stat-strip"><div class="stat-cell"><span class="stat-label">Actions</span><span class="stat-value">8</span></div><div class="stat-cell"><span class="stat-label">Armor</span><span class="stat-value">5</span></div><div class="stat-cell"><span class="stat-label">Health</span><span class="stat-value">14</span></div><div class="stat-cell"><span class="stat-label">Holding</span><span class="stat-value">7</span></div><div class="stat-cell"><span class="stat-label">Might</span><span class="stat-value">7</span></div><div class="stat-cell"><span class="stat-label">Accuracy</span><span class="stat-value">6</span></div><div class="stat-cell"><span class="stat-label">Evasion</span><span class="stat-value">5</span></div></div>
 <section class="datasheet-subsection"><h3>Ranged Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Ranged Weapon</th><th>Range</th><th>Strength</th><th>Speed</th></tr></thead>
-<tbody><tr><td class="weapon-name">Icecrag Throw <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Something Magical, in which anything affecting the [MAGICKS] keyword applies" tabindex="0" title="Something Magical, in which anything affecting the [MAGICKS] keyword applies">[MAGICKS]</span></span></td><td>11</td><td>3</td><td>7</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">Icecrag Throw <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[MAGICKS]" data-tooltip="Something Magical, in which anything affecting the [MAGICKS] keyword applies" tabindex="0">[MAGICKS]</span></span></td><td>11</td><td>3</td><td>7</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Melee Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Melee Weapon</th><th>Strength</th><th>Speed</th><th>Crit</th></tr></thead>
-<tbody><tr><td class="weapon-name">Icecrag Blade <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span> | <span class="keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span></span></td><td>7</td><td>3</td><td>8</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">Icecrag Blade <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span> | <span class="keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span></span></td><td>7</td><td>3</td><td>8</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Weapon Ability</h3><div class="ability-entry"><h4>Icecrag Throw</h4><p>Once per round, one model can lower the [Actions] of the affected target, on a successful hit, by 1, for the affected target’s next turn. The other two models of this unit cannot use the ability at the same time, but they can still use the basic ranged attack.</p></div></section>
 <section class="datasheet-subsection"><h3>Unit Ability</h3><p class="muted ability-none">NONE</p></section>
-<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that has some sort of battlefield utility that is not strictly offensive or defensive" tabindex="0" title="A model or unit that has some sort of battlefield utility that is not strictly offensive or defensive">[MANIPULATOR]</span><span class="keyword-chip keyword-tip" data-tooltip="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies" tabindex="0" title="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies">[SEER]</span><span class="keyword-chip">[JAKIISI]</span></div></section>
+<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-keyword="[MANIPULATOR]" data-tooltip="A model or unit that has some sort of battlefield utility that is not strictly offensive or defensive" tabindex="0">[MANIPULATOR]</span><span class="keyword-chip keyword-tip" data-keyword="[SEER]" data-tooltip="Designates this model or unit as a Seer, in which anything affecting the [SEER] keyword applies" tabindex="0">[SEER]</span><span class="keyword-chip"><span class="keyword-tip" data-keyword="[JAKIISI]" data-tooltip="No standalone rule is currently listed for this keyword." tabindex="0">[JAKIISI]</span></span></div></section>
 <section class="datasheet-subsection leadership"><h3>Leadership</h3><p><strong>Can be led by:</strong> Hos-Jasander</p><p><strong>Can lead:</strong> Headhunters, Snowdrift Hunters, Gliding Snowdrift Hunters</p></section>
 </article><article class="datasheet" id="headhunters">
 <header class="datasheet-header">
@@ -80,10 +715,10 @@
 <tbody><tr><td class="weapon-name">None</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Melee Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Melee Weapon</th><th>Strength</th><th>Speed</th><th>Crit</th></tr></thead>
-<tbody><tr><td class="weapon-name">Coldstone Spear <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span> <span class="keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span></span></td><td>7</td><td>6</td><td>9</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">Coldstone Spear <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span> <span class="keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span></span></td><td>7</td><td>6</td><td>9</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Weapon Ability</h3><p class="muted ability-none">NONE</p></section>
 <section class="datasheet-subsection"><h3>Unit Ability</h3><p class="muted ability-none">NONE</p></section>
-<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0" title="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused">[BRAWLER]</span><span class="keyword-chip">[JAKIISI]</span></div></section>
+<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-keyword="[BRAWLER]" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0">[BRAWLER]</span><span class="keyword-chip"><span class="keyword-tip" data-keyword="[JAKIISI]" data-tooltip="No standalone rule is currently listed for this keyword." tabindex="0">[JAKIISI]</span></span></div></section>
 <section class="datasheet-subsection leadership"><h3>Leadership</h3><p><strong>Can be led by:</strong> Hos-Jasander, Hos-Jakiisi</p></section>
 </article><article class="datasheet" id="snowdrift-hunters">
 <header class="datasheet-header">
@@ -99,10 +734,10 @@
 <tbody><tr><td class="weapon-name">Driftbow</td><td>14</td><td>6</td><td>6</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Melee Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Melee Weapon</th><th>Strength</th><th>Speed</th><th>Crit</th></tr></thead>
-<tbody><tr><td class="weapon-name">Arrow Stab <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span> | <span class="keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span></span></td><td>3</td><td>6</td><td>4</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">Arrow Stab <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span> | <span class="keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span></span></td><td>3</td><td>6</td><td>4</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Weapon Ability</h3><p class="muted ability-none">NONE</p></section>
 <section class="datasheet-subsection"><h3>Unit Ability</h3><p class="muted ability-none">NONE</p></section>
-<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0" title="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0" title="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused">[BRAWLER]</span><span class="keyword-chip">[JAKIISI]</span></div></section>
+<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-keyword="[IMPALERS]" data-tooltip="Any model or unit with the [IMPALERS] keyword has +2 melee SPEED against any unit with the [MOUNTED] keyword" tabindex="0">[IMPALERS]</span><span class="keyword-chip keyword-tip" data-keyword="[BRAWLER]" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0">[BRAWLER]</span><span class="keyword-chip"><span class="keyword-tip" data-keyword="[JAKIISI]" data-tooltip="No standalone rule is currently listed for this keyword." tabindex="0">[JAKIISI]</span></span></div></section>
 <section class="datasheet-subsection leadership"><h3>Leadership</h3><p><strong>Can be led by:</strong> Hos-Jasander, Hos-Jakiisi</p></section>
 </article><article class="datasheet" id="gliding-snowdrift-hunters">
 <header class="datasheet-header">
@@ -118,16 +753,81 @@
 <tbody><tr><td class="weapon-name">Driftbow</td><td>14</td><td>6</td><td>6</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Melee Weapons</h3><div class="table-scroll"><table class="weapon-table">
 <thead><tr><th>Melee Weapon</th><th>Strength</th><th>Speed</th><th>Crit</th></tr></thead>
-<tbody><tr><td class="weapon-name">Grasping Talons <span class="weapon-keywords"><span class="keyword-tip" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0" title="Makes contact, in which anything affecting the [CONTACT] keyword applies">[CONTACT]</span></span></td><td>6</td><td>7</td><td>8</td></tr></tbody></table></div></section>
+<tbody><tr><td class="weapon-name">Grasping Talons <span class="weapon-keywords"><span class="keyword-tip" data-keyword="[CONTACT]" data-tooltip="Makes contact, in which anything affecting the [CONTACT] keyword applies" tabindex="0">[CONTACT]</span></span></td><td>6</td><td>7</td><td>8</td></tr></tbody></table></div></section>
 <section class="datasheet-subsection"><h3>Weapon Ability</h3><p class="muted ability-none">NONE</p></section>
 <section class="datasheet-subsection"><h3>Unit Ability</h3><p class="muted ability-none">NONE</p></section>
-<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that is mounted, in which anything affecting the [MOUNTED] keyword applies" tabindex="0" title="A model or unit that is mounted, in which anything affecting the [MOUNTED] keyword applies">[MOUNTED]</span><span class="keyword-chip keyword-tip" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0" title="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused">[BRAWLER]</span><span class="keyword-chip">[JAKIISI]</span></div></section>
+<section class="datasheet-subsection"><h3>Keywords</h3><div class="keyword-row"><span class="keyword-chip keyword-tip" data-keyword="[MOUNTED]" data-tooltip="A model or unit that is mounted, in which anything affecting the [MOUNTED] keyword applies" tabindex="0">[MOUNTED]</span><span class="keyword-chip keyword-tip" data-keyword="[BRAWLER]" data-tooltip="A model or unit that is a brawler or consists of brawlers, meaning that they are primarily offense focused" tabindex="0">[BRAWLER]</span><span class="keyword-chip"><span class="keyword-tip" data-keyword="[JAKIISI]" data-tooltip="No standalone rule is currently listed for this keyword." tabindex="0">[JAKIISI]</span></span></div></section>
 <section class="datasheet-subsection leadership"><h3>Leadership</h3><p><strong>Can be led by:</strong> Hos-Jasander, Hos-Jakiisi</p></section>
 </article></div>
 </main>
 <footer class="site-footer">Grimmvein</footer>
 </div>
 <a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
-</body>
+<script>
+(() => {
+  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
+  if (!triggers.length) return;
+  document.body.classList.add('js-tooltips');
+
+  const tip = document.createElement('div');
+  tip.className = 'gv-keyword-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.setAttribute('aria-hidden', 'true');
+  tip.innerHTML = '<strong></strong><span></span>';
+  document.body.appendChild(tip);
+  const tipName = tip.querySelector('strong');
+  const tipText = tip.querySelector('span');
+  let active = null;
+
+  const position = (el) => {
+    if (!el || !tip.classList.contains('is-visible')) return;
+    const r = el.getBoundingClientRect();
+    const pad = 12;
+    const gap = 9;
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const t = tip.getBoundingClientRect();
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
+    let top = r.top - t.height - gap;
+    if (top < pad) top = r.bottom + gap;
+    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
+    tip.style.left = `${Math.round(left)}px`;
+    tip.style.top = `${Math.round(top)}px`;
+  };
+
+  const show = (el) => {
+    active = el;
+    const keyword = (el.dataset.keyword || el.textContent || '').trim();
+    tipName.textContent = keyword;
+    tipText.textContent = el.dataset.tooltip || '';
+    tip.classList.add('is-visible');
+    tip.setAttribute('aria-hidden', 'false');
+    position(el);
+  };
+  const hide = (el) => {
+    if (el && active !== el) return;
+    active = null;
+    tip.classList.remove('is-visible');
+    tip.setAttribute('aria-hidden', 'true');
+  };
+
+  triggers.forEach(el => {
+    el.setAttribute('aria-describedby', '');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', () => hide(el));
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', () => hide(el));
+    el.addEventListener('click', e => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      e.stopPropagation();
+      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('resize', () => active && position(active));
+  window.addEventListener('scroll', () => active && position(active), true);
+})();
+</script></body>
 </html>

@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#111416" name="theme-color"/>
+<title>The World — Grimmvein</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 
 :root{
@@ -551,3 +561,174 @@ blockquote p:last-child{margin-bottom:0}
   .toc-links{flex-direction:column}
   .toc a{width:100%}
 }
+
+
+/* =========================================================
+   SELF-CONTAINED BUILD
+   No external site CSS or JavaScript is required.
+   ========================================================= */
+
+.mobile-menu,
+.sidebar-overlay,
+.sidebar-close,
+.keyword-tooltip-popover {
+  display: none !important;
+}
+
+/* CSS-only keyword tooltips.
+   They render as a fixed panel, so tables/scroll containers cannot clip them. */
+.keyword-tip[data-tooltip] {
+  cursor: help;
+}
+.keyword-tip[data-tooltip]:hover::after,
+.keyword-tip[data-tooltip]:focus::after {
+  content: attr(data-tooltip);
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 999999;
+  width: min(420px, calc(100vw - 44px));
+  padding: 12px 14px;
+  color: #f1e7d5;
+  background: #090b0c;
+  border: 1px solid var(--gold-bright);
+  box-shadow: 0 10px 36px rgba(0,0,0,.65);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  line-height: 1.38;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* Mobile becomes a normal top-of-page archive instead of a JS drawer. */
+@media(max-width:900px){
+  .sidebar{
+    position: static;
+    width: 100%;
+    max-height: none;
+    transform: none !important;
+    padding: 18px 14px 22px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-bright);
+    box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  }
+  .sidebar-brand{
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sidebar-nav{
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+  .site-main{margin-left:0}
+  .content-wrap,.wargame-wrap{
+    width:min(900px,calc(100% - 34px));
+    padding-top:34px;
+  }
+}
+
+</style>
+<style>
+/* Reliable body-level keyword tooltip. The older ::after tooltip remains as a no-JS fallback. */
+.js-tooltips .keyword-tip[data-tooltip]::after,
+.js-tooltips .keyword-tip[data-tooltip]::before { content:none !important; display:none !important; }
+.keyword-tip[data-tooltip] { cursor:help; text-decoration:underline dotted rgba(240,213,128,.55); text-underline-offset:2px; }
+.gv-keyword-tooltip {
+  position:fixed; z-index:2147483000; left:0; top:0;
+  width:min(430px,calc(100vw - 24px));
+  padding:12px 14px; color:#f1e7d5; background:#090b0c;
+  border:1px solid var(--gold-bright); box-shadow:0 10px 36px rgba(0,0,0,.72);
+  font-family:"Times New Roman",Times,serif; font-size:1rem; line-height:1.4;
+  text-align:left; white-space:normal; pointer-events:none;
+  opacity:0; visibility:hidden; transition:opacity .08s ease;
+}
+.gv-keyword-tooltip.is-visible { opacity:1; visibility:visible; }
+.gv-keyword-tooltip strong { display:block; margin-bottom:4px; color:var(--gold-bright); font-weight:700; }
+</style></head>
+<body data-group="world" data-page="world" id="top">
+<aside class="sidebar" id="site-sidebar"><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world" open=""><summary>The World</summary><div class="sidebar-links"><a aria-current="page" class="active" href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<div class="site-main">
+<main class="content-wrap">
+<header class="page-header">
+<p class="page-kicker">Grimmvein</p>
+<h1>The World</h1>
+</header>
+<article class="lore-page"><p>This world is not Earth. In the far reaches of nothingness, there exists a planet of such abnormal size that it can fit hundreds, perhaps thousands of normal worlds within it with extreme ease, making it one of the largest worlds to exist.</p>
+<p>This world has no name, for the untold age of billions and trillions of years and the civilizations that came from it, none of the peoples of this world could agree upon a name. Those of the Anointed Holy Cities refer to it as Grimmvein, those of The Flaying Courts call it the Great Tribute, the Shrikes call it Yggrdziel, and so on. For this retelling, we shall call it Yggrdziel, named so by Those Who Came First, for the sake of ease of communication.</p>
+<p>Ruled by several pantheons of the cruel and thirsting laughter of Gods and Goddesses alike, both lesser and greater, no one ruler truly reigns.</p>
+<p>This world has dozens of continents, each the size of a world, perhaps multiple, at the very smallest.</p>
+<p>None of the rest of the races of the vast emptiness and nothingness choose to come near this world, for it is cursed: this world is frozen in time, stuck in primitive and medieval ages for eons and untold time. Any who come near with more advanced technology always seem to meet an unfortunate end or accident of some kind, without exception.</p></article>
+</main>
+<footer class="site-footer">Grimmvein</footer>
+</div>
+<a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
+<script>
+(() => {
+  const triggers = [...document.querySelectorAll('.keyword-tip[data-tooltip]')];
+  if (!triggers.length) return;
+  document.body.classList.add('js-tooltips');
+
+  const tip = document.createElement('div');
+  tip.className = 'gv-keyword-tooltip';
+  tip.setAttribute('role', 'tooltip');
+  tip.setAttribute('aria-hidden', 'true');
+  tip.innerHTML = '<strong></strong><span></span>';
+  document.body.appendChild(tip);
+  const tipName = tip.querySelector('strong');
+  const tipText = tip.querySelector('span');
+  let active = null;
+
+  const position = (el) => {
+    if (!el || !tip.classList.contains('is-visible')) return;
+    const r = el.getBoundingClientRect();
+    const pad = 12;
+    const gap = 9;
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+    const t = tip.getBoundingClientRect();
+    let left = r.left + r.width / 2 - t.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - t.width - pad));
+    let top = r.top - t.height - gap;
+    if (top < pad) top = r.bottom + gap;
+    if (top + t.height > window.innerHeight - pad) top = Math.max(pad, window.innerHeight - t.height - pad);
+    tip.style.left = `${Math.round(left)}px`;
+    tip.style.top = `${Math.round(top)}px`;
+  };
+
+  const show = (el) => {
+    active = el;
+    const keyword = (el.dataset.keyword || el.textContent || '').trim();
+    tipName.textContent = keyword;
+    tipText.textContent = el.dataset.tooltip || '';
+    tip.classList.add('is-visible');
+    tip.setAttribute('aria-hidden', 'false');
+    position(el);
+  };
+  const hide = (el) => {
+    if (el && active !== el) return;
+    active = null;
+    tip.classList.remove('is-visible');
+    tip.setAttribute('aria-hidden', 'true');
+  };
+
+  triggers.forEach(el => {
+    el.setAttribute('aria-describedby', '');
+    el.addEventListener('mouseenter', () => show(el));
+    el.addEventListener('mouseleave', () => hide(el));
+    el.addEventListener('focus', () => show(el));
+    el.addEventListener('blur', () => hide(el));
+    el.addEventListener('click', e => {
+      if (!window.matchMedia('(hover: none)').matches) return;
+      e.stopPropagation();
+      if (active === el && tip.classList.contains('is-visible')) hide(el); else show(el);
+    });
+  });
+  document.addEventListener('click', e => { if (!e.target.closest('.keyword-tip[data-tooltip]')) hide(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+  window.addEventListener('resize', () => active && position(active));
+  window.addEventListener('scroll', () => active && position(active), true);
+})();
+</script></body>
+</html>
