@@ -1,47 +1,38 @@
-(() => {
-  const groups = [{"id":"world","label":"The World","links":[{"page":"world","label":"The World","href":"index.html"},{"page":"tale","label":"Tale of Creation","href":"tale-of-creation.html"},{"page":"nadim","label":"Nadim ibn Iljhayf","href":"nadim-ibn-iljhayf.html"}]},{"id":"wargame","label":"Wargame","links":[{"page":"wargame","label":"Wargame Index","href":"wargame.html"},{"page":"wargame-rules","label":"Core Rules","href":"wargame-rules.html"},{"page":"wargame-keywords","label":"Keywords","href":"wargame-keywords.html"},{"page":"wg-yellow-institut","label":"Yellow Institut","href":"wargame-yellow-institut.html"},{"page":"wg-shrikes","label":"Shrikes","href":"wargame-shrikes.html"},{"page":"wg-anointed-holy-cities","label":"The Anointed Holy Cities","href":"wargame-anointed-holy-cities.html"},{"page":"wg-people-far-dunes","label":"People of the Far-Dunes","href":"wargame-people-of-the-far-dunes.html"},{"page":"wg-abyssal-cults","label":"Abyssal Cults of Jegari","href":"wargame-abyssal-cults-of-jegari.html"},{"page":"wg-flaying-courts","label":"The Flaying Courts","href":"wargame-the-flaying-courts.html"},{"page":"wg-monolith-clockworks","label":"Monolith Clockworks","href":"wargame-monolith-clockworks.html"},{"page":"wg-chitinous-enclaves","label":"Chitinous Enclaves","href":"wargame-chitinous-enclaves.html"},{"page":"wg-jakiisi","label":"Jakiisi","href":"wargame-jakiisi.html"},{"page":"wg-tyrisaz","label":"Tyrisaz","href":"wargame-tyrisaz.html"},{"page":"wg-dredgefolk","label":"Dredgefolk","href":"wargame-dredgefolk.html"}]},{"id":"factions","label":"Factions","links":[{"page":"factions","label":"Faction Index","href":"factions.html"},{"page":"yellow-institut","label":"Yellow Institut","href":"yellow-institut.html"},{"page":"the-shrikes","label":"The Shrikes","href":"the-shrikes.html"},{"page":"anointed-holy-cities","label":"The Anointed Holy Cities","href":"anointed-holy-cities.html"},{"page":"people-far-dunes","label":"People Of The Far-Dunes","href":"people-of-the-far-dunes.html"},{"page":"abyssal-cults","label":"Abyssal Cults of Jegari","href":"abyssal-cults-of-jegari.html"},{"page":"flaying-courts","label":"The Flaying Courts","href":"the-flaying-courts.html"},{"page":"flajhills","label":"Flajhills","href":"flajhills.html"},{"page":"monolith-clockworks","label":"Monolith Clockworks","href":"monolith-clockworks.html"},{"page":"chitinous-enclaves","label":"Chitinous Enclaves","href":"chitinous-enclaves.html"},{"page":"jakiisi","label":"Jakiisi","href":"jakiisi.html"},{"page":"tyrisaz","label":"Tyrisaz","href":"tyrisaz.html"}]},{"id":"locations","label":"Locations of Note","links":[{"page":"locations","label":"Overview","href":"locations.html"},{"page":"locations","label":"Fahroway","href":"locations.html#fahroway"},{"page":"locations","label":"Mothua","href":"locations.html#mothua"},{"page":"locations","label":"Ekternau","href":"locations.html#ekternau"},{"page":"locations","label":"Krashq’kanov","href":"locations.html#krashqkanov"}]},{"id":"bestiary","label":"Bestiary","links":[{"page":"bestiary","label":"Overview","href":"bestiary.html"},{"page":"bestiary","label":"The Great Seas","href":"bestiary.html#the-great-seas"},{"page":"bestiary","label":"Fahroway","href":"bestiary.html#fahroway"},{"page":"bestiary","label":"Ekternau","href":"bestiary.html#ekternau"}]},{"id":"beings","label":"Beings of Note","links":[{"page":"beings","label":"Overview","href":"beings-of-note.html"},{"page":"beings","label":"Fahroway","href":"beings-of-note.html#fahroway"},{"page":"beings","label":"Krashq’kanov","href":"beings-of-note.html#krashqkanov"},{"page":"beings","label":"Mothua","href":"beings-of-note.html#mothua"},{"page":"beings","label":"Ekternau","href":"beings-of-note.html#ekternau"}]},{"id":"tongues","label":"Order of Tongues","links":[{"page":"tongues","label":"The Tongue of Shrikes","href":"order-of-tongues.html"}]}];
-  const body = document.body;
-  const current = body.dataset.page || '';
-  const currentGroup = body.dataset.group || '';
-  const sidebar = document.getElementById('site-sidebar');
-
-  const esc = (value) => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const currentFile = location.pathname.split('/').pop() || 'index.html';
-
-  sidebar.innerHTML = `
-    <button class="sidebar-close" type="button" aria-label="Close navigation">✕</button>
-    <a class="sidebar-brand" href="index.html">Grimmvein</a>
-    <nav class="sidebar-nav" aria-label="Grimmvein archive">
-      ${groups.map(group => {
-        let stored = null; try { stored = localStorage.getItem('grimmvein-nav-' + group.id); } catch (_) {}
-        const shouldOpen = group.id === currentGroup || stored === 'open';
-        return `<details data-group="${esc(group.id)}" ${shouldOpen ? 'open' : ''}>
-          <summary>${esc(group.label)}</summary>
-          <div class="sidebar-links">
-            ${group.links.map(link => {
-              const linkFile = link.href.split('#')[0];
-              const exactHash = link.href.includes('#') && location.hash === '#' + link.href.split('#')[1];
-              const isActive = link.page === current && (!link.href.includes('#') ? currentFile === linkFile && !location.hash : exactHash);
-              const pageFallback = link.page === current && !group.links.some(x => x.page === current && x.href.includes('#') && location.hash === '#' + x.href.split('#')[1]);
-              const active = isActive || (pageFallback && !link.href.includes('#') && currentFile === linkFile);
-              return `<a href="${esc(link.href)}" class="${active ? 'active' : ''}" ${active ? 'aria-current="page"' : ''}>${esc(link.label)}</a>`;
-            }).join('')}
-          </div>
-        </details>`;
-      }).join('')}
-    </nav>`;
-
-  sidebar.querySelectorAll('details').forEach(detail => {
-    detail.addEventListener('toggle', () => {
-      try { localStorage.setItem('grimmvein-nav-' + detail.dataset.group, detail.open ? 'open' : 'closed'); } catch (_) {}
-    });
-  });
-
-  const openNav = () => { body.classList.add('nav-open'); document.querySelector('.mobile-menu')?.setAttribute('aria-expanded','true'); };
-  const closeNav = () => { body.classList.remove('nav-open'); document.querySelector('.mobile-menu')?.setAttribute('aria-expanded','false'); };
-  document.querySelector('.mobile-menu')?.addEventListener('click', openNav);
-  document.querySelector('.sidebar-overlay')?.addEventListener('click', closeNav);
-  sidebar.querySelector('.sidebar-close')?.addEventListener('click', closeNav);
-  sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
-})();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111416">
+  <title>Order of Tongues — Grimmvein</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=20260807-2">
+  <script src="site.js?v=20260807-2" defer></script>
+</head>
+<body id="top" data-page="tongues" data-group="tongues">
+  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
+  <div class="sidebar-overlay" aria-hidden="true"></div>
+  <aside class="sidebar" id="site-sidebar"></aside>
+  <div class="site-main">
+    <main class="content-wrap">
+      <header class="page-header">
+        <p class="page-kicker">Archive</p>
+        <h1>Order of Tongues</h1>
+        <p class="page-deck">Names, languages, forms of address, and the meanings carried within them.</p>
+      </header>
+      <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><div class="toc-links"><a href="#the-tongue-of-shrikes">The Tongue of Shrikes</a></div></nav><article class="lore-page"><h2 id="the-tongue-of-shrikes">The Tongue of Shrikes</h2><p>As with all things, names hold power and meaning. Thus, an explanation of these are required. It is difficult to do so for Shrike names, as they do not use the same lettering system as the Anointed Holy Cities or the Yellow Institut.</p>
+<p>Shrike names are split into parts, first, second, and sometimes third parts. The first part is the name of that individual or thing in the purest sense, stripped of all sense of formality. The second part designates where this name comes from. The third, used only for locations, is wedged between the first and second.</p>
+<p>For example, “Yhs’nohs’roljke” is split into three parts. “Yhs” is the informal name, the first part. “Roljke”, the second part, states where the name came from, though in this particular instance, the name is old enough it can be translated only as “Of Name Rolj”, as little sense as that makes to the Shrikes and to outsiders. “Nohs”, being the third part, states that it is “Of Cavern Nohs”, a cavernous city within the Obsidian Plains.</p>
+<p>To use the name of the Empress herself as an example, “Es’esfuras”, “Es” is the first part that states that she herself is Es. “Esfuras” is the second part, stating that she is the “Daughter of Furas”, as “Es” unbroken, in front of another string of letters, stands for “Daughter of”. An individuals shortened name, known as their Informal Name, is a combination of their two names given to them by their mother. In this case, Es’esfuras’ name is “Esfur” while her Formal Name is “Es’esfuras”.</p>
+<p>Other names, such as “Krasmin”, means “Child of Kras”, as the suffix “min” means “Child of”. This is confused, frequently, for “Es” and “Adr”, as “Es” is “Daughter of” and “Adr” is “Son of”. “Min” is often seen only in the names of a clan.</p>
+<p>It is proper only to use an Informal Name, such as “Esfur”, in closer relationships such as family members of the same sex, friends, and more friendly individuals of similar political rank. Outside of these situations, it is considered a social faux pas to use an Informal Name, and only a Formal Name should be used in any other such situation.</p></article>
+    </main>
+    <footer class="site-footer">Grimmvein</footer>
+  </div>
+  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
+</body>
+</html>
