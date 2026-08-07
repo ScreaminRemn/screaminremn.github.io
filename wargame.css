@@ -1,46 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111416">
-  <title>Tyrisaz — Grimmvein</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?v=20260807-2">
-  <script src="site.js?v=20260807-2" defer></script>
-</head>
-<body id="top" data-page="tyrisaz" data-group="factions">
-  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
-  <div class="sidebar-overlay" aria-hidden="true"></div>
-  <aside class="sidebar" id="site-sidebar"></aside>
-  <div class="site-main">
-    <main class="content-wrap">
-      <header class="page-header">
-        <p class="page-kicker">Factions</p>
-        <h1>Tyrisaz</h1>
-        
-      </header>
-      <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><div class="toc-links"><a href="#ilbair">Ilbair</a><a href="#jors">Jors</a><a href="#hrimskeldvar">Hrimskeldvar</a></div></nav><article class="lore-page">
-<h2 id="ilbair">Ilbair</h2>
-<p>Ilbair is a being known as a Tyrisaz, a race of titan-folk, rare and far apart. Ilbair is, visibly, deformed, possessing no legs and an odd pelvis of sorts, though his entire form is skeletal, marking him as strange even among the Tyrisaz. His inner bones are ashen black, yet his exterior are a bright silver-like bone, though somehow without shine and yet remaining silver. Attached to his shoulders are each three arms, though the left shoulder has the beginnings of a fourth arm that seems to have been crushed or torn off and apart long ago.</p>
-<p>Ilbair sits in south-central North-East Mothua, just staying near the coast. Rarely does he move, except to take a colossal drag of a strange, gargantuan cigar of sorts. However, on the few occasions that Ilbair has been angered, he has taken a drag before spewing a sea of orange-green flame, the likes of which has consumed the armies of the Fourth Holy Crusade.</p>
-<p>Ilbair does not speak, nor does he leave his place, but he does not take kindly to those who disturb his peace.</p>
-<h2 id="jors">Jors</h2>
-<p>Jors is a simplistic titan among the Tyrisaz, taking glee and joy in endlessly battling with the daemons of the Darklands. He wields a Danskeggox axe, named after Danskeg, the first mortal giant to have created such a tool, and a large, circular, wood-and-hide shield, engraved with runes of various types. His shield is carried by a large, bulky left arm and his axe, a weapon meant to be two-handed, is carried by two right arms, both leaner than the bulky left. His skin has long-since become reddened with bloodflow and adrenaline, a drastic deviation from the snow-white it once was. His beard is chopped and haggard, somehow still reaching below to his rounded beer belly, having been slashed and pulled at by various enemies.</p>
-<p>He cares not when beings scratch at him, for runes form where scratches and injuries once were, and any sense of self-preservation have long-since left him after Musanshi gifted him with endless battle-joy, caring not that he bleeds so long as his axe is swinging and his shield is bashing.</p>
-<p>It is said that his limited interactions with giant-folk, distant relatives of his, gave to them the name “Thors”, though they likely misunderstood his true name.</p>
-<h2 id="hrimskeldvar">Hrimskeldvar</h2>
-<p>Hrimskeldvar, a strange one, wanders the lands of Krashq’kanov rather aimlessly, chasing whatever amuses him in the moment. It was he who gave life to the Strahzzi, his ultimate creations, purely to see if he could - or, so he claims, last he was willing to speak. He fashioned the Strahzzi after himself, as he himself has four arms. In his true form, he towers for leagues into the heavens, and yet, does not touch the heavens nor mountain-peaks.</p>
-<p>He gave to humanity, of the lands of Mothua, the gift of Runes and all inherited magicks within, though they went on to warp and twist it in the supposed name of the Father Above All. Wrought with disdain at this slight and use of the name of his Grandfather, Hrimskeldvar traveled instead to Krashq’kanov, following about his whims as he pleased there. In doing so, he abandoned Ilbair, though Ilbair never seemed to care much what the other Tyrisaz thought, for Ilbair was - and perhaps still is - the greatest Rune-Seer among them.</p>
-<p>Now, more often than not, Hrimskeldvar takes a much smaller form, being only a score-and-ten-and-seven feet tall, with a great antlered helmet and a snow-mist white cloak, using a great longhaft axe as both walking stick and weapon. It is dangerous to encounter him, as his mercy and wrath are dependent on seemingly too many things. To one traveler, he may provide shelter, food, safety, company and drink. To another, he may freeze, split, or hang them where he found them.</p>
-<p>Should the mist and snow grow too great, head south as quickly as possible, towards warmth. Hrimskeldvar may not be far behind, but he will not follow you long.</p></article>
-    </main>
-    <footer class="site-footer">Grimmvein</footer>
-  </div>
-  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
-</body>
-</html>
+
+/* Grimmvein wargame pages. Uses the main site's variables and typography. */
+.wargame-wrap { width:min(1220px, calc(100% - 72px)); }
+.wargame-hero-note, .wargame-intro, .rules-page, .army-rule, .empty-state {
+  margin-bottom: 26px; padding: 24px 28px; background:var(--deep); border:1px solid var(--line); box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.wargame-hero-note p, .wargame-intro p { margin:0; }
+.wargame-card { min-height:170px; }
+.section-heading { margin:42px 0 18px; color:var(--gold); font-size:2.4rem; }
+.intro-links { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; margin-top:18px; padding-top:14px; border-top:1px solid #35322c; }
+.intro-links a { text-decoration:none; }
+.army-profile { margin-top:16px !important; color:#ddc982; font-weight:600; }
+.army-rule { position:relative; padding-top:36px; border-color:var(--line-bright); background:linear-gradient(145deg,rgba(214,183,95,.055),transparent 55%),var(--panel); }
+.army-rule-label { position:absolute; top:0; left:0; padding:6px 12px; color:#18150d; background:var(--gold); font-size:.83rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+.army-rule h2 { margin:0 0 10px; color:var(--gold-bright); font-size:2rem; }
+.army-rule p:last-child { margin-bottom:0; }
+.datasheet-stack { display:grid; gap:28px; }
+.datasheet { scroll-margin-top:24px; overflow:hidden; background:#121617; border:1px solid #6b5d3e; box-shadow:0 14px 40px rgba(0,0,0,.3); }
+.datasheet:target { border-color:var(--gold-bright); box-shadow:0 0 0 1px var(--gold-bright),0 14px 40px rgba(0,0,0,.3); }
+.datasheet-header { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; padding:18px 22px; color:#14110a; background:linear-gradient(90deg,#c6a64d,#e3ca77 62%,#baa04e); }
+.datasheet-name { font-family:"UnifrakturMaguntia",serif; font-size:2.2rem; line-height:1; }
+.datasheet-meta { display:flex; flex-wrap:wrap; gap:7px 14px; margin-top:7px; font-size:.92rem; font-weight:600; }
+.coin-cost { flex:0 0 auto; padding:8px 12px; color:#f4e7bd; background:#171a1b; border:1px solid #5c5035; font-weight:700; white-space:nowrap; }
+.stat-strip { display:grid; grid-template-columns:repeat(7,minmax(84px,1fr)); border-bottom:1px solid #4a4234; background:#1c2123; }
+.stat-cell { min-width:0; padding:11px 8px 12px; text-align:center; border-right:1px solid #3b3932; }
+.stat-cell:last-child { border-right:0; }
+.stat-label { display:block; color:#b8aa8e; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; }
+.stat-value { display:block; margin-top:2px; color:#fff0b1; font-family:Georgia,serif; font-size:1.55rem; line-height:1.1; font-weight:700; }
+.datasheet-subsection { padding:18px 22px 20px; border-top:1px solid #39362f; }
+.datasheet-subsection:first-of-type { border-top:0; }
+.datasheet-subsection h3 { margin:0 0 10px; color:#dac476; font-size:1.5rem; }
+.datasheet-subsection h4 { margin:0 0 3px; color:#e7d692; font-family:"Grenze Gotisch",Georgia,serif; font-size:1.12rem; font-weight:700; }
+.ability-entry + .ability-entry { margin-top:14px; padding-top:14px; border-top:1px dashed #3c3931; }
+.ability-entry p { margin:0; }
+.ability-none { margin:0; }
+.table-scroll { width:100%; overflow-x:auto; }
+.weapon-table, .rules-table, .keyword-table { width:100%; border-collapse:collapse; line-height:1.28; }
+.weapon-table th, .rules-table th { padding:8px 10px; color:#14110a; background:#c9ad5f; border:1px solid #9f8749; font-size:.86rem; letter-spacing:.035em; text-transform:uppercase; }
+.weapon-table td, .rules-table td, .keyword-table td, .keyword-table th { padding:9px 10px; border:1px solid #464137; }
+.weapon-table tbody tr:nth-child(even), .rules-table tbody tr:nth-child(even), .keyword-table tr:nth-child(even) { background:#1b2022; }
+.weapon-name { min-width:250px; color:#eee3cf; font-weight:700; }
+.weapon-keywords { color:#d5bd71; font-size:.88rem; font-weight:600; }
+.keyword-row { display:flex; flex-wrap:wrap; gap:7px; }
+.keyword-chip { display:inline-block; padding:4px 8px; color:#e3ca7b; background:#202527; border:1px solid #514938; font-size:.87rem; font-weight:700; }
+.leadership p { margin:.35em 0; }
+.muted { color:#9f9686; }
+.empty-state h2 { margin-top:0; color:var(--gold); }
+.rules-page section { scroll-margin-top:24px; }
+.rules-page h2 { margin:2em 0 .6em; padding-bottom:8px; color:var(--gold); font-size:2.25rem; border-bottom:1px solid #3d392f; }
+.rules-page section:first-child h2 { margin-top:0; }
+.rules-page h3 { margin:1.35em 0 .4em; color:#dcc77f; font-size:1.55rem; }
+.rules-page p { margin:.75em 0 1em; }
+.rules-page li { margin:.45em 0; }
+.rules-example { padding:12px 15px; background:#1b2022; border-left:3px solid var(--gold); }
+.compact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+.compact-grid > div { padding:12px 14px; background:#1a1f21; border:1px solid #403c34; }
+.compact-grid strong, .compact-grid span { display:block; }
+.compact-grid strong { color:#e2ca7d; }
+.compact-grid span { margin-top:4px; color:#c5baa7; font-size:.96rem; }
+.keyword-table th { width:190px; color:#e5ce83; text-align:left; background:#1b2022; }
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin:20px 0 24px; }
+.mission-card { margin:0; padding:12px; background:#0e1112; border:1px solid #4b4538; }
+.mission-card img { display:block; width:100%; height:auto; border:1px solid #6a604b; }
+.mission-card figcaption { padding:12px 4px 2px; color:#c9bfad; font-size:.94rem; line-height:1.45; }
+@media (max-width:1000px) { .stat-strip { grid-template-columns:repeat(4,1fr); } .stat-cell { border-bottom:1px solid #3b3932; } }
+@media (max-width:900px) { .wargame-wrap { width:min(900px,calc(100% - 34px)); } }
+@media (max-width:650px) { .datasheet-header { flex-direction:column; } .coin-cost { align-self:flex-start; } .stat-strip { grid-template-columns:repeat(2,1fr); } .compact-grid { grid-template-columns:1fr; } .weapon-name { min-width:190px; } }
+
+/* Datasheet keyword hover/focus tooltips. */
+.keyword-tooltip-trigger {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: currentColor;
+}
+.keyword-chip .keyword-tooltip-trigger,
+.keyword-chip.keyword-tooltip-trigger {
+  text-decoration-color: rgba(227,202,123,.72);
+}
+.keyword-tooltip {
+  position: fixed;
+  z-index: 10000;
+  width: max-content;
+  max-width: min(360px, calc(100vw - 24px));
+  padding: 10px 12px 11px;
+  color: #eee3cf;
+  background: #0d1011;
+  border: 1px solid #a58c4f;
+  box-shadow: 0 10px 28px rgba(0,0,0,.5);
+  font-family: "Times New Roman", Times, serif;
+  font-size: .98rem;
+  line-height: 1.32;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2px);
+  transition: opacity .1s ease, transform .1s ease, visibility .1s ease;
+}
+.keyword-tooltip.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.keyword-tooltip-name {
+  display: block;
+  margin-bottom: 4px;
+  color: #e3ca7b;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+  letter-spacing: .02em;
+}
+.keyword-tooltip-text { display: block; }
+.keyword-tooltip-trigger:focus-visible {
+  outline: 1px solid #e3ca7b;
+  outline-offset: 3px;
+}
