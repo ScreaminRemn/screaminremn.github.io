@@ -1,0 +1,67 @@
+
+/* Grimmvein wargame pages. Uses the main site's variables and typography. */
+.wargame-wrap { width:min(1220px, calc(100% - 72px)); }
+.wargame-hero-note, .wargame-intro, .rules-page, .army-rule, .empty-state {
+  margin-bottom: 26px; padding: 24px 28px; background:var(--deep); border:1px solid var(--line); box-shadow:0 12px 36px rgba(0,0,0,.18);
+}
+.wargame-hero-note p, .wargame-intro p { margin:0; }
+.wargame-card { min-height:170px; }
+.section-heading { margin:42px 0 18px; color:var(--gold); font-size:2.4rem; }
+.intro-links { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; margin-top:18px; padding-top:14px; border-top:1px solid #35322c; }
+.intro-links a { text-decoration:none; }
+.army-profile { margin-top:16px !important; color:#ddc982; font-weight:600; }
+.army-rule { position:relative; padding-top:36px; border-color:var(--line-bright); background:linear-gradient(145deg,rgba(214,183,95,.055),transparent 55%),var(--panel); }
+.army-rule-label { position:absolute; top:0; left:0; padding:6px 12px; color:#18150d; background:var(--gold); font-size:.83rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+.army-rule h2 { margin:0 0 10px; color:var(--gold-bright); font-size:2rem; }
+.army-rule p:last-child { margin-bottom:0; }
+.datasheet-stack { display:grid; gap:28px; }
+.datasheet { scroll-margin-top:24px; overflow:hidden; background:#121617; border:1px solid #6b5d3e; box-shadow:0 14px 40px rgba(0,0,0,.3); }
+.datasheet:target { border-color:var(--gold-bright); box-shadow:0 0 0 1px var(--gold-bright),0 14px 40px rgba(0,0,0,.3); }
+.datasheet-header { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; padding:18px 22px; color:#14110a; background:linear-gradient(90deg,#c6a64d,#e3ca77 62%,#baa04e); }
+.datasheet-name { font-family:"UnifrakturMaguntia",serif; font-size:2.2rem; line-height:1; }
+.datasheet-meta { display:flex; flex-wrap:wrap; gap:7px 14px; margin-top:7px; font-size:.92rem; font-weight:600; }
+.coin-cost { flex:0 0 auto; padding:8px 12px; color:#f4e7bd; background:#171a1b; border:1px solid #5c5035; font-weight:700; white-space:nowrap; }
+.stat-strip { display:grid; grid-template-columns:repeat(7,minmax(84px,1fr)); border-bottom:1px solid #4a4234; background:#1c2123; }
+.stat-cell { min-width:0; padding:11px 8px 12px; text-align:center; border-right:1px solid #3b3932; }
+.stat-cell:last-child { border-right:0; }
+.stat-label { display:block; color:#b8aa8e; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; }
+.stat-value { display:block; margin-top:2px; color:#fff0b1; font-family:Georgia,serif; font-size:1.55rem; line-height:1.1; font-weight:700; }
+.datasheet-subsection { padding:18px 22px 20px; border-top:1px solid #39362f; }
+.datasheet-subsection:first-of-type { border-top:0; }
+.datasheet-subsection h3 { margin:0 0 10px; color:#dac476; font-size:1.5rem; }
+.datasheet-subsection h4 { margin:0 0 3px; color:#e7d692; font-family:"Grenze Gotisch",Georgia,serif; font-size:1.12rem; font-weight:700; }
+.ability-entry + .ability-entry { margin-top:14px; padding-top:14px; border-top:1px dashed #3c3931; }
+.ability-entry p { margin:0; }
+.ability-none { margin:0; }
+.table-scroll { width:100%; overflow-x:auto; }
+.weapon-table, .rules-table, .keyword-table { width:100%; border-collapse:collapse; line-height:1.28; }
+.weapon-table th, .rules-table th { padding:8px 10px; color:#14110a; background:#c9ad5f; border:1px solid #9f8749; font-size:.86rem; letter-spacing:.035em; text-transform:uppercase; }
+.weapon-table td, .rules-table td, .keyword-table td, .keyword-table th { padding:9px 10px; border:1px solid #464137; }
+.weapon-table tbody tr:nth-child(even), .rules-table tbody tr:nth-child(even), .keyword-table tr:nth-child(even) { background:#1b2022; }
+.weapon-name { min-width:250px; color:#eee3cf; font-weight:700; }
+.weapon-keywords { color:#d5bd71; font-size:.88rem; font-weight:600; }
+.keyword-row { display:flex; flex-wrap:wrap; gap:7px; }
+.keyword-chip { display:inline-block; padding:4px 8px; color:#e3ca7b; background:#202527; border:1px solid #514938; font-size:.87rem; font-weight:700; }
+.leadership p { margin:.35em 0; }
+.muted { color:#9f9686; }
+.empty-state h2 { margin-top:0; color:var(--gold); }
+.rules-page section { scroll-margin-top:24px; }
+.rules-page h2 { margin:2em 0 .6em; padding-bottom:8px; color:var(--gold); font-size:2.25rem; border-bottom:1px solid #3d392f; }
+.rules-page section:first-child h2 { margin-top:0; }
+.rules-page h3 { margin:1.35em 0 .4em; color:#dcc77f; font-size:1.55rem; }
+.rules-page p { margin:.75em 0 1em; }
+.rules-page li { margin:.45em 0; }
+.rules-example { padding:12px 15px; background:#1b2022; border-left:3px solid var(--gold); }
+.compact-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+.compact-grid > div { padding:12px 14px; background:#1a1f21; border:1px solid #403c34; }
+.compact-grid strong, .compact-grid span { display:block; }
+.compact-grid strong { color:#e2ca7d; }
+.compact-grid span { margin-top:4px; color:#c5baa7; font-size:.96rem; }
+.keyword-table th { width:190px; color:#e5ce83; text-align:left; background:#1b2022; }
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin:20px 0 24px; }
+.mission-card { margin:0; padding:12px; background:#0e1112; border:1px solid #4b4538; }
+.mission-card img { display:block; width:100%; height:auto; border:1px solid #6a604b; }
+.mission-card figcaption { padding:12px 4px 2px; color:#c9bfad; font-size:.94rem; line-height:1.45; }
+@media (max-width:1000px) { .stat-strip { grid-template-columns:repeat(4,1fr); } .stat-cell { border-bottom:1px solid #3b3932; } }
+@media (max-width:900px) { .wargame-wrap { width:min(900px,calc(100% - 34px)); } }
+@media (max-width:650px) { .datasheet-header { flex-direction:column; } .coin-cost { align-self:flex-start; } .stat-strip { grid-template-columns:repeat(2,1fr); } .compact-grid { grid-template-columns:1fr; } .weapon-name { min-width:190px; } }

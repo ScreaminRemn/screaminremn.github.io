@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111416">
+  <title>Core Rules — Grimmvein</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="wargame.css">
+  <script src="site.js" defer></script>
+</head>
+<body id="top" data-page="wargame-rules" data-group="wargame">
+  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
+  <div class="sidebar-overlay" aria-hidden="true"></div>
+  <aside class="sidebar" id="site-sidebar"></aside>
+  <div class="site-main">
+    <main class="content-wrap wargame-wrap">
+      <header class="page-header">
+        <p class="page-kicker">Grimmvein Wargame</p>
+        <h1>Core Rules</h1>
+        <p class="page-deck">The current core rules, with the Overview Basics wording cleaned up for web reading.</p>
+      </header>
+      <nav class="toc" aria-label="Core rules contents">
+  <div class="toc-title">On this page</div>
+  <div class="toc-links">
+    <a href="#datasheets">Datasheets</a><a href="#unit-stats">Unit Stats</a><a href="#weapons">Weapons</a>
+    <a href="#army-composition">Army Composition</a><a href="#matches">Matches</a><a href="#line-of-sight">Line of Sight</a>
+    <a href="#turns">Turns</a><a href="#engagements">Engagements</a><a href="#objectives">Objectives</a>
+    <a href="#movement">Movement</a><a href="#attacking">Attacking</a><a href="#summoning">Summoning</a><a href="#allies">Allies</a>
+  </div>
+</nav>
+<article class="rules-page">
+<section id="datasheets"><h2>Datasheets</h2>
+<p>Each unit is represented by a statline, also called a datasheet. A datasheet contains the unit's basic statistics, weapons, keywords, abilities, cost, and any units it can lead or be led by.</p>
+<div class="compact-grid">
+  <div><strong>Unit</strong><span>Unit Name [Base Size in Millimeters], Model Count, and Role</span></div>
+  <div><strong>Unit Stats</strong><span>Actions, Armor, Health, Holding Power, Might, Accuracy, and Evasion</span></div>
+  <div><strong>Ranged Weapons</strong><span>Range, Strength, and Speed</span></div>
+  <div><strong>Melee Weapons</strong><span>Strength, Speed, and Crit</span></div>
+  <div><strong>Keywords</strong><span>Any keywords that apply to the unit or model</span></div>
+  <div><strong>Abilities</strong><span>Weapon Ability and Unit Ability, when applicable</span></div>
+  <div><strong>Unit Cost</strong><span>The unit's cost in Coins</span></div>
+  <div><strong>Leadership</strong><span>Whether the unit is solo, can lead another unit, or can be led by another unit</span></div>
+</div></section>
+<section id="unit-stats"><h2>Unit Stats</h2>
+<h3>Actions</h3><p>Actions are primarily used for movement. Moving 1 inch costs 1 Action. Unless a Unit Ability states otherwise, a model can attack only once, and it must still have at least 1 Action remaining to attack.</p>
+<p>In a multi-model unit, all models share the unit's Actions and must stay together. The unit cannot split unless a rule specifically allows it. When a multi-model unit attacks, the unit spends 1 Action collectively, and each model makes one attack.</p>
+<p class="rules-example"><strong>Example:</strong> A unit with 4 Actions can move up to 4 inches, or it can move up to 3 inches and still use its remaining Action to attack.</p>
+<h3>Armor</h3><p>Armor represents how heavily protected a unit or model is and determines how much damage it takes from an attack.</p>
+<h3>Health</h3><p>Health is tracked separately for each model. If a model's Health reaches 0, that model dies.</p>
+<h3>Holding Power</h3><p>Holding Power represents how effective a unit or model is at holding an Objective and determines whether it can receive certain defensive bonuses while doing so.</p>
+<h3>Might</h3><p>Might represents how effective a unit or model is at attacking an Objective and determines whether it can receive certain offensive bonuses while doing so.</p>
+<h3>Accuracy</h3><p>Accuracy represents how likely a unit or model is to hit a target beyond Melee Range.</p>
+<h3>Evasion</h3><p>Evasion represents how likely a unit or model is to avoid a ranged attack. Accuracy and Evasion are compared during Ranged Engagement and use D6 rolls where required.</p>
+<h3>Strength, Armor, and Damage</h3><p>Strength is the damage value of an attack. When an attack lands, compare its Strength to the target's Armor:</p>
+<ul><li>If the target's Armor is higher than or equal to the attack's Strength, halve the Strength. Round down to the nearest whole number. The result cannot be lower than 1 unless a Weapon Ability or Unit Ability states otherwise.</li><li>Crit ignores Armor.</li><li>If the attack's Strength is higher than the target's Armor, the attack deals its full Strength but cannot deal Crit damage. If a Crit is rolled in this case, treat it as a normal Strength attack.</li></ul>
+</section>
+<section id="weapons"><h2>Weapon Stats</h2><p>All weapons use Range, Strength, and Speed. Melee weapons also have a Crit value.</p>
+<h3>Range</h3><p>Range is the maximum distance at which a weapon can attack. A ranged weapon with Range 10 can attack a target up to 10 inches away. Melee weapons use Melee Range, which is 2 inches by default unless a Weapon Ability states otherwise.</p>
+<h3>Strength</h3><p>Strength is the weapon's normal damage value.</p>
+<h3>Speed</h3><p>Speed determines attack order when both sides are able to attack. The weapon with the higher Speed attacks first. If two melee weapons have the same Speed, both players roll 1D6; the higher roll attacks first. If the roll ties, keep rerolling until the tie is broken.</p>
+<h3>Crit - Melee Only</h3><p>Melee attacks always hit. When making a melee attack, roll 1D6. On a 1-5, use the weapon's Strength. On a 6, use the weapon's Crit value instead. Crit is always higher than that weapon's normal Strength.</p></section>
+<section id="army-composition"><h2>Army Composition</h2><div class="table-scroll"><table class="rules-table"><thead><tr><th>Role</th><th>Limits</th></tr></thead><tbody>
+<tr><td>High Commander</td><td>Minimum 1, maximum 1</td></tr><tr><td>Commanders</td><td>Minimum 0, maximum 2</td></tr><tr><td>Formations Units</td><td>Minimum 2, maximum 10</td></tr><tr><td>Specialist Units</td><td>Minimum 0, maximum 2 per Unique Specialist Unit</td></tr><tr><td>Specialist Characters</td><td>Minimum 0, maximum 1 per Unique Specialist Character</td></tr><tr><td>Machines of War</td><td>Minimum 0, maximum 3</td></tr></tbody></table></div>
+<p>High Commanders are required for a legal army. While alive, a High Commander typically provides a minor army-wide buff, depending on that High Commander.</p>
+<p>Commanders are optional and usually provide more limited buffs, commonly to a specific unit rather than the entire army.</p>
+<p>Formations Units are required and make up the army's baseline troops.</p>
+<p>Specialist Units are optional and provide additional unit types or specialized variants of Formations Units.</p>
+<p>Specialist Characters are optional. Each unique Specialist Character can be included only once, although an army may include multiple different Specialist Characters.</p>
+<p>Machines of War are optional and are typically heavily armored, slow-moving, hard-hitting units or transports.</p></section>
+<section id="matches"><h2>Matches and Setup</h2><div class="table-scroll"><table class="rules-table"><thead><tr><th>Size</th><th>Objective Match</th><th>War Match</th></tr></thead><tbody><tr><td>60 Coins</td><td>Village Raid</td><td>Battlefield Match</td></tr><tr><td>90 Coins</td><td>Town Pillage</td><td>War-of-Onslaught</td></tr><tr><td>120 Coins</td><td>City Assault</td><td>Titanic Slaughter</td></tr></tbody></table></div>
+<p>The standard board is 36 inches wide and 48 inches long. Both players deploy on opposite 48-inch sides of the board. If that board size is not available, another size can be used as long as the players still deploy on opposite sides.</p>
+<p>Each player normally has a 6-by-48-inch deployment area along their board edge. Players take turns deploying units inside their deployment areas. Roll 1D6 to determine who deploys first; the higher roll goes first.</p>
+<h3>Choosing a Match</h3><p>Players may agree on which match to play. If they disagree, each player chooses a match and both roll 1D6. The higher roll decides which chosen match is played. If the roll ties, reroll until the tie is broken.</p>
+<h3>Objective Matches</h3><p>Village Raid, Town Pillage, and City Assault are Objective Matches. Their goal is to maintain or obtain possession of the Objectives.</p>
+<h3>War Matches</h3><p>Battlefield Match, War-of-Onslaught, and Titanic Slaughter are War Matches. Their goal is to eradicate the opposing force. War Matches still use Objectives and the same Objective layouts, even though Objectives do not determine the winner. Players may use a custom Objective layout if both players agree.</p>
+<h3>Objective Match Setup and Victory</h3><p>At the beginning of an Objective Match, both players roll 1D6. The lower roll becomes the Defending Force and the higher roll becomes the Attacking Force. Then roll another 1D6 to determine who takes the first turn. Reroll ties until one player rolls higher.</p>
+<p>The Defending Force may begin with one Objective already in its possession. The Attacking Force cannot deploy any unit or model within 10 inches of the nearest Objective. Aside from the Objective victory conditions, the match is played similarly to a War Match.</p>
+<div class="mission-grid">
+<figure class="mission-card"><img src="assets/wargame-diagrams/village-raid.png" alt="Village Raid objective layout"><figcaption><strong>Village Raid - 60 Coins.</strong> Use 3 Objectives arranged in a horizontal line across the board. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the middle Objective. The Defending Force wins by holding all 3 Objectives for 5 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+<figure class="mission-card"><img src="assets/wargame-diagrams/town-pillage.png" alt="Town Pillage objective layout"><figcaption><strong>Town Pillage - 90 Coins.</strong> Use 4 Objectives arranged in a diamond-like formation in the middle of the board, separated by terrain: one near the Defending Force, two across the middle, and one near the Attacking Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the nearest Objective. The Defending Force wins by holding all 4 Objectives for 4 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+<figure class="mission-card"><img src="assets/wargame-diagrams/city-assault.png" alt="City Assault objective layout"><figcaption><strong>City Assault - 120 Coins.</strong> Use 5 Objectives in a loose pentagonal formation that favors the Defending Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on either of the nearest two Objectives. The Defending Force wins by holding all 5 Objectives for 3 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+</div>
+<p>The Attacking Force wins an Objective Match by taking all Objectives or by completely eradicating the Defending Force. The Attacking Force always deploys in its normal 6-inch deployment area along the farthest edge of the table.</p>
+<h3>War Matches and Rounds</h3><p>Both players deploy on opposite ends of the board. After deployment, roll 1D6 to determine who takes the first turn. Reroll ties until one player rolls higher. The player who completely eradicates the opposing force wins.</p><p>A round is complete only after both players have taken a turn. If Player 1 has finished their turn but Player 2 has not, the round is not yet complete.</p></section>
+<section id="line-of-sight"><h2>Line of Sight</h2><p>A model has Line of Sight to another model when there is a clear, unobstructed line from one base rim to the other base rim.</p><p>If only a tiny portion of the target's base rim is visible, the target does not have CLEAR Line of Sight. It instead has HIDDEN Line of Sight and gains the [COVER] keyword. Any target that is not wholly within CLEAR Line of Sight is considered to have HIDDEN Line of Sight.</p><p>If the target's base rim is not visible at all, and enough of the model itself is also hidden from the attacker's view, the target is not within Line of Sight.</p><p>A model with [COVER] gains +1 Armor against both Ranged and Melee attacks.</p></section>
+<section id="turns"><h2>Turns and Units</h2><h3>Primary and Secondary Units</h3><p>At the beginning of each turn, the active player chooses 1 Primary Unit. Every other unit is a Secondary Unit for that turn.</p><p>The Primary Unit uses its full Actions. Secondary Units use half of their Actions, rounded down, to a minimum of 1 Action. The player may still use all of their units and characters during the turn, but each must follow the Primary or Secondary Unit restriction.</p><h3>Attached Characters and Unit Coherency</h3><p>A unit can have a maximum of 1 attached Character, whether that Character is a High Commander, Commander, or Specialist Character.</p><p>All models in the same unit must remain within 1/4 inch of each other, measured from base rim to base rim.</p></section>
+<section id="engagements"><h2>Engagements</h2><h3>Ranged Engagement</h3><p>When a model makes a ranged attack, compare the attacker's Accuracy to the target's Evasion:</p><ul><li>If Accuracy is higher than Evasion, the attack hits.</li><li>If Accuracy equals Evasion, roll 1D6. The attack hits on a 3, 4, 5, or 6.</li><li>If Accuracy is lower than Evasion, roll 1D6. The attack hits on a 4, 5, or 6, but deals half damage. Round down to the nearest whole number, to a minimum of 1 damage.</li></ul><p>If both the attacker and defender are within range of each other's weapons, compare weapon Speed. The higher-Speed weapon attacks first. If their Speed is equal, the attacker goes first. The model with the lower Speed, if it survives, gains Retaliate and attacks without spending any Actions.</p>
+<h3>Melee Engagement</h3><p>When models make Melee Contact, both units enter Melee Combat, even if only some models from each unit are in contact.</p><p>Attacks are resolved in order of Melee Weapon Speed, beginning with the highest Speed and continuing downward.</p><p>If an attack deals a Crit, the target of that Crit may immediately use Retaliate with +1 Strength before the normal attack order resumes.</p><p>Retaliate does not replace that model's normal attack in the attack order. A model that uses Retaliate still takes its normal attacking turn.</p></section>
+<section id="objectives"><h2>Objectives</h2><p>Objectives are represented by 6-inch circles on the board and should be marked clearly. Custom Objective markers are allowed as long as both players agree that they are clear enough to use.</p><p>The force already possessing an Objective is the Garrison. The force attacking an Objective possessed by the opposing player is the Raiders.</p><h3>Garrison Urgency</h3><p>The Garrison gains +1 Actions if it has more Holding Power than the Raiders.</p><h3>Siegebreak</h3><p>The Raiders gain +1 Speed if they have more Might than the Garrison.</p><p>These bonuses are only gained if the relevant force has the higher stat. If it does not, it gains no bonus.</p><h3>Claiming and Possessing an Objective</h3><p>To claim an Objective, a force must eliminate all opposing forces on that Objective and remain the only force on it for 1 round.</p><p>At the end of a round, if only one force still has models on the Objective, that force is considered to possess it. If both forces still have models on the Objective, neither force possesses it.</p><p>After an Objective has been claimed, it remains in that force's possession for 2 rounds even if that force no longer has models on it, unless the opposing force claims it first.</p></section>
+<section id="movement"><h2>Basic Movement</h2><p>A model may move up to a number of inches equal to the Actions available to it. A model is not required to use its full movement.</p><p>Models cannot move through terrain obstacles unless a special rule or keyword allows it. Models also cannot rest on top of another model or overlap another model's base. Bases may touch, but they cannot overlap.</p><p>Models cannot move through other models unless a special rule or keyword allows it.</p></section>
+<section id="attacking"><h2>Attacking</h2><p>A model can attack only one enemy model at a time, chosen by the attacking player. The target must be within range of the chosen attack and within Line of Sight unless a special rule or keyword states otherwise.</p><p>If the target is within Melee Range, attack order is determined by weapon Speed rather than the attacker automatically going first. If the Speed is tied, both players roll 1D6 and the higher roll goes first. Reroll ties until one player rolls higher.</p><p>Track each model's Health with a small counter or token placed next to that model.</p></section>
+<section id="summoning"><h2>Summoning</h2><p>When a unit with the [SUMMONED] keyword is summoned, place it in Deployment.</p></section>
+<section id="allies"><h2>Allies</h2><p>Units with the [AIMLESS] keyword can be allied into any army, up to a maximum of 3 allied units total, while still following the normal Army Composition rules.</p></section>
+</article>
+    </main>
+    <footer class="site-footer">Grimmvein</footer>
+  </div>
+  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
+</body>
+</html>
