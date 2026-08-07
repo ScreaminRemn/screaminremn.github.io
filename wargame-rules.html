@@ -1,51 +1,47 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111416">
-  <title>Core Rules — Grimmvein</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?v=20260807-3">
-  <link rel="stylesheet" href="wargame.css?v=20260807-3">
-  <script src="site.js?v=20260807-3" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#111416" name="theme-color"/>
+<title>Core Rules — Grimmvein</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="grimmvein-site-2026.css" rel="stylesheet"/>
+<script defer="" src="grimmvein-site-2026.js"></script>
 </head>
-<body id="top" data-page="wargame-rules" data-group="wargame">
-  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
-  <div class="sidebar-overlay" aria-hidden="true"></div>
-  <aside class="sidebar" id="site-sidebar"></aside>
-  <div class="site-main">
-    <main class="content-wrap wargame-wrap">
-      <header class="page-header">
-        <p class="page-kicker">Grimmvein Wargame</p>
-        <h1>Core Rules</h1>
-        <p class="page-deck">The current core rules, with the Overview Basics wording cleaned up for web reading.</p>
-      </header>
-      <nav class="toc" aria-label="Core rules contents">
-  <div class="toc-title">On this page</div>
-  <div class="toc-links">
-    <a href="#datasheets">Datasheets</a><a href="#unit-stats">Unit Stats</a><a href="#weapons">Weapons</a>
-    <a href="#army-composition">Army Composition</a><a href="#matches">Matches</a><a href="#line-of-sight">Line of Sight</a>
-    <a href="#turns">Turns</a><a href="#engagements">Engagements</a><a href="#objectives">Objectives</a>
-    <a href="#movement">Movement</a><a href="#attacking">Attacking</a><a href="#summoning">Summoning</a><a href="#allies">Allies</a>
-  </div>
+<body data-group="wargame" data-page="wargame-rules" id="top">
+<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
+<div aria-hidden="true" class="sidebar-overlay"></div>
+<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame" open=""><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a aria-current="page" class="active" href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions"><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<div class="site-main">
+<main class="content-wrap wargame-wrap">
+<header class="page-header">
+<p class="page-kicker">Grimmvein Wargame</p>
+<h1>Core Rules</h1>
+<p class="page-deck">The current core rules, with the Overview Basics wording cleaned up for web reading.</p>
+</header>
+<nav aria-label="Core rules contents" class="toc">
+<div class="toc-title">On this page</div>
+<div class="toc-links">
+<a href="#datasheets">Datasheets</a><a href="#unit-stats">Unit Stats</a><a href="#weapons">Weapons</a>
+<a href="#army-composition">Army Composition</a><a href="#matches">Matches</a><a href="#line-of-sight">Line of Sight</a>
+<a href="#turns">Turns</a><a href="#engagements">Engagements</a><a href="#objectives">Objectives</a>
+<a href="#movement">Movement</a><a href="#attacking">Attacking</a><a href="#summoning">Summoning</a><a href="#allies">Allies</a>
+</div>
 </nav>
 <article class="rules-page">
 <section id="datasheets"><h2>Datasheets</h2>
 <p>Each unit is represented by a statline, also called a datasheet. A datasheet contains the unit's basic statistics, weapons, keywords, abilities, cost, and any units it can lead or be led by.</p>
 <div class="compact-grid">
-  <div><strong>Unit</strong><span>Unit Name [Base Size in Millimeters], Model Count, and Role</span></div>
-  <div><strong>Unit Stats</strong><span>Actions, Armor, Health, Holding Power, Might, Accuracy, and Evasion</span></div>
-  <div><strong>Ranged Weapons</strong><span>Range, Strength, and Speed</span></div>
-  <div><strong>Melee Weapons</strong><span>Strength, Speed, and Crit</span></div>
-  <div><strong>Keywords</strong><span>Any keywords that apply to the unit or model</span></div>
-  <div><strong>Abilities</strong><span>Weapon Ability and Unit Ability, when applicable</span></div>
-  <div><strong>Unit Cost</strong><span>The unit's cost in Coins</span></div>
-  <div><strong>Leadership</strong><span>Whether the unit is solo, can lead another unit, or can be led by another unit</span></div>
+<div><strong>Unit</strong><span>Unit Name [Base Size in Millimeters], Model Count, and Role</span></div>
+<div><strong>Unit Stats</strong><span>Actions, Armor, Health, Holding Power, Might, Accuracy, and Evasion</span></div>
+<div><strong>Ranged Weapons</strong><span>Range, Strength, and Speed</span></div>
+<div><strong>Melee Weapons</strong><span>Strength, Speed, and Crit</span></div>
+<div><strong>Keywords</strong><span>Any keywords that apply to the unit or model</span></div>
+<div><strong>Abilities</strong><span>Weapon Ability and Unit Ability, when applicable</span></div>
+<div><strong>Unit Cost</strong><span>The unit's cost in Coins</span></div>
+<div><strong>Leadership</strong><span>Whether the unit is solo, can lead another unit, or can be led by another unit</span></div>
 </div></section>
 <section id="unit-stats"><h2>Unit Stats</h2>
 <h3>Actions</h3><p>Actions are primarily used for movement. Moving 1 inch costs 1 Action. Unless a Unit Ability states otherwise, a model can attack only once, and it must still have at least 1 Action remaining to attack.</p>
@@ -82,9 +78,9 @@
 <h3>Objective Match Setup and Victory</h3><p>At the beginning of an Objective Match, both players roll 1D6. The lower roll becomes the Defending Force and the higher roll becomes the Attacking Force. Then roll another 1D6 to determine who takes the first turn. Reroll ties until one player rolls higher.</p>
 <p>The Defending Force may begin with one Objective already in its possession. The Attacking Force cannot deploy any unit or model within 10 inches of the nearest Objective. Aside from the Objective victory conditions, the match is played similarly to a War Match.</p>
 <div class="mission-grid">
-<figure class="mission-card"><img src="assets/wargame-diagrams/village-raid.png" alt="Village Raid objective layout"><figcaption><strong>Village Raid - 60 Coins.</strong> Use 3 Objectives arranged in a horizontal line across the board. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the middle Objective. The Defending Force wins by holding all 3 Objectives for 5 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
-<figure class="mission-card"><img src="assets/wargame-diagrams/town-pillage.png" alt="Town Pillage objective layout"><figcaption><strong>Town Pillage - 90 Coins.</strong> Use 4 Objectives arranged in a diamond-like formation in the middle of the board, separated by terrain: one near the Defending Force, two across the middle, and one near the Attacking Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the nearest Objective. The Defending Force wins by holding all 4 Objectives for 4 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
-<figure class="mission-card"><img src="assets/wargame-diagrams/city-assault.png" alt="City Assault objective layout"><figcaption><strong>City Assault - 120 Coins.</strong> Use 5 Objectives in a loose pentagonal formation that favors the Defending Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on either of the nearest two Objectives. The Defending Force wins by holding all 5 Objectives for 3 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+<figure class="mission-card"><img alt="Village Raid objective layout" src="assets/wargame-diagrams/village-raid.png"/><figcaption><strong>Village Raid - 60 Coins.</strong> Use 3 Objectives arranged in a horizontal line across the board. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the middle Objective. The Defending Force wins by holding all 3 Objectives for 5 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+<figure class="mission-card"><img alt="Town Pillage objective layout" src="assets/wargame-diagrams/town-pillage.png"/><figcaption><strong>Town Pillage - 90 Coins.</strong> Use 4 Objectives arranged in a diamond-like formation in the middle of the board, separated by terrain: one near the Defending Force, two across the middle, and one near the Attacking Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on the nearest Objective. The Defending Force wins by holding all 4 Objectives for 4 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
+<figure class="mission-card"><img alt="City Assault objective layout" src="assets/wargame-diagrams/city-assault.png"/><figcaption><strong>City Assault - 120 Coins.</strong> Use 5 Objectives in a loose pentagonal formation that favors the Defending Force. The Defending Force may deploy 6 inches closer than normal and may begin with one unit or character on either of the nearest two Objectives. The Defending Force wins by holding all 5 Objectives for 3 rounds or by completely eradicating the Attacking Force.</figcaption></figure>
 </div>
 <p>The Attacking Force wins an Objective Match by taking all Objectives or by completely eradicating the Defending Force. The Attacking Force always deploys in its normal 6-inch deployment area along the farthest edge of the table.</p>
 <h3>War Matches and Rounds</h3><p>Both players deploy on opposite ends of the board. After deployment, roll 1D6 to determine who takes the first turn. Reroll ties until one player rolls higher. The player who completely eradicates the opposing force wins.</p><p>A round is complete only after both players have taken a turn. If Player 1 has finished their turn but Player 2 has not, the round is not yet complete.</p></section>
@@ -98,9 +94,10 @@
 <section id="summoning"><h2>Summoning</h2><p>When a unit with the [SUMMONED] keyword is summoned, place it in Deployment.</p></section>
 <section id="allies"><h2>Allies</h2><p>Units with the [AIMLESS] keyword can be allied into any army, up to a maximum of 3 allied units total, while still following the normal Army Composition rules.</p></section>
 </article>
-    </main>
-    <footer class="site-footer">Grimmvein</footer>
-  </div>
-  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
+</main>
+<footer class="site-footer">Grimmvein</footer>
+</div>
+<a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
+<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
 </body>
 </html>

@@ -1,40 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111416">
-  <title>Flajhills — Grimmvein</title>
+(() => {
+  const body = document.body;
+  const sidebar = document.getElementById("site-sidebar");
+  const menu = document.querySelector(".mobile-menu");
+  const overlay = document.querySelector(".sidebar-overlay");
 
+  function openNav() {
+    body.classList.add("nav-open");
+    menu?.setAttribute("aria-expanded", "true");
+  }
+  function closeNav() {
+    body.classList.remove("nav-open");
+    menu?.setAttribute("aria-expanded", "false");
+  }
 
+  menu?.addEventListener("click", openNav);
+  overlay?.addEventListener("click", closeNav);
+  sidebar?.querySelector(".sidebar-close")?.addEventListener("click", closeNav);
+  sidebar?.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeNav();
+  });
 
+  // Highlight same-page hash links when one is active.
+  function markHashLink() {
+    const file = location.pathname.split("/").pop() || "index.html";
+    sidebar?.querySelectorAll(".sidebar-links a").forEach(a => {
+      const url = new URL(a.href, location.href);
+      const sameFile = (url.pathname.split("/").pop() || "index.html") === file;
+      const isHashMatch = sameFile && url.hash && url.hash === location.hash;
+      if (isHashMatch) {
+        sidebar.querySelectorAll(".sidebar-links a.active").forEach(x => {
+          x.classList.remove("active");
+          x.removeAttribute("aria-current");
+        });
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+      }
+    });
+  }
+  window.addEventListener("hashchange", markHashLink);
+  markHashLink();
 
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?v=20260807-3">
-  <script src="site.js?v=20260807-3" defer></script>
-</head>
-<body id="top" data-page="flajhills" data-group="factions">
-  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
-  <div class="sidebar-overlay" aria-hidden="true"></div>
-  <aside class="sidebar" id="site-sidebar"></aside>
-  <div class="site-main">
-    <main class="content-wrap">
-      <header class="page-header">
-        <p class="page-kicker">Factions</p>
-        <h1>Flajhills</h1>
-        
-      </header>
-      <article class="lore-page"><p>A race of thin giants, one of the youngest races of this world. They are rather peaceful and unfortunately kind and naive, often leading to them being exploited, captured, and enslaved for physical labor. Their homes are usually found high above in the mountains of Fahroway and Mothua.</p>
-<p>The primary forces that enslave the Flajhills in Mothua, the Anointed Holy Cities, will often leave the Flajhills true homes alone to allow the Flajhills to continue reproducing and, as such, create more able bodied workers. The reason they are often left alone is so their naivete remains and so they are more pliable. Every few years, small slaver parties of the Anointed Holy Cities will hike into the mountains, choose a small village, and herd off that small edge village as quickly as they can, lest they be noticed.</p>
-<p>In Fahroway, most Flajhills actually live fairly peaceful lives, so long as they stay in their mountain homes. They learned early on that those that wander to go see the strange sights down below the mountains vanish in a strange, baleful hue of yellow and black flame.</p>
-<p>The Fahroway Flajhills, unable to leave, turn inwards. They have simple chiefs for each village, though they primarily farm and work the wood round about them - large redwoods and gor oaks, named after Gor Funderlen, the first among them to learn the arts of woodworking. They build strange houses, each using tall slab-like pillars of redwood and gor oak, with roofs made of what some would call an upturned water-vessel. Between many of these villages lie large bridges, held together of wood, stones, and leathery sinew of the few livestock the Flajhills possess.</p></article>
-    </main>
-    <footer class="site-footer">Grimmvein</footer>
-  </div>
-  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
-</body>
-</html>
+  // Tooltip is appended to BODY, not the datasheet. This prevents clipping/layout weirdness.
+  const popover = document.getElementById("keyword-tooltip-popover");
+  let active = null;
+
+  function positionPopover(el) {
+    if (!popover || popover.hidden) return;
+    const r = el.getBoundingClientRect();
+    const pr = popover.getBoundingClientRect();
+    const pad = 10;
+
+    let left = r.left + r.width / 2 - pr.width / 2;
+    left = Math.max(pad, Math.min(left, window.innerWidth - pr.width - pad));
+
+    let top = r.top - pr.height - 9;
+    if (top < pad) top = r.bottom + 9;
+    top = Math.max(pad, Math.min(top, window.innerHeight - pr.height - pad));
+
+    popover.style.left = `${Math.round(left)}px`;
+    popover.style.top = `${Math.round(top)}px`;
+  }
+
+  function showTooltip(el) {
+    if (!popover) return;
+    const text = el.dataset.tooltip;
+    if (!text) return;
+    active = el;
+    // Remove the native title only while the custom tooltip system is alive.
+    if (el.hasAttribute("title")) {
+      el.dataset.nativeTitle = el.getAttribute("title");
+      el.removeAttribute("title");
+    }
+    popover.textContent = text;
+    popover.hidden = false;
+    positionPopover(el);
+  }
+
+  function hideTooltip(el) {
+    if (!popover || (el && active !== el)) return;
+    popover.hidden = true;
+    popover.textContent = "";
+    active = null;
+  }
+
+  document.querySelectorAll(".keyword-tip[data-tooltip]").forEach(el => {
+    el.addEventListener("mouseenter", () => showTooltip(el));
+    el.addEventListener("mouseleave", () => hideTooltip(el));
+    el.addEventListener("focus", () => showTooltip(el));
+    el.addEventListener("blur", () => hideTooltip(el));
+    el.addEventListener("click", e => {
+      // Useful on touch screens.
+      if (active === el && !popover.hidden) {
+        hideTooltip(el);
+      } else {
+        e.preventDefault();
+        showTooltip(el);
+      }
+    });
+  });
+
+  window.addEventListener("resize", () => active && positionPopover(active));
+  window.addEventListener("scroll", () => active && positionPopover(active), true);
+})();

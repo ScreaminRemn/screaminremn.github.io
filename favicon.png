@@ -1,34 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111416">
-  <title>Chitinous Enclaves — Grimmvein</title>
-
-
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="style.css?v=20260807-3">
-  <script src="site.js?v=20260807-3" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#111416" name="theme-color"/>
+<title>Chitinous Enclaves — Grimmvein</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="grimmvein-site-2026.css" rel="stylesheet"/>
+<script defer="" src="grimmvein-site-2026.js"></script>
 </head>
-<body id="top" data-page="chitinous-enclaves" data-group="factions">
-  <button class="mobile-menu" type="button" aria-expanded="false" aria-controls="site-sidebar">☰ Archive</button>
-  <div class="sidebar-overlay" aria-hidden="true"></div>
-  <aside class="sidebar" id="site-sidebar"></aside>
-  <div class="site-main">
-    <main class="content-wrap">
-      <header class="page-header">
-        <p class="page-kicker">Factions</p>
-        <h1>Chitinous Enclaves</h1>
-        
-      </header>
-      <nav class="toc" aria-label="On this page"><div class="toc-title">On this page</div><div class="toc-links"><a href="#kranov-enclave">Kranov Enclave</a><a href="#mothua-enclave">Mothua Enclave</a><a href="#ekternau-enclave">Ekternau Enclave</a></div></nav><article class="lore-page"><p>The Chitinous Enclaves are made up of various tribes of hunting bugmen scattered all throughout the world. Not much is true amongst all of the tribes other than each tribe takes great import in hunting and becoming the apex predators of their environment. Some tribes are more bug-like and some are more humanoid, but all are bug-like. A Greater Hive-Mind, the Great Mother, rules over each tribe, but not each individual. The control is enough to give each tribe a direction, though none outside of the Chitinous Enclaves know where the Great Mother originates from.</p>
+<body data-group="factions" data-page="chitinous-enclaves" id="top">
+<button aria-controls="site-sidebar" aria-expanded="false" class="mobile-menu" type="button">☰ Archive</button>
+<div aria-hidden="true" class="sidebar-overlay"></div>
+<aside class="sidebar" id="site-sidebar"><button aria-label="Close navigation" class="sidebar-close" type="button">✕</button><a class="sidebar-brand" href="index.html">Grimmvein</a><nav aria-label="Grimmvein archive" class="sidebar-nav"><details data-group="world"><summary>The World</summary><div class="sidebar-links"><a href="index.html">The World</a><a href="tale-of-creation.html">Tale of Creation</a><a href="nadim-ibn-iljhayf.html">Nadim ibn Iljhayf</a></div></details><details data-group="wargame"><summary>Wargame</summary><div class="sidebar-links"><a href="wargame.html">Wargame Index</a><a href="wargame-rules.html">Core Rules</a><a href="wargame-keywords.html">Keywords</a><a href="wargame-yellow-institut.html">Yellow Institut</a><a href="wargame-shrikes.html">Shrikes</a><a href="wargame-anointed-holy-cities.html">The Anointed Holy Cities</a><a href="wargame-people-of-the-far-dunes.html">People of the Far-Dunes</a><a href="wargame-abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="wargame-the-flaying-courts.html">The Flaying Courts</a><a href="wargame-monolith-clockworks.html">Monolith Clockworks</a><a href="wargame-chitinous-enclaves.html">Chitinous Enclaves</a><a href="wargame-jakiisi.html">Jakiisi</a><a href="wargame-tyrisaz.html">Tyrisaz</a><a href="wargame-dredgefolk.html">Dredgefolk</a></div></details><details data-group="factions" open=""><summary>Factions</summary><div class="sidebar-links"><a href="factions.html">Faction Index</a><a href="yellow-institut.html">Yellow Institut</a><a href="the-shrikes.html">The Shrikes</a><a href="anointed-holy-cities.html">The Anointed Holy Cities</a><a href="people-of-the-far-dunes.html">People Of The Far-Dunes</a><a href="abyssal-cults-of-jegari.html">Abyssal Cults of Jegari</a><a href="the-flaying-courts.html">The Flaying Courts</a><a href="flajhills.html">Flajhills</a><a href="monolith-clockworks.html">Monolith Clockworks</a><a aria-current="page" class="active" href="chitinous-enclaves.html">Chitinous Enclaves</a><a href="jakiisi.html">Jakiisi</a><a href="tyrisaz.html">Tyrisaz</a></div></details><details data-group="locations"><summary>Locations of Note</summary><div class="sidebar-links"><a href="locations.html">Overview</a><a href="locations.html#fahroway">Fahroway</a><a href="locations.html#mothua">Mothua</a><a href="locations.html#ekternau">Ekternau</a><a href="locations.html#krashqkanov">Krashq’kanov</a></div></details><details data-group="bestiary"><summary>Bestiary</summary><div class="sidebar-links"><a href="bestiary.html">Overview</a><a href="bestiary.html#the-great-seas">The Great Seas</a><a href="bestiary.html#fahroway">Fahroway</a><a href="bestiary.html#ekternau">Ekternau</a></div></details><details data-group="beings"><summary>Beings of Note</summary><div class="sidebar-links"><a href="beings-of-note.html">Overview</a><a href="beings-of-note.html#fahroway">Fahroway</a><a href="beings-of-note.html#krashqkanov">Krashq’kanov</a><a href="beings-of-note.html#mothua">Mothua</a><a href="beings-of-note.html#ekternau">Ekternau</a></div></details><details data-group="tongues"><summary>Order of Tongues</summary><div class="sidebar-links"><a href="order-of-tongues.html">The Tongue of Shrikes</a></div></details></nav></aside>
+<div class="site-main">
+<main class="content-wrap">
+<header class="page-header">
+<p class="page-kicker">Factions</p>
+<h1>Chitinous Enclaves</h1>
+</header>
+<nav aria-label="On this page" class="toc"><div class="toc-title">On this page</div><div class="toc-links"><a href="#kranov-enclave">Kranov Enclave</a><a href="#mothua-enclave">Mothua Enclave</a><a href="#ekternau-enclave">Ekternau Enclave</a></div></nav><article class="lore-page"><p>The Chitinous Enclaves are made up of various tribes of hunting bugmen scattered all throughout the world. Not much is true amongst all of the tribes other than each tribe takes great import in hunting and becoming the apex predators of their environment. Some tribes are more bug-like and some are more humanoid, but all are bug-like. A Greater Hive-Mind, the Great Mother, rules over each tribe, but not each individual. The control is enough to give each tribe a direction, though none outside of the Chitinous Enclaves know where the Great Mother originates from.</p>
 <h2 id="kranov-enclave">Kranov Enclave</h2>
 <p>The Chitinous Enclave doesn’t have much of a presence in Krashq’kanov, but the presence it does have is far more inhuman than most of their brethren. Their ideal prey are the great beasts of the region, Shrikes, the combat constructs who wander away from the great Monoliths, and various villages and towns.</p>
 <p>Their exoskeletons are typically a glossy, obsidian black, with mud-green colorations between each outer plate of the exoskeleton. Unlike most of their brethren of the other Enclaves, the Kranov Enclave uses giant, thin, spined pincer claws and spined skeletal tails, all of which having an even tougher exoskeleton plating. As with all Enclaves, the Kranov Enclave knows that might makes right, and he who slays the greatest foes and beasts shall command the Enclave.</p>
@@ -42,9 +34,10 @@
 <p>The Ekternau Enclave, residing in and around the large islands of Ekternau. They are primarily crustacean-like, not so much insectoid, unlike most of their brethren. On top of their exoskeletons, they wear the plate-like bone fragments of whales and great fish like additional armor, segmented and tethered together with whale sinew, believed to provide strength and durability.</p>
 <p>They use take their old exoskeletons, break them down, and reshape them using sinew from large fish and carved driftwood to create gargantuan, odd weapons. One such weapon seen was a re-used sharpened claw mounted on a large staff, while another seen was a large slab of armor mounted on a shorter pole of driftwood, sharpened and serrated.</p>
 <p>Their intelligence is above that of those like the Kranov Enclave, but below those of the Mothua Enclave. They primarily hunt great whales, squids, leviathans, and the various peoples of the Ekternau islands. Occasionally, the Ekternau Enclave will travel to the western shores of Mothua to hunt the strange, ink covered humans there. None of the humans are particularly powerful there, but their numbers are numerous enough to give the Ekternau Enclave a good time.</p></article>
-    </main>
-    <footer class="site-footer">Grimmvein</footer>
-  </div>
-  <a class="back-to-top" href="#top" aria-label="Back to top">↑ Top</a>
+</main>
+<footer class="site-footer">Grimmvein</footer>
+</div>
+<a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
+<div class="keyword-tooltip-popover" hidden="" id="keyword-tooltip-popover" role="tooltip"></div>
 </body>
 </html>
