@@ -1,0 +1,13 @@
+GRIMMVEIN SITE UPDATE
+
+Changes in this package:
+- Main/body reading font changed to Times New Roman.
+- Display/title fonts remain unchanged.
+- Wargame navigation is present and moved directly below "The World" in the sidebar.
+- All HTML files use cache-busted style.css/site.js URLs so browsers fetch the new versions.
+- Restored assets/wargame-diagrams/ with Village Raid, Town Pillage, and City Assault images.
+
+Upload the CONTENTS of this folder to the repository root.
+Replace style.css and site.js when GitHub asks.
+Upload the assets folder as well.
+Do not upload the ZIP itself as the website content.

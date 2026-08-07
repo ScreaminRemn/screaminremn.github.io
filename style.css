@@ -24,7 +24,7 @@ body {
     radial-gradient(circle at 75% 0%, rgba(122, 99, 45, .09), transparent 34rem),
     var(--black);
   color: var(--text);
-  font-family: "Grenze Gotisch", Georgia, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.13rem;
   line-height: 1.72;
 }
