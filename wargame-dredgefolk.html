@@ -665,5 +665,28 @@ blockquote p:last-child{margin-bottom:0}
 <footer class="site-footer">Grimmvein</footer>
 </div>
 <a aria-label="Back to top" class="back-to-top" href="#top">↑ Top</a>
-<script src="keyword-definitions.js"></script><script src="datasheets-dredgefolk.js"></script><script src="datasheets-renderer.js"></script></body>
+<script>
+(() => {
+  const stamp = Date.now();
+
+  const loadScript = (src) => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `${src}?v=${stamp}`;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.body.appendChild(script);
+  });
+
+  loadScript('keyword-definitions.js')
+    .then(() => loadScript('datasheets-dredgefolk.js'))
+    .then(() => loadScript('datasheets-renderer.js'))
+    .catch((error) => {
+      console.error(error);
+      const app = document.querySelector('.datasheet-app[data-faction="dredgefolk"]');
+      if (app) {
+        app.innerHTML = '<section class="empty-state"><h2>Datasheets failed to load</h2><p>Please refresh the page. If this persists, one of the modular datasheet files is unavailable.</p></section>';
+      }
+    });
+})();
+</script></body>
 </html>
