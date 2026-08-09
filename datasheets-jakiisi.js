@@ -1,14 +1,13 @@
 /*
   DATASHEETS: jakiisi
-  Add another unit by copying one object inside the [ ... ] array,
-  or copy the example from DATASHEET-TEMPLATE.js.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["jakiisi"] = [
   {
     "id": "hos-jasander",
     "name": "Hos-Jasander",
-    "role": "",
+    "role": "HIGH COMMANDER",
     "base": "50 mm",
     "models": "1",
     "cost": "25 Coins",
@@ -16,10 +15,10 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       "actions": "10",
       "armor": "8",
       "health": "19",
-      "holding": "9",
       "might": "9",
       "accuracy": "4",
-      "evasion": "12"
+      "evasion": "12",
+      "holding": "9"
     },
     "rangedWeapons": [
       {
@@ -35,7 +34,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
         "name": "God-Touched Blade",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "6",
         "speed": "14",
@@ -45,7 +45,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
         "name": "God-Touched Blade",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "9",
         "speed": "4",
@@ -79,7 +80,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
   {
     "id": "hos-jakiisi",
     "name": "Hos-Jakiisi",
-    "role": "",
+    "role": "COMMANDER",
     "base": "40 mm",
     "models": "3",
     "cost": "15 Coins",
@@ -87,16 +88,17 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       "actions": "8",
       "armor": "5",
       "health": "14",
-      "holding": "7",
       "might": "7",
       "accuracy": "6",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "7"
     },
     "rangedWeapons": [
       {
         "name": "Icecrag Throw",
         "keywords": [
-          "MAGICKS"
+          "MAGICKS",
+          "PIERCING"
         ],
         "range": "11",
         "strength": "3",
@@ -108,7 +110,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
         "name": "Icecrag Blade",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "7",
         "speed": "3",
@@ -130,11 +133,11 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Hos-Jasander"
       },
       {
-        "label": "Can lead",
+        "label": "Can Lead",
         "text": "Headhunters, Snowdrift Hunters, Gliding Snowdrift Hunters"
       }
     ]
@@ -142,7 +145,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
   {
     "id": "headhunters",
     "name": "Headhunters",
-    "role": "",
+    "role": "FORMATIONS UNIT",
     "base": "40 mm",
     "models": "5",
     "cost": "13 Coins",
@@ -150,10 +153,10 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       "actions": "8",
       "armor": "6",
       "health": "13",
-      "holding": "6",
       "might": "6",
       "accuracy": "3",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
@@ -169,7 +172,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
         "name": "Coldstone Spear",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "7",
         "speed": "6",
@@ -185,7 +189,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Hos-Jasander, Hos-Jakiisi"
       }
     ]
@@ -193,7 +197,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
   {
     "id": "snowdrift-hunters",
     "name": "Snowdrift Hunters",
-    "role": "",
+    "role": "FORMATIONS UNIT",
     "base": "40 mm",
     "models": "5",
     "cost": "12 Coins",
@@ -201,15 +205,17 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       "actions": "7",
       "armor": "4",
       "health": "13",
-      "holding": "7",
       "might": "7",
       "accuracy": "9",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "7"
     },
     "rangedWeapons": [
       {
         "name": "Driftbow",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "14",
         "strength": "6",
         "speed": "6"
@@ -220,7 +226,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
         "name": "Arrow Stab",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "6",
@@ -236,7 +243,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Hos-Jasander, Hos-Jakiisi"
       }
     ]
@@ -244,7 +251,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
   {
     "id": "gliding-snowdrift-hunters",
     "name": "Gliding Snowdrift Hunters",
-    "role": "",
+    "role": "SPECIALIST UNIT",
     "base": "50 mm",
     "models": "3",
     "cost": "17 Coins",
@@ -252,15 +259,17 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       "actions": "11",
       "armor": "3",
       "health": "16",
-      "holding": "6",
       "might": "8",
       "accuracy": "9",
-      "evasion": "6"
+      "evasion": "6",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
         "name": "Driftbow",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "14",
         "strength": "6",
         "speed": "6"
@@ -270,7 +279,8 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
       {
         "name": "Grasping Talons",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CUTTING"
         ],
         "strength": "6",
         "speed": "7",
@@ -286,7 +296,7 @@ window.GRIMVEIN_DATASHEETS["jakiisi"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Hos-Jasander, Hos-Jakiisi"
       }
     ]

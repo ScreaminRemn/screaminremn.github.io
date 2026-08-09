@@ -1,7 +1,6 @@
 /*
   DATASHEETS: chitinous-enclaves
-  Add another unit by copying one object inside the [ ... ] array,
-  or copy the example from DATASHEET-TEMPLATE.js.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
@@ -16,10 +15,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "15",
       "armor": "3",
       "health": "13",
-      "holding": "3",
       "might": "14",
       "accuracy": "15",
-      "evasion": "15"
+      "evasion": "15",
+      "holding": "3"
     },
     "rangedWeapons": [
       {
@@ -37,7 +36,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Antir Venomblade",
         "keywords": [
           "CONTACT",
-          "POISON"
+          "POISON",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "8",
@@ -79,10 +79,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "11",
       "armor": "6",
       "health": "18",
-      "holding": "5",
       "might": "9",
       "accuracy": "1",
-      "evasion": "6"
+      "evasion": "6",
+      "holding": "5"
     },
     "rangedWeapons": [
       {
@@ -98,7 +98,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Eviscerating Claws",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "6",
         "speed": "9",
@@ -108,7 +109,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Eviscerating Claws",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "9",
         "speed": "6",
@@ -148,10 +150,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "9",
       "armor": "11",
       "health": "17",
-      "holding": "7",
       "might": "5",
       "accuracy": "1",
-      "evasion": "3"
+      "evasion": "3",
+      "holding": "7"
     },
     "rangedWeapons": [
       {
@@ -167,7 +169,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Red Serrated Lumbersaw",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CUTTING"
         ],
         "strength": "9",
         "speed": "7",
@@ -183,11 +186,7 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
     "unitAbilities": [
       {
         "name": "Ship Hunter",
-        "text": ""
-      },
-      {
-        "name": "While attached to a friendly unit and while still alive, Sagakuza, The Great Craw grants +2 Crit",
-        "text": "to the melee attacks of that unit when attacking any unit or model with the keyword [MACHINE OF WAR]"
+        "text": "While attached to a friendly unit and while still alive, Sagakuza, The Great Craw grants +2 Crit to the melee attacks of that unit when attacking any unit or model with the keyword [MACHINE OF WAR]"
       }
     ],
     "keywords": [
@@ -216,10 +215,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "9",
       "armor": "5",
       "health": "14",
-      "holding": "4",
       "might": "8",
       "accuracy": "1",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "4"
     },
     "rangedWeapons": [
       {
@@ -235,7 +234,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Slashing Claws",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "7",
@@ -245,7 +245,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Slashing Claws",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "7",
         "speed": "5",
@@ -276,10 +277,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "7",
       "armor": "9",
       "health": "15",
-      "holding": "6",
       "might": "4",
       "accuracy": "1",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
@@ -295,7 +296,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Serrated Lumbersaw",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CUTTING"
         ],
         "strength": "4",
         "speed": "5",
@@ -326,10 +328,10 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
       "actions": "12",
       "armor": "2",
       "health": "11",
-      "holding": "1",
       "might": "13",
       "accuracy": "1",
-      "evasion": "19"
+      "evasion": "19",
+      "holding": "1"
     },
     "rangedWeapons": [
       {
@@ -345,7 +347,8 @@ window.GRIMVEIN_DATASHEETS["chitinous-enclaves"] = [
         "name": "Antir Elkblade",
         "keywords": [
           "CONTACT",
-          "POISON"
+          "POISON",
+          "PIERCING"
         ],
         "strength": "2",
         "speed": "9",

@@ -1,7 +1,6 @@
 /*
   DATASHEETS: anointed-holy-cities
-  Generated from "The Anointed Holy Cities: Wargame" PDF.
-  Replace this file in the repository root to update this faction.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
@@ -16,15 +15,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "8",
       "armor": "5",
       "health": "15",
-      "holding": "11",
       "might": "6",
       "accuracy": "1",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "11"
     },
     "rangedWeapons": [
       {
         "name": "Regal Arbalest",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "10",
         "strength": "6",
         "speed": "11"
@@ -34,7 +35,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Lord’s Longsaber",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "13",
@@ -77,16 +79,16 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "6",
       "armor": "5",
       "health": "15",
-      "holding": "14",
       "might": "9",
       "accuracy": "13",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "14"
     },
     "rangedWeapons": [
       {
         "name": "High Marshal’s Warbow",
         "keywords": [
-          "IMPALERS"
+          "PIERCING"
         ],
         "range": "20",
         "strength": "6",
@@ -98,7 +100,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Quick Armsaber",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "4",
         "speed": "7",
@@ -108,7 +111,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Quick Armsaber",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "5",
@@ -149,16 +153,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "7",
       "armor": "4",
       "health": "13",
-      "holding": "9",
       "might": "9",
       "accuracy": "1",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "9"
     },
     "rangedWeapons": [
       {
         "name": "Stubbed Arbalest",
         "keywords": [
-          "POISON"
+          "POISON",
+          "PIERCING"
         ],
         "range": "7",
         "strength": "4",
@@ -170,7 +175,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Crossaxe",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "3",
@@ -180,7 +186,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Crossaxe",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "8",
         "speed": "2",
@@ -213,10 +220,10 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "6",
       "armor": "2",
       "health": "14",
-      "holding": "11",
       "might": "8",
       "accuracy": "13",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "11"
     },
     "rangedWeapons": [
       {
@@ -245,7 +252,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Anointed Sceptrestaff",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "4",
         "speed": "3",
@@ -286,10 +294,10 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "7",
       "armor": "6",
       "health": "16",
-      "holding": "10",
       "might": "10",
       "accuracy": "1",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "10"
     },
     "rangedWeapons": [
       {
@@ -305,7 +313,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Anointed Greatsword",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "4",
         "speed": "11",
@@ -315,7 +324,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Anointed Greatsword",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "8",
         "speed": "4",
@@ -353,16 +363,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "5",
       "armor": "2",
       "health": "11",
-      "holding": "6",
       "might": "6",
       "accuracy": "3",
-      "evasion": "3"
+      "evasion": "3",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
         "name": "Torch Throw",
         "keywords": [
-          "FIRE"
+          "FIRE",
+          "CRUSHING"
         ],
         "range": "6",
         "strength": "3",
@@ -373,7 +384,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Peasantry Wartools",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "4",
@@ -405,15 +417,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "4",
       "armor": "2",
       "health": "9",
-      "holding": "7",
       "might": "7",
       "accuracy": "6",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "7"
     },
     "rangedWeapons": [
       {
         "name": "Hunting Bow",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "8",
         "strength": "5",
         "speed": "5"
@@ -423,7 +437,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Skinning Knife",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "2",
         "speed": "7",
@@ -453,15 +468,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "6",
       "armor": "3",
       "health": "13",
-      "holding": "8",
       "might": "8",
       "accuracy": "5",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "8"
     },
     "rangedWeapons": [
       {
         "name": "Armored Bow",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "7",
         "strength": "3",
         "speed": "7"
@@ -471,7 +488,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Arming Blades",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CUTTING"
         ],
         "strength": "4",
         "speed": "8",
@@ -507,16 +525,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "6",
       "armor": "1",
       "health": "14",
-      "holding": "13",
       "might": "7",
       "accuracy": "7",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "13"
     },
     "rangedWeapons": [
       {
         "name": "Blessed Arbalest",
         "keywords": [
-          "POISON"
+          "POISON",
+          "PIERCING"
         ],
         "range": "12",
         "strength": "7",
@@ -556,10 +575,10 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "4",
       "armor": "7",
       "health": "16",
-      "holding": "15",
       "might": "13",
       "accuracy": "1",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "15"
     },
     "rangedWeapons": [
       {
@@ -574,7 +593,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Armor Crushing Pillar",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "8",
         "speed": "1",
@@ -584,7 +604,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Thinblade",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "4",
         "speed": "7",
@@ -621,16 +642,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "4",
       "armor": "5",
       "health": "13",
-      "holding": "14",
       "might": "9",
       "accuracy": "15",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "14"
     },
     "rangedWeapons": [
       {
         "name": "Sanctified Ballista",
         "keywords": [
-          "NAUSEA"
+          "NAUSEA",
+          "PIERCING"
         ],
         "range": "24",
         "strength": "12",
@@ -641,7 +663,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Armored Shoulder",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "3",
         "speed": "1",
@@ -672,10 +695,10 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "6",
       "armor": "3",
       "health": "15",
-      "holding": "18",
       "might": "10",
       "accuracy": "1",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "18"
     },
     "rangedWeapons": [
       {
@@ -690,7 +713,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Holy Standard",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "7",
         "speed": "2",
@@ -730,15 +754,17 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "5",
       "armor": "3",
       "health": "13",
-      "holding": "12",
       "might": "12",
       "accuracy": "16",
-      "evasion": "6"
+      "evasion": "6",
+      "holding": "12"
     },
     "rangedWeapons": [
       {
         "name": "Greater Warbow",
-        "keywords": [],
+        "keywords": [
+          "PIERCING"
+        ],
         "range": "10",
         "strength": "8",
         "speed": "5"
@@ -748,7 +774,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       {
         "name": "Skinning Knife",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "2",
         "speed": "7",
@@ -783,10 +810,10 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
       "actions": "4",
       "armor": "20",
       "health": "20",
-      "holding": "6",
       "might": "17",
       "accuracy": "1",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
@@ -802,7 +829,8 @@ window.GRIMVEIN_DATASHEETS["anointed-holy-cities"] = [
         "name": "Stomping March",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CRUSHING"
         ],
         "strength": "5",
         "speed": "1",

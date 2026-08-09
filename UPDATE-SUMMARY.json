@@ -1,0 +1,96 @@
+{
+  "keywords": 47,
+  "transport_definition_included": true,
+  "datasheets": {
+    "allies": {
+      "count": 4,
+      "units": [
+        "Spindle Knights",
+        "Hinter-Witch Hilda",
+        "They Who Watch",
+        "Iystrobahths"
+      ]
+    },
+    "chitinous-enclaves": {
+      "count": 6,
+      "units": [
+        "Mothsa, Antir Queen",
+        "Great Hunter",
+        "Sagakuza, The Great Craw",
+        "Chitin Claw-Hunters",
+        "Leviathan Hunters",
+        "Antir Kill-Team"
+      ]
+    },
+    "dredgefolk": {
+      "count": 8,
+      "units": [
+        "Oarsreach Anchorlord",
+        "Man-O-War Cloaked Captain",
+        "Drowning Men",
+        "Misery’s Oarmen",
+        "Reloading Team",
+        "Fogpiercer",
+        "Krakenhold",
+        "Abyssmen"
+      ]
+    },
+    "jakiisi": {
+      "count": 5,
+      "units": [
+        "Hos-Jasander",
+        "Hos-Jakiisi",
+        "Headhunters",
+        "Snowdrift Hunters",
+        "Gliding Snowdrift Hunters"
+      ]
+    },
+    "people-of-the-far-dunes": {
+      "count": 6,
+      "units": [
+        "He Of A Thousand Hands",
+        "Ilahsa",
+        "Golden Wheel Bearer",
+        "Grand Seer",
+        "Powder-Dancers",
+        "Spice Duelist"
+      ]
+    },
+    "anointed-holy-cities": {
+      "count": 14,
+      "units": [
+        "Lord Marshal Jethro Ben-Levas",
+        "Lord Marshal Ezekiel Azariah",
+        "Inquisitor Samuel",
+        "Saintess Razea",
+        "Ser Ibraham Kernobohlg",
+        "Wrathful Levy",
+        "Huntsmen",
+        "Squire Squad",
+        "Arbalest Priests",
+        "Heavy Vanguard Saints",
+        "Ballistae Chaplains",
+        "Honored Standard Bearer",
+        "Hunt Maester",
+        "Spiked Battering Ram"
+      ]
+    },
+    "tyrisaz": {
+      "count": 5,
+      "units": [
+        "Ilbair",
+        "Hook Division",
+        "Strahzzi Bannerlord on Horseback",
+        "Scourgefire Squad",
+        "Jors"
+      ]
+    }
+  },
+  "notes": [
+    "All supplied PDFs were treated as the source of truth.",
+    "Blank template datasheets in the PDFs were ignored.",
+    "Updated faction pages use cache-busted modular JS loading.",
+    "Allies / Aimless Units has been added as a new modular wargame page.",
+    "Scourgefire Squad has no Unit Ability in the supplied Tyrisaz PDF; the former Fiery Whips ability is therefore not included."
+  ]
+}

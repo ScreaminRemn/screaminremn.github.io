@@ -1,7 +1,6 @@
 /*
   DATASHEETS: tyrisaz
-  Add another unit by copying one object inside the [ ... ] array,
-  or copy the example from DATASHEET-TEMPLATE.js.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
@@ -16,10 +15,10 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       "actions": "5",
       "armor": "12",
       "health": "30",
-      "holding": "8",
       "might": "2",
       "accuracy": "10",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "8"
     },
     "rangedWeapons": [
       {
@@ -38,7 +37,8 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
         "name": "Absentminded Slam",
         "keywords": [
           "CONTACT",
-          "TITANIC"
+          "TITANIC",
+          "CRUSHING"
         ],
         "strength": "9",
         "speed": "5",
@@ -81,10 +81,10 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       "actions": "5",
       "armor": "4",
       "health": "9",
-      "holding": "4",
       "might": "6",
       "accuracy": "1",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "4"
     },
     "rangedWeapons": [
       {
@@ -99,7 +99,8 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       {
         "name": "Hook Halberd",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "9",
@@ -115,7 +116,7 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Strahzzi Bannerlord on Horseback"
       }
     ]
@@ -131,25 +132,26 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       "actions": "7",
       "armor": "5",
       "health": "11",
-      "holding": "3",
       "might": "6",
       "accuracy": "1",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "3"
     },
     "rangedWeapons": [
       {
         "name": "None",
         "keywords": [],
-        "range": "—",
-        "strength": "—",
-        "speed": "—"
+        "range": "",
+        "strength": "",
+        "speed": ""
       }
     ],
     "meleeWeapons": [
       {
         "name": "Hook Halberd",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "9",
@@ -191,17 +193,19 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       "actions": "5",
       "armor": "3",
       "health": "8",
-      "holding": "5",
       "might": "5",
       "accuracy": "4",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "5"
     },
     "rangedWeapons": [
       {
         "name": "Scourgefire Whips",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CRUSHING",
+          "BURNING"
         ],
         "range": "6",
         "strength": "2",
@@ -212,7 +216,8 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       {
         "name": "Hookblade Sword",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "PIERCING"
         ],
         "strength": "2",
         "speed": "10",
@@ -220,12 +225,7 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       }
     ],
     "weaponAbilities": [],
-    "unitAbilities": [
-      {
-        "name": "Fiery Whips",
-        "text": "Once per match, the Scourgefire Squad can place a 3 inch circular token on the ground. Any unit on this token takes 1 damage per turn spent on that token. This can be placed anywhere within 6 inches of this unit, including objectives and underneath enemy units. Does not affect any models or units with the [MACHINE OF WAR] keyword."
-      }
-    ],
+    "unitAbilities": [],
     "keywords": [
       "IMPALERS",
       "MANIPULATOR",
@@ -234,7 +234,7 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
     ],
     "leadership": [
       {
-        "label": "Can be led by",
+        "label": "Can Be Led By",
         "text": "Strahzzi Bannerlord on Horseback"
       }
     ]
@@ -250,10 +250,10 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
       "actions": "8",
       "armor": "14",
       "health": "24",
-      "holding": "4",
       "might": "13",
       "accuracy": "10",
-      "evasion": "9"
+      "evasion": "9",
+      "holding": "4"
     },
     "rangedWeapons": [
       {
@@ -271,7 +271,8 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
         "name": "Danskeggox Axe",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "6",
         "speed": "14",
@@ -281,7 +282,8 @@ window.GRIMVEIN_DATASHEETS["tyrisaz"] = [
         "name": "Danskeggox Axe",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "10",
         "speed": "8",

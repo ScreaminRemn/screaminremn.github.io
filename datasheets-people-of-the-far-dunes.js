@@ -1,7 +1,6 @@
 /*
   DATASHEETS: people-of-the-far-dunes
-  Add another unit by copying one object inside the [ ... ] array,
-  or copy the example from DATASHEET-TEMPLATE.js.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
@@ -16,17 +15,18 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "12",
       "armor": "5",
       "health": "17",
-      "holding": "6",
       "might": "6",
       "accuracy": "30",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
         "name": "Self Annihilation",
         "keywords": [
           "MAGICKS",
-          "AREA"
+          "AREA",
+          "CRUSHING"
         ],
         "range": "7",
         "strength": "3",
@@ -37,7 +37,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       {
         "name": "Mighty Push",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "2",
         "speed": "4",
@@ -84,10 +85,10 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "8",
       "armor": "6",
       "health": "23",
-      "holding": "11",
       "might": "3",
       "accuracy": "9",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "11"
     },
     "rangedWeapons": [
       {
@@ -174,10 +175,10 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "8",
       "armor": "4",
       "health": "20",
-      "holding": "4",
       "might": "13",
       "accuracy": "1",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "4"
     },
     "rangedWeapons": [
       {
@@ -193,7 +194,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Golden Wheel",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CRUSHING"
         ],
         "strength": "13",
         "speed": "1",
@@ -228,7 +230,7 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
   {
     "id": "grand-seer",
     "name": "Grand Seer",
-    "role": "",
+    "role": "HIGH COMMANDER",
     "base": "50mm",
     "models": "1",
     "cost": "14 Coins",
@@ -236,10 +238,10 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "5",
       "armor": "4",
       "health": "14",
-      "holding": "5",
       "might": "5",
       "accuracy": "13",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "5"
     },
     "rangedWeapons": [
       {
@@ -269,7 +271,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Jambiya",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "3",
         "speed": "11",
@@ -279,7 +282,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Jambiya",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "4",
         "speed": "8",
@@ -321,16 +325,17 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "6",
       "armor": "4",
       "health": "13",
-      "holding": "6",
       "might": "3",
       "accuracy": "7",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "6"
     },
     "rangedWeapons": [
       {
         "name": "Brightpowder",
         "keywords": [
-          "AREA"
+          "AREA",
+          "MAGICKS"
         ],
         "range": "8",
         "strength": "4",
@@ -339,7 +344,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       {
         "name": "Sparkpowder",
         "keywords": [
-          "AREA"
+          "AREA",
+          "MAGICKS"
         ],
         "range": "8",
         "strength": "6",
@@ -351,7 +357,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Jambiya",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "3",
         "speed": "11",
@@ -361,7 +368,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Jambiya",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "4",
         "speed": "8",
@@ -397,10 +405,10 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
       "actions": "8",
       "armor": "5",
       "health": "14",
-      "holding": "5",
       "might": "6",
       "accuracy": "1",
-      "evasion": "3"
+      "evasion": "3",
+      "holding": "5"
     },
     "rangedWeapons": [
       {
@@ -416,7 +424,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Burned Shamshir",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "9",
@@ -426,7 +435,8 @@ window.GRIMVEIN_DATASHEETS["people-of-the-far-dunes"] = [
         "name": "Burned Shamshir",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "8",
         "speed": "5",

@@ -1,5 +1,5 @@
 // Shared keyword descriptions used by generated datasheets.
-// Generated from the current Keywords compendium.
+// Generated from the supplied current Keyword.pdf.
 window.GRIMVEIN_KEYWORDS = {
   "HIGH COMMANDER": "Units with [HIGH COMMANDER] fulfill the [HIGH COMMANDER] role",
   "COMMANDER": "Units with [COMMANDER] fulfill the [COMMANDER] role",
@@ -41,6 +41,7 @@ window.GRIMVEIN_KEYWORDS = {
   "MISERABLE": "When a model or unit with the keyword [MISERABLE] is in Melee Engagement, this model or unit loses 1 Armor (to a minimum of 1) for that Melee Engagement",
   "ENGINEER": "A model or unit with the [ENGINEER] keyword, who ignores 2 Armor of [CONSTRUCT] and [MACHINE OF WAR] type enemies",
   "FORTIFICATION": "It can be placed down as a 6x1 inch token down on the board within Melee Range of the unit that has [FORTIFICATION], which creates terrain that cannot be crossed. The token has 5 Armor and 5 Health",
+  "TRANSPORT": "A model or unit that is a transport, in which anything affecting the [TRANSPORT] keyword applies",
   "DJINN": "A unit type belonging to the People Of The Far-Dunes army",
   "TITAN": "A unit type belonging to the Tyrisaz army",
   "STRAHZZI": "A unit type belonging to the Tyrisaz army",

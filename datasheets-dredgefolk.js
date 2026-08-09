@@ -1,6 +1,6 @@
 /*
   DATASHEETS: dredgefolk
-  Generated from the current Dredgefolk Wargame PDF.
+  Generated from the supplied current Wargame PDF.
 */
 window.GRIMVEIN_DATASHEETS = window.GRIMVEIN_DATASHEETS || {};
 window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
@@ -15,15 +15,17 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "7",
       "armor": "3",
       "health": "17",
-      "holding": "3",
       "might": "4",
       "accuracy": "6",
-      "evasion": "6"
+      "evasion": "6",
+      "holding": "3"
     },
     "rangedWeapons": [
       {
         "name": "Chainwhip",
-        "keywords": [],
+        "keywords": [
+          "CRUSHING"
+        ],
         "range": "12",
         "strength": "3",
         "speed": "30"
@@ -33,7 +35,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       {
         "name": "Anchor Hammer",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "8",
         "speed": "4",
@@ -59,7 +62,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Lead",
-        "text": "[Drowning Men] | [Misery’s Oarmen] | [Reloading Team] | [Abyssmen]"
+        "text": "Drowning Men, Misery’s Oarmen, Reloading Team, Abyssmen"
       }
     ]
   },
@@ -74,10 +77,10 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "6",
       "armor": "2",
       "health": "16",
-      "holding": "4",
       "might": "3",
       "accuracy": "11",
-      "evasion": "1"
+      "evasion": "1",
+      "holding": "4"
     },
     "rangedWeapons": [
       {
@@ -85,7 +88,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "keywords": [
           "AREA",
           "MAGICKS",
-          "BOMBARD"
+          "BOMBARD",
+          "CRUSHING"
         ],
         "range": "8",
         "strength": "4",
@@ -97,7 +101,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Man-O-Leviathan Harpoon",
         "keywords": [
           "IMPALERS",
-          "NAUSEA"
+          "NAUSEA",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "5",
@@ -118,7 +123,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Lead",
-        "text": "[Drowning Men] | [Misery’s Oarmen] | [Reloading Team]"
+        "text": "Drowning Men, Misery’s Oarmen, Reloading Team"
       }
     ]
   },
@@ -133,10 +138,10 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "6",
       "armor": "2",
       "health": "15",
-      "holding": "2",
       "might": "2",
       "accuracy": "1",
-      "evasion": "7"
+      "evasion": "7",
+      "holding": "2"
     },
     "rangedWeapons": [
       {
@@ -152,7 +157,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Long Harpoons",
         "keywords": [
           "CONTACT",
-          "IMPALERS"
+          "IMPALERS",
+          "PIERCING"
         ],
         "strength": "3",
         "speed": "5",
@@ -167,7 +173,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Be Led By",
-        "text": "[Oarsreach Anchorlord] | [Man-O-War Cloaked Captain]"
+        "text": "Oarsreach Anchorlord, Man-O-War Cloaked Captain"
       }
     ]
   },
@@ -182,10 +188,10 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "7",
       "armor": "2",
       "health": "13",
-      "holding": "2",
       "might": "2",
       "accuracy": "1",
-      "evasion": "7"
+      "evasion": "7",
+      "holding": "2"
     },
     "rangedWeapons": [
       {
@@ -200,7 +206,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       {
         "name": "Heavy Oar",
         "keywords": [
-          "CONTACT"
+          "CONTACT",
+          "CRUSHING"
         ],
         "strength": "6",
         "speed": "2",
@@ -220,7 +227,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Be Led By",
-        "text": "[Oarsreach Anchorlord] | [Man-O-War Cloaked Captain]"
+        "text": "Oarsreach Anchorlord, Man-O-War Cloaked Captain"
       }
     ]
   },
@@ -235,15 +242,17 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "6",
       "armor": "2",
       "health": "15",
-      "holding": "2",
       "might": "2",
       "accuracy": "1",
-      "evasion": "4"
+      "evasion": "4",
+      "holding": "2"
     },
     "rangedWeapons": [
       {
         "name": "Waterpiercing Cannon",
-        "keywords": [],
+        "keywords": [
+          "CRUSHING"
+        ],
         "range": "8",
         "strength": "5",
         "speed": "1"
@@ -252,7 +261,9 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "meleeWeapons": [
       {
         "name": "Waterpiercing Cannon",
-        "keywords": [],
+        "keywords": [
+          "CRUSHING"
+        ],
         "strength": "5",
         "speed": "1",
         "crit": "5"
@@ -269,7 +280,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Be Led By",
-        "text": "[Oarsreach Anchorlord] | [Man-O-War Cloaked Captain]"
+        "text": "Oarsreach Anchorlord, Man-O-War Cloaked Captain"
       }
     ]
   },
@@ -284,16 +295,17 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "6",
       "armor": "15",
       "health": "9",
-      "holding": "2",
       "might": "6",
       "accuracy": "8",
-      "evasion": "2"
+      "evasion": "2",
+      "holding": "2"
     },
     "rangedWeapons": [
       {
         "name": "Fogcannons",
         "keywords": [
-          "BOMBARD"
+          "BOMBARD",
+          "CRUSHING"
         ],
         "range": "8",
         "strength": "5",
@@ -305,7 +317,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Ramming Prow",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CRUSHING"
         ],
         "strength": "5",
         "speed": "4",
@@ -335,15 +348,17 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "9",
       "armor": "14",
       "health": "11",
-      "holding": "7",
       "might": "3",
       "accuracy": "1",
-      "evasion": "5"
+      "evasion": "5",
+      "holding": "7"
     },
     "rangedWeapons": [
       {
         "name": "Harpoon Casting Nets",
-        "keywords": [],
+        "keywords": [
+          "CRUSHING"
+        ],
         "range": "10",
         "strength": "1",
         "speed": "1"
@@ -354,7 +369,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Ramming Prow",
         "keywords": [
           "CONTACT",
-          "AREA"
+          "AREA",
+          "CRUSHING"
         ],
         "strength": "5",
         "speed": "4",
@@ -389,10 +405,10 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
       "actions": "10",
       "armor": "3",
       "health": "19",
-      "holding": "5",
       "might": "5",
       "accuracy": "6",
-      "evasion": "6"
+      "evasion": "6",
+      "holding": "5"
     },
     "rangedWeapons": [
       {
@@ -408,7 +424,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Anchorsabres",
         "keywords": [
           "CONTACT",
-          "CLEAVE"
+          "CLEAVE",
+          "CUTTING"
         ],
         "strength": "5",
         "speed": "10",
@@ -418,7 +435,8 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
         "name": "Anchorsabres",
         "keywords": [
           "CONTACT",
-          "CHOP"
+          "CHOP",
+          "CUTTING"
         ],
         "strength": "8",
         "speed": "4",
@@ -444,7 +462,7 @@ window.GRIMVEIN_DATASHEETS["dredgefolk"] = [
     "leadership": [
       {
         "label": "Can Be Led By",
-        "text": "[Oarsreach Anchorlord]"
+        "text": "Oarsreach Anchorlord"
       }
     ]
   }
